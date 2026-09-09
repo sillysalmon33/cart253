@@ -9,3 +9,12 @@ journal.md
 
 This website will be used to showcase the work done in Pippin Barr's CART253 class
 
+## Links
+
+[Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+[Markdown Basic syntax](https://www.markdownguide.org/basic-syntax/)
+[Markdown Adv Syntax](https://www.markdownguide.org/extended-syntax/)
+
+#Journal
+
+journal [journal](journal.md)
