@@ -3,11 +3,5 @@ This is Pippin Barr’s coursework repository for CART253
 
 Title: Super cool website
 
-# comment test
+This website will be used to showcase the work done in Pippin Barr's CART253 class
 
-random text
-
-print = hellow world
-# pretty sure thats c++ I forgot how to print in javascript
-
-more text
