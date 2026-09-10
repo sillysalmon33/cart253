@@ -4,7 +4,7 @@ This is Pippin Barr’s coursework repository for CART253
 
 # Kosta's Super cool website
 
-![Cristian Screaming](/Images/screamingcristian.jpg)
+![Cristian Screaming](/Images/glitter-text%20(2).gif)
 
 This website will be used to showcase the work done in Pippin Barr's CART253 class
 
