@@ -1,27 +1,29 @@
 /**
- * Title of Project
- * Author Name
+ * blank paper
+ * MEEEEEEEEEEEEEEE (kosta)
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A program that creates a white piece of paper on a pink background (wow)
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * Creates a 640x480 canvas for our masterpiece
 */
 function setup() {
+//Create the canvas at a standard resolution
  createCanvas(640, 480);
 }
 
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * Draws a blank piece of paper on a pink background
 */
 function draw() {
 background(255, 100, 100);
+// pink background
 rect(200, 80, 240, 320);
+// The blank piece of paper
 }
 
