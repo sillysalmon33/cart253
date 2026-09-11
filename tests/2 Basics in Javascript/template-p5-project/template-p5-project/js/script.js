@@ -1,8 +1,12 @@
 /**
- * blank paper
- * MEEEEEEEEEEEEEEE (kosta)
+ * Red record
+ * Pippin Barr
  * 
- * A program that creates a white piece of paper on a pink background (wow)
+ * Draws a bright red vinyl record on the canvas.
+ * 
+ * Uses:
+ * p5.js
+ * https://p5js.org/
  */
 
 "use strict";
