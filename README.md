@@ -21,3 +21,5 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 
 > [!CAUTION]
 > This person has no idea what they are doing.
+
+![website_joke](Images/website_joke.PNG)
