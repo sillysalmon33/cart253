@@ -8,7 +8,7 @@
 "use strict";
 
 /**
- * uses webgl rendering systems
+ * uses webgl rendering systems and creates a canvas
 */
 function setup() {
     createCanvas(600, 6000, WEBGL);
@@ -24,5 +24,6 @@ function draw() {
     fill(255, 0, 0)
     box();
 
+    //allosws the user to move around
     orbitControl();
 }
