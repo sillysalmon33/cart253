@@ -1,24 +1,28 @@
 /**
- * Title of Project
- * Author Name
+ *3D model
+ * Konstantinos
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A P5JS file that renders a custom 3D model I made
  */
 
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * uses webgl rendering systems
 */
 function setup() {
+    createCanvas(600, 6000, WEBGL);
 
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * creates a background and loads the model
 */
 function draw() {
+    background(255);
+    fill(255, 0, 0)
+    box();
 
+    orbitControl();
 }

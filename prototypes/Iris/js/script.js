@@ -1,9 +1,8 @@
 /**
- * Title of Project
- * Author Name
+ * Iris
+ * Konstantinos
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A P5JS file that renders an Iris flower
  */
 
 "use strict";

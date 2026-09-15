@@ -1,9 +1,8 @@
 /**
- * Title of Project
- * Author Name
+ * Milkshake
+ * Konstantinos
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A P5JS file that renders tasty milkshave 😋
  */
 
 "use strict";
