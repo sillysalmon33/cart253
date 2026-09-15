@@ -10,7 +10,7 @@
 "use strict";
 
 /**
- * Creates the canvas
+ * Creates the canvas/
 */
 function setup() {
     createCanvas(500, 500);
@@ -39,7 +39,7 @@ function drawBug() {
  */
 function drawBody() {
     push();
-    noStroke(0);
+    noStroke();
     fill();
     ellipse(250, 250, 200, 300);
     pop();
