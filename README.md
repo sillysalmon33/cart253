@@ -1,5 +1,4 @@
 # cart253
-This is Pippin Barr’s coursework repository for CART253
 
 
 ![Banner](Images/glitter-text%20(2).gif)
