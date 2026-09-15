@@ -11,7 +11,7 @@
  * uses webgl rendering systems and creates a canvas
 */
 function setup() {
-    createCanvas(600, 6000, WEBGL);
+    createCanvas(300, 300, WEBGL);
 
 }
 
