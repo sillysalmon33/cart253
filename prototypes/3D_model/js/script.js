@@ -21,13 +21,14 @@ function setup() {
 */
 function draw() {
     background(255);
-
+    //creates a red table
     push()
     fill(255, 0, 0)
     rotateY(180)
     box(100, 50);
     pop()
 
+    //creates a blue cup
     push()
     translate(0, -40, 0)
     noStroke()
