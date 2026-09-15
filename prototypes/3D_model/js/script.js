@@ -2,7 +2,7 @@
  *3D model
  * Konstantinos
  * 
- * A P5JS file that renders a custom 3D model I made
+ * A P5JS file that renders a custom 3D model I made along with some other objects
  */
 
 "use strict";
@@ -21,8 +21,19 @@ function setup() {
 */
 function draw() {
     background(255);
+
+    push()
     fill(255, 0, 0)
-    box();
+    rotateY(180)
+    box(100, 50);
+    pop()
+
+    push()
+    translate(0, -40, 0)
+    noStroke()
+    fill(0, 0, 255)
+    cylinder(10, 30,)
+    pop()
 
     //allosws the user to move around
     orbitControl();
