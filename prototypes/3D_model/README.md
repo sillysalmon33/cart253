@@ -13,6 +13,7 @@ A P5JS file that renders a custom 3D model I made
 This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
+-some code taken from (https://p5js.org/reference/p5/loadModel/)
 
 ## License
 
