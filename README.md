@@ -9,6 +9,8 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 
 ## Prototypes
 
+[3D scene](3D_Model.js)
+
 ## Links
 
 - [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
