@@ -9,7 +9,7 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 
 ## Prototypes
 
-[3D Scene](prototypes\3D_model\js\3D_Model.js)
+[3D Scene](prototypes\3D_model\index.html)
 
 ## Links
 
