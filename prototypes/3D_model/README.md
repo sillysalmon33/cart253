@@ -1,4 +1,4 @@
-# TITLE OF PROJECT
+# 3D model viewer
 
 Konstantinos
 
