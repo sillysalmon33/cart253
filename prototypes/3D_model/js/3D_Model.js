@@ -7,14 +7,14 @@
 
 "use strict";
 
-let cutlass
+//let cutlass
 
 /**
  * uses webgl rendering systems and creates a canvas
 */
 
 async function setup() {
-    cutlass = await loadModel('/Images/cutlass.obj', true);
+   // cutlass = await loadModel('/Images/cutlass.obj', true);
     createCanvas(500, 500, WEBGL);
 }
 /**
@@ -46,16 +46,7 @@ function draw() {
     box(250,2,250)
     pop()
 
-    //creates a cutless
-    push()
-    //allows the user to move and rotate the model
-   translate(70,-41, 0)
-   rotateX(-65.35)
-   rotateY(190)
-   rotateZ(60)
-   noStroke()
-   model(cutlass)
-   pop()
+  
 
     //allosws the user to move around
     orbitControl();
