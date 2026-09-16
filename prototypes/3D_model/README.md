@@ -2,7 +2,7 @@
 
 Konstantinos
 
-[View this project online](http://127.0.0.1:5500/prototypes/3D_model/)
+[View this project online](https://sillysalmon33.github.io/cart253/prototypes/3D_model/)
 
 ## Description
 
