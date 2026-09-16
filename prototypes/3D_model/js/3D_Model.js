@@ -14,7 +14,7 @@ let cutlass
 */
 
 async function setup() {
-    cutlass = await loadModel('/Images/cutlass.obj', true);
+    cutlass = await loadModel('Images/cutlass.obj', true);
     createCanvas(500, 500, WEBGL);
 }
 /**
