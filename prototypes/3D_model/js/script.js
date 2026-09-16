@@ -16,7 +16,6 @@ let cutlass
 async function setup() {
     cutlass = await loadModel('/Images/cutlass.obj', true);
     createCanvas(500, 500, WEBGL);
-    debugMode() //shows quards (remove later)
 }
 /**
  * creates a background and loads the models
@@ -27,24 +26,31 @@ function draw() {
     //creates a red table
     push()
     fill(255, 0, 0)
-    translate(30,-10,-30)
+    translate(30,-20,-30)
     rotateY(180)
-    box(100, 50);
+    box(100,80,50);
     pop()
 
     //creates a blue cup
     push()
-    translate(0, -50, 0)
-    noStroke()
     fill(0, 0, 255)
+    noStroke()
+    translate(0, -75, 0)
     cylinder(10, 30,)
+    pop()
+
+    //creates a floor
+    push()
+    fill(0,255,0)
+    translate(0,22)
+    box(250,2,250)
     pop()
 
     //creates a cutless
     push()
     //allows the user to move and rotate the model
-   translate(70,-30, 0)
-   rotateX(-65)
+   translate(70,-41, 0)
+   rotateX(-65.35)
    rotateY(190)
    rotateZ(60)
    noStroke()
