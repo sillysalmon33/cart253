@@ -46,9 +46,8 @@ function draw() {
     box(250,2,250)
     pop()
 
-    //creates a cutless
+    //creates a cutless and allows the user to move and rotate the model
     push()
-    //allows the user to move and rotate the model
    translate(70,-41, 0)
    rotateX(-65.35)
    rotateY(190)
