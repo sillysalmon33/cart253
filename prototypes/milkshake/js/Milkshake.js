@@ -29,20 +29,21 @@ function draw() {
 //should probably replace the triangles with arcs
 
 
-    //creates the outline
-    push()
-    line(150,200,250,450)
-    line(350,200,250,450)
-    pop()
+
 
     //creates the drink
     push()
     fill(255, 192, 203)
-    noStroke()
-    triangle(150, 200, 250, 450, 350, 200)
+    bezier(150, 200, 250, 750, 250, 500, 350, 200)
     pop()
 
+
     //creates the wipped cream
+    push()
+
+    pop()
+
+    //creates the wipped cream lines
     push()
 
     pop()
@@ -56,6 +57,29 @@ function draw() {
     push()
     fill(255, 255, 255, 100)
     noStroke()
-    triangle(150, 200, 250, 450, 350, 200)
+    bezier(150, 200, 250, 750, 250, 500, 350, 200)
     pop()
+
+     //creates the highlight
+    push()
+    fill(255,255,255, 180)
+    noStroke()
+    circle(190, 230,50,)
+    pop()
+
+    //creates the lines
+
+    push()
+    noFill()
+    strokeWeight(0.7)
+    bezier(180, 200, 250, 800, 250, 300, 250, 700)
+    bezier(210, 200, 250, 800, 250, 300, 250, 700)
+    bezier(240, 200, 250, 800, 250, 300, 250, 700)
+    bezier(270, 200, 250, 800, 250, 300, 50, 700)
+    bezier(300, 200, 250, 800, 200, 300, 250, 700)
+    bezier(325, 200, 240, 800, 200, 300, 250, 700)
+    pop()
+
+   
+
 }
