@@ -8,7 +8,7 @@
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * makes canvas
 */
 function setup() {
     createCanvas(500, 500)
@@ -16,7 +16,7 @@ function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ *makes background
 */
 function draw() {
     background(0,255,255)
@@ -26,21 +26,21 @@ function draw() {
 
 //probably should put this into a function
 
-
-
+    //shows coordanites to make stuff easier
   fill(0)
   textSize(16)
   
   text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
 
 
-  //creates the straw
+    //creates the straw
     push()
     stroke(255,235,235)
     strokeWeight(10)
     line(275,175, 350,75)
     pop()
 
+    //creates the red lines on the straw
     push()
     stroke(224, 29, 29)
     strokeWeight(3)
@@ -65,11 +65,6 @@ function draw() {
     bezier(150, 200, 150, 200, 220, 90, 350, 200)
     bezier(150, 200, 150, 150, 220, 170, 350, 200)
     bezier(150, 200, 150, 100, 220, 200, 350, 200)
-    pop()
-
-    //creates the wipped cream lines
-    push()
-
     pop()
 
 
