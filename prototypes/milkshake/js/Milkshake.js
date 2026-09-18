@@ -36,7 +36,7 @@ function draw() {
 
   //creates the straw
     push()
-    stroke(255,255,255)
+    stroke(255,235,235)
     strokeWeight(10)
     line(275,175, 350,75)
     pop()
