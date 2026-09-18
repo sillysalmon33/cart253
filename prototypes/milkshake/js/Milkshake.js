@@ -26,10 +26,30 @@ function draw() {
 
 //probably should put this into a function
 
-//should probably replace the triangles with arcs
 
 
+  fill(0)
+  textSize(16)
+  
+  text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
 
+
+  //creates the straw
+    push()
+    stroke(255,255,255)
+    strokeWeight(10)
+    line(275,175, 350,75)
+    pop()
+
+    push()
+    stroke(224, 29, 29)
+    strokeWeight(3)
+    line(295,142, 300,148)
+    line(305,128, 310,135)
+    line(315,115, 320,122)
+    line(325,102, 330,110)
+     line(335,87, 340,95)
+    pop()
 
     //creates the drink
     push()
@@ -40,7 +60,11 @@ function draw() {
 
     //creates the wipped cream
     push()
-
+    fill(255, 245, 245)
+    noStroke()
+    bezier(150, 200, 150, 200, 220, 90, 350, 200)
+    bezier(150, 200, 150, 150, 220, 170, 350, 200)
+    bezier(150, 200, 150, 100, 220, 200, 350, 200)
     pop()
 
     //creates the wipped cream lines
@@ -48,10 +72,6 @@ function draw() {
 
     pop()
 
-    //creates the straw
-    push()
-
-    pop()
 
      //creates the cup
     push()
