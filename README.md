@@ -10,6 +10,8 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 ## Prototypes
 
 [3D Scene](https://sillysalmon33.github.io/cart253/prototypes/3D_model/index.html)
+[Yummy Milkshake 😋](https://sillysalmon33.github.io/cart253/prototypes/milkshake/index.html)
+[Iris]()
 
 ## Links
 

@@ -24,7 +24,6 @@ function draw() {
 
 //creates a milkshake
 
-//probably should put this into a function
 
     //shows coordanites to make stuff easier
   fill(0)
