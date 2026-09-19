@@ -8,7 +8,7 @@
 "use strict";
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * creates a canvas
 */
 function setup() {
     createCanvas(500, 500)
@@ -16,7 +16,7 @@ function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * creates a background
 */
 function draw() {
     background(0,255,255)
@@ -27,6 +27,13 @@ function draw() {
   textSize(16)
   
   text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
+
+
+  push()
+  stroke(52, 173, 84)
+  strokeWeight(15)
+    line(250, 500, 250, 230)
+  pop()
 
 
 
