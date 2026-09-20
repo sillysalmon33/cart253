@@ -34,7 +34,7 @@ function draw() {
   fill(255,255,255)
   noStroke()
   circle()
-  ellipse(x, y, w, [h])
+  ellipse()
   pop()
 
 
