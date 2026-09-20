@@ -2,7 +2,7 @@
 
 Konstantinos
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://sillysalmon33.github.io/cart253/prototypes/flower/index.html)
 
 ## Description
 

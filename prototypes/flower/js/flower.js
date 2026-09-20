@@ -28,14 +28,6 @@ function draw() {
     drawcloud(translate(20,-300))
   pop()
 
-    //shows coordanites to make stuff easier
-  fill(0)
-  textSize(16)
-  
-  text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
-
-
-
   //creates background petal
    push()
   fill(209, 93, 215)
