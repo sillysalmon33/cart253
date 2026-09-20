@@ -15,7 +15,7 @@ let yummy
 
 async function setup() {
     createCanvas(500, 500)
-    yummy = await loadSound ("/Images/Yummy.mp3")
+    yummy = await loadSound ("Images/Yummy.mp3")
 }
 
 
