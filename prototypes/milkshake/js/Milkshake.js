@@ -7,11 +7,15 @@
 
 "use strict";
 
+let yummy
+
 /**
- * makes canvas
+ * makes canvas and loads yummy sound
 */
-function setup() {
+
+async function setup() {
     createCanvas(500, 500)
+    yummy = await loadSound ("/Images/Yummy.mp3")
 }
 
 
@@ -83,6 +87,16 @@ function draw() {
     bezier(325, 200, 240, 800, 200, 300, 250, 700)
     pop()
 
-   
 
 }
+
+/**
+*plays the yummy sfx
+*/
+  function mousePressed(){
+
+
+    if (mousePressed){
+        yummy.play()
+    }
+  }

@@ -6,5 +6,8 @@ Overall its been nice getting back into programing. Github and Markdown are (mos
 
 ![website test](/Images/website.PNG)
 
-## September 19 2026
+## September 20 2026
 
+Making the 3 prototypes where a lot more annoying than I thought they'ed be, loading the audio and model took way longer than they should have and I only kinda get why they wouldnt work. This is what I was worried about last week of programing being really annoying about how you write stuff. Working with beziers where also super annoying since its almost impossible to visualize what they'll look like before you program them but using the mouse to move 2 of thr points did make it a bit easier. Actually making the stuff was kinda just ok, I wanted to do more with them but they all annoyed me soo much and it was soo tedious working on them that I dont really want to touch them any more since it was really boring and unintuitive to work on them.
+
+![404](/Images/404.PNG)

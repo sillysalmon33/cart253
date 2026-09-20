@@ -3,3 +3,28 @@
   textSize(16)
   
   text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
+
+//-------------------------------------------------------------------------------
+
+  /**
+ * makes canvas and loads NAME sound
+*/
+
+  let NAME
+
+async function setup() {
+    createCanvas(500, 500)
+    NAME = await loadSound ("/Images/NAME.mp3")
+}
+
+
+
+function mousePressed(){
+
+
+    if (mousePressed){
+        NAME.play()
+    }
+  }
+  
+  //-------------------------------------------------------------------------------
