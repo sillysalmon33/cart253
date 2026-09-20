@@ -1,4 +1,4 @@
-# Iris
+# flower
 
 Konstantinos
 
@@ -6,7 +6,7 @@ Konstantinos
 
 ## Description
 
-A P5JS file that renders an Iris flower
+A P5JS file that renders a flower
 
 ## Attribution
 

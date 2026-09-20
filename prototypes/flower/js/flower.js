@@ -2,7 +2,7 @@
  * Iris
  * Konstantinos
  * 
- * A P5JS file that renders an Iris flower
+ * A P5JS file that renders a flower
  */
 
 "use strict";
@@ -16,11 +16,17 @@ function setup() {
 
 
 /**
- * creates a background
+ * creates a background and clouds
 */
 function draw() {
     background(0,255,255)
-
+    drawcloud()
+    push()
+    drawcloud(translate(-300,20))
+    drawcloud(translate(10,200))
+    drawcloud(translate(100,50))
+    drawcloud(translate(20,-300))
+  pop()
 
     //shows coordanites to make stuff easier
   fill(0)
@@ -28,14 +34,6 @@ function draw() {
   
   text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
 
-
-  //creates clouds
-  push()
-  fill(255,255,255)
-  noStroke()
-  circle()
-  ellipse()
-  pop()
 
 
   //creates background petal
@@ -87,6 +85,29 @@ function draw() {
   circle(210,253,130)
   pop()
 
+  /**
+   * creates cloud
+  */
+  function drawcloud(){
+  push()
+  fill(255,255,255)
+  noStroke()
+  circle(410,80,40)
+  circle(430,80,40)
+  circle(370,80,40)
+  circle(380,70,40)
+  circle(390,90,60)
+  circle(400,90,50)
+  circle(410,90,50)
+  pop()
+}
 
+//add other circle to make clouds different
+  push()
+  noStroke()
+  fill(0,255,255) 
+  circle(380,20,130)
+  circle(80,375,130)
+  pop()
 
 }
