@@ -35,3 +35,16 @@ function mousePressed() {
 //html
 //opens a link in anther tab
 // Link to the first < a href = "http://info.cern.ch" target = "_blank" > website</a >
+
+//-------------------------------------------------------------------------------
+js
+defines a variable (put at the top of your code)
+let NAME = NUMBER
+
+OR for objects
+
+let NAME = {
+  ex:red,
+  ex:blue,
+  ex:green,
+}
