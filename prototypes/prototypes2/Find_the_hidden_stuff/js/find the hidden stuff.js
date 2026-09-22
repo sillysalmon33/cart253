@@ -1,6 +1,6 @@
 /**
- * Title of Project
- * Author Name
+ * find the hidden stuff
+ * kosta
  * 
  * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
  * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
@@ -20,12 +20,8 @@ function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background(color, [a])
+    background(0, 255, 255)
 
-    //creates unremovable text
-    push()
-    text(str, x, y, x2, y2)
-    pop()
 
     push()
 
@@ -43,9 +39,15 @@ function draw() {
     //creates a circle that can reveal stuff
     push()
     noStroke()
-    fill(v1, [v2], [v3], [a])
-    circle()
+    fill(255, 255, 255)
+    circle(mouseX, mouseY, 100,)
     pop()
 
+    //creates unremovable text
+    push()
+    textSize(20)
+    textAlign(CENTER, TOP)
+    text('Move the mouse the find all the secrets', 250, 10,)
+    pop()
 
 }
