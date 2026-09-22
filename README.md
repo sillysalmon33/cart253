@@ -16,8 +16,8 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 
 ### Second
 - [Find The Hidden Stuff](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/Find_the_hidden_stuff/index.html)
-- [other stuff]()
-- [other stuff]()
+- [patients test](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/patients_test/index.html)
+- [dont scare him](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/dont_scare_him/index.html)
 ## Links
 
 - [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
