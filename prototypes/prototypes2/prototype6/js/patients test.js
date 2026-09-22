@@ -21,4 +21,7 @@ function setup() {
 */
 function draw() {
 
+
+
+    //have it to after a minute it shows cristians face and congradulations
 }
