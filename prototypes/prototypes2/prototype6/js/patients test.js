@@ -1,9 +1,9 @@
 /**
- * Title of Project
- * Author Name
+ * patients test
+ * kosta
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * wait a whole aganizing 1 minute in order to claim your price
+
  */
 
 "use strict";
