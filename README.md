@@ -15,7 +15,7 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 - [Flower](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/flower/index.html)
 
 ### Second
-- [Find The hidden Stuff](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/Find_the_hidden_stuff/index.html)
+- [Find The Hidden Stuff](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/Find_the_hidden_stuff/index.html)
 - [other stuff]()
 - [other stuff]()
 ## Links
