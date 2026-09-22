@@ -10,7 +10,7 @@ text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
 //-------------------------------------------------------------------------------
 //js
 /**
-* makes canvas and loads NAME sound
+* makes canvas and loads NAME sound, (must make an images folder in the folder your project is in not the main folder)
 */
 
 /**
