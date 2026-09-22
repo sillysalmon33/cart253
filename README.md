@@ -15,7 +15,9 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 - [Flower](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/flower/index.html)
 
 ### Second
-- [Find THe secret Stuff]()
+- [Find The secret Stuff]()
+- [other stuff]()
+- [other stuff]()
 ## Links
 
 - [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
