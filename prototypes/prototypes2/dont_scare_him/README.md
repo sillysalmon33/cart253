@@ -1,4 +1,4 @@
-# patients test
+# dont scare him
 
 kosta
 
@@ -6,7 +6,7 @@ kosta
 
 ## Description 
 
-wait a whole aganizing 1 minute in order to claim your price
+move your mouse closer to a little guy to spook him (but dont do that, that's mean)
 
 ## Attribution
 
