@@ -20,7 +20,23 @@ function setup() {
  * creates a background
 */
 function draw() {
-    background(color, [a])
+    background(255,255,255)
+
+    push()
+
+    pop()
+
+    push()
+
+    pop()
+
+    push()
+
+    pop()
+
+    push()
+
+    pop()
 
 
     //when you move your mouse closer to a little guy (maybe the mouse has a spooky artwork attacted to it) it changes his sprite to be really scared and if you move away he does back to normal
