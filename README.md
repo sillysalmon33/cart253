@@ -31,13 +31,13 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 
 ![find the hidden stuff]()
 
-- [patients test](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/patiants_test/index.html)
-- [patients test Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/patiants_test/js/patients%20test.js)
+- [Patients Test](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/patiants_test/index.html)
+- [Patients Test Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/patiants_test/js/patients%20test.js)
 
 ![patients test](Images/wait.PNG)
 
-- [dont scare him](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/dont_scare_him/index.html)
-- [dont scare him Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/dont_scare_him/js/dont%20scare%20him.js)
+- [Dont Scare Him](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/dont_scare_him/index.html)
+- [Dont Scare Him Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/dont_scare_him/js/dont%20scare%20him.js)
 
 ![dont scare him](Images/dont_scare_him.PNG)
 
