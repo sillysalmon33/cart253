@@ -13,7 +13,8 @@
 */
 
 let face
-let timelimit = 5
+//sets how long the timer is in seconds
+let timelimit = 60
 let countdown
 
 async function setup() {
