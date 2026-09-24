@@ -19,7 +19,7 @@ function setup() {
 
 
 /**
- * creates a background
+ * creates a background and text
 */
 function draw() {
     background(255,255,255)
@@ -33,7 +33,7 @@ function draw() {
 
 
 
- //draws scared version over non scared version
+ //draws scared version if the mouth is near the middle of the screen and if not draws the regular version
  if (mouseX >= 100 && mouseX <= 400 && mouseY >= 120 && mouseY <= 400) {
     drawscaredlittleguy()
 } 
