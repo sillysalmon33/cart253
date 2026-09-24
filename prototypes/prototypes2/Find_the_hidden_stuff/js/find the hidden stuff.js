@@ -76,6 +76,7 @@ function draw() {
     fill(secret_text)
     text('Congradulations you won', 250, 30)
     pop()
+    
     //this code doesnt work and probly isnt even close its just a place holder
     push()
     if (mousex, mouseY = x, y(secret_text + 1))

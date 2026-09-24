@@ -11,6 +11,8 @@
 /**
  * creates a canvas
 */
+
+
 function setup() {
     createCanvas(500, 500)
 }
@@ -21,17 +23,31 @@ function setup() {
 */
 function draw() {
     background(255,255,255)
-    drawlittleguy()
-
+    
 
     push()
-    fill(0)
-textSize(16)
-textAlign(CENTER, TOP)
-text('DONT SCARE HIM!!!!',250,30)
+    textSize(16)
+    textAlign(CENTER, TOP)
+    text('DONT SCARE HIM!!!!',250,30)
     pop()
 
 text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
+
+
+
+ //draws scared version over non scared version
+ if (mouseX >= 100 && mouseX <= 400 && mouseY >= 120 && mouseY <= 400) {
+    drawscaredlittleguy()
+} 
+else {
+    drawlittleguy()
+}
+
+}
+
+
+
+
 /**
  * draws a little guy
  */
@@ -60,19 +76,29 @@ function drawlittleguy() {
     pop()
 }
 
-    //draws scared version over non scared version
-    if (mouseX > 100) {
-
-
-
-}
-
-
-//redraws the regular face
-if (mouseX < 400) {
-    drawlittleguy()
-
-
-}
-    //when you move your mouse closer to a little guy (maybe the mouse has a spooky artwork attacted to it) it changes his sprite to be really scared and if you move away he does back to normal
-}
+/**
+ * draws a scared little guy
+ */
+function drawscaredlittleguy() {
+ //main head
+    push() 
+    fill(255,255,255)
+    circle(250,250,100)
+    pop()
+    //eyes
+    push()
+    fill(0,0,0)
+    circle(220,230,80)
+    circle(280,230,80)
+    pop()
+    //mouth
+    push()
+    fill(255,255,255)
+    circle(250,290,80)
+    pop()
+    //iris'
+    push()
+    circle(215,230,70)   
+    circle(280,230,70)
+    pop()
+ }
