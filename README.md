@@ -18,7 +18,7 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 - [Yummy Milkshake 😋](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/milkshake/index.html)
 - [Yummy Milkshake 😋 Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes1/milkshake/js/Milkshake.js)
 
-![Yummy Milkshake](Images/milkshake.PNG)
+![Yummy Milkshake](Images/Milkshake.PNG)
 
 - [Flower](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/flower/index.html)
 - [Flower Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes1/flower/js/flower.js)
