@@ -39,7 +39,7 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 - [dont scare him](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/dont_scare_him/index.html)
 - [dont scare him Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/dont_scare_him/js/dont%20scare%20him.js)
 
-![dont scare him](dont%20scare%20him.PNG)
+![dont scare him](Images/dont_scare_him.PNG)
 
 ## Links
 
