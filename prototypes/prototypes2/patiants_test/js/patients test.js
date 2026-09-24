@@ -9,14 +9,15 @@
 "use strict";
 
 /**
- * creates a canvas and loads a face
+ * creates a canvas, creates the functions for the countdown and timelimit and loads a face
 */
 
 let face
-
+let timelimit = 5
+let countdown
 
 async function setup() {
-    face = await loadImage('images/screamingcristian.jpg');
+    face = await loadImage('images/screamingcristian.jpg')
     createCanvas(500, 500)
 }
 
@@ -27,20 +28,24 @@ async function setup() {
 function draw() {
     background(255, 255, 255)
 
-    textAlign()
-    text('Wait a whole 1 minute', x, y, x2, y2)
+    // creates a timer
+     let currentTime = int(millis() / 1000)
+    countdown =  timelimit - currentTime
 
-    //sets a 1 min timer (60000)
-    setTimeout(wait, 60000)
+     //the timer
+   text('Time' + currentTime, 250,250)
 
+    textAlign(CENTER, TOP)
+    text('Wait a whole 1 minute', 250,10)
 
-    //displays an image and text
-    function wait() {
-        function draw() {
-            loadImage(face)
-            textAlign(horizAlign, vertAlign)
-            text('congradulations!!!', x, y, x2, y2)
-        }
+    //when the timer hits 60 drwaws over the previous stuff
+    if (countdown < 0) {
+        countdown = 0
+        square(500,500)
+        image(face, 0,0,width, height)
+        textAlign(CENTER, TOP)
+        fill(122, 52, 235)
+        text('congradulations!!!', 250,10)
+    
     }
-    //have it to after a minute it shows cristians face and congradulations
 }

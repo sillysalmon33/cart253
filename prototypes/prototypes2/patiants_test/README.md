@@ -6,13 +6,14 @@ kosta
 
 ## Description 
 
-wait a whole aganizing 1 minute in order to claim your price
+wait a whole aganizing 1 minute in order to claim your price (of a funny image)
 
 ## Attribution
 
 This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
+> - Code for the timer taken from [flanniganable](https://www.youtube.com/watch?v=rKhwDhp9dcs)
 
 
 ## License
