@@ -31,8 +31,6 @@ function draw() {
     text('DONT SCARE HIM!!!!',250,30)
     pop()
 
-text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
-
 
 
  //draws scared version over non scared version
