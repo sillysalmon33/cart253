@@ -28,10 +28,18 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 ### Second
 - [Find The Hidden Stuff](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/Find_the_hidden_stuff/index.html)
 - [Find The Hidden Stuff Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/Find_the_hidden_stuff/js/find%20the%20hidden%20stuff.js)
+
+![find the hidden stuff]()
+
 - [patients test](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/patiants_test/index.html)
 - [patients test Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/patiants_test/js/patients%20test.js)
+
+![patients test](Images/wait.PNG)
+
 - [dont scare him](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/dont_scare_him/index.html)
 - [dont scare him Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/dont_scare_him/js/dont%20scare%20him.js)
+
+![dont scare him](dont%20scare%20him.PNG)
 
 ## Links
 
