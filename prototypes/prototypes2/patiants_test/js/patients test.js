@@ -12,15 +12,16 @@
  * creates a canvas, creates the functions for the countdown and timelimit and loads a face
 */
 
-let thumbs
+let thumb
 let low
 //sets how long the timer is in seconds
 let timelimit = 10
 let countdown
+let size = 20
 
 async function setup() {
-    thumbs = await loadImage('images/thumb.jpg')
-    low = await loadImage('images/low.jpg')
+    thumb = await loadImage('images/thumb.jpg')
+    low = await loadImage('images/low.png')
     createCanvas(500, 500)
 }
 
@@ -30,26 +31,29 @@ async function setup() {
 */
 function draw() {
     background(255, 255, 255)
-    image(low, 0,0,width, height)
+    image(low, 0, 0, width, height)
 
     // creates a timer
-     let currentTime = int(millis() / 1000)
-    countdown =  timelimit - currentTime
+    let currentTime = int(millis() / 1000)
+    countdown = timelimit - currentTime
 
-     //the timer
-   text('Time' + currentTime, 250,250)
+    //the timer
+    textSize(size)
+    text('Time' + currentTime, 250, 250)
 
     textAlign(CENTER, TOP)
-    text('Wait a whole 1 minute', 250,10)
+    textSize(size)
+    text('Wait a whole minute', 250, 10)
 
     //when the timer hits 60 drwaws over the previous stuff
     if (countdown < 0) {
         countdown = 0
-        square(500,500)
-        image(thumbs, 0,0,width, height)
+        square(500, 500)
+        image(thumb, 0, 0, width, height)
         textAlign(CENTER, TOP)
         fill(122, 52, 235)
-        text('congradulations!!!', 250,10)
-    
+        textSize(size)
+        text('congradulations!!!', 250, 10)
+
     }
 }
