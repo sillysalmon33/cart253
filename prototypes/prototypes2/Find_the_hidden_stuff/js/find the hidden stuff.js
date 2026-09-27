@@ -18,6 +18,7 @@ let secret2 = 0
 let secret3 = 0
 let secret4 = 0
 let secret5 = 0
+let secret6 = 0
 let win = 0
 
 /**
@@ -52,6 +53,14 @@ function draw() {
     function drawcristianface() {
         push()
         image(cristian, 700, 700, 70, 70)
+        pop()
+    }
+    /**
+     * draws a steam happy
+     */
+    function drawsteamhappy() {
+        push()
+        image("images/Steamhappy2.png", 500, 500, 70, 70)
         pop()
     }
 
@@ -121,11 +130,18 @@ function draw() {
         pop()
         secret5++
     }
+    //shows steam happy
+    if (mouseX >= 450 && mouseX <= 550 && mouseY >= 450 && mouseY <= 550 && win == 0) {
+        push()
+        drawsteamhappy()
+        pop()
+        secret6++
+    }
 
 
 
     //when all 5 secrets have been found removes them and adds text
-    if (secret1 > 0 && secret2 > 0 && secret3 > 0 && secret4 > 0 && secret5 > 0) {
+    if (secret1 > 0 && secret2 > 0 && secret3 > 0 && secret4 > 0 && secret5 > 0 && secret6 > 0) {
         win = 1
         drawcongradulations()
     }
