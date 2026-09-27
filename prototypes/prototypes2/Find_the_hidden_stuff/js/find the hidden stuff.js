@@ -11,12 +11,17 @@
 
 
 let secrets
-let secret_text
 let waving
 let cristian
+let secret1 = 0
+let secret2 = 0
+let secret3 = 0
+let secret4 = 0
+let secret5 = 0
+let win = 0
 
 /**
- * creates a canvas
+ * creates a canvas and loads images
 */
 async function setup() {
     createCanvas(1000, 1000)
@@ -26,70 +31,111 @@ async function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * draws a background
 */
 function draw() {
     background(0, 255, 255)
 
-    //add a function where if you look at a secret (x and y cordanites = the secret x and y cordanites) it puts +1 to a counter and when you get all the secrets it shows text that says congrats or somthing
 
-    push()
-    image(waving, 500, 200, 70, 70)
-    pop()
+    /**
+     * draws a waving face
+     */
+    function drawface() {
+        push()
+        image(waving, 500, 200, 70, 70)
+        pop()
+    }
 
-    push()
-    translate(90, 500)
-    scale(0.5)
-    drawlittleguy()
-    pop()
+    /**
+     * draws a funny face
+     */
+    function drawcristianface() {
+        push()
+        image(cristian, 700, 700, 70, 70)
+        pop()
+    }
+
+    //creates tutorial text and circle that can reveal stuff
+    function drawfind() {
+        push()
+        textSize(20)
+        textAlign(CENTER, TOP)
+        text('Move the mouse the find all the secrets', 500, 10)
+        pop()
+
+        push()
+        noStroke()
+        fill(255, 255, 255)
+        circle(mouseX, mouseY, 100,)
+        pop()
+    }
+
+    //creates congradulations text
+    function drawcongradulations() {
+        push()
+        textSize(50)
+        text('Congradulations you won!!!', 250, 500)
+        pop()
+    }
 
 
-    push()
-    image(cristian, 700, 700, 70, 70)
-    pop()
+    //shows tutorial text and ball unless all secrets have been found
+    if (win == 0) {
+        drawfind()
+    }
 
-    push()
-    scale(0.2)
-    translate(200, 500)
-    drawflower()
-    pop()
+    //shows the waving gif
+    if (mouseX >= 450 && mouseX <= 550 && mouseY >= 150 && mouseY <= 250 && win == 0) {
+        drawface()
+        secret1++
+    }
+    //shows cristians face
+    if (mouseX >= 650 && mouseX <= 750 && mouseY >= 650 && mouseY <= 750 && win == 0) {
+        drawcristianface()
+        secret2++
+    }
+    //shows the flower
+    if (mouseX >= 50 && mouseX <= 150 && mouseY >= 150 && mouseY <= 250 && win == 0) {
+        push()
+        scale(0.2)
+        translate(200, 500)
+        drawflower()
+        pop()
+        secret3++
+    }
+    //shows the milkshake
+    if (mouseX >= 800 && mouseX <= 900 && mouseY >= 900 && mouseY <= 1000 && win == 0) {
+        push()
+        translate(800, 900)
+        scale(0.2)
+        drawmilkshake()
+        pop()
+        secret4++
+    }
+    //shows the little guy
+    if (mouseX >= 200 && mouseX <= 300 && mouseY >= 600 && mouseY <= 700 && win == 0) {
+        push()
+        translate(100, 500)
+        scale(0.5)
+        drawlittleguy()
+        pop()
+        secret5++
+    }
 
-    push()
-    translate(800, 900)
-    scale(0.2)
-    drawmilkshake()
-    pop()
-
-    //creates a circle that can reveal stuff
-    push()
-    noStroke()
-    fill(255, 255, 255)
-    circle(mouseX, mouseY, 100,)
-    pop()
 
 
-    //creates unremovable text
-    push()
-    textSize(20)
-    textAlign(CENTER, TOP)
-    text('Move the mouse the find all the secrets', 500, 10)
-    pop()
+    //when all 5 secrets have been found removes them and adds text
+    if (secret1 > 0 && secret2 > 0 && secret3 > 0 && secret4 > 0 && secret5 > 0) {
+        win = 1
+        drawcongradulations()
+    }
 
-    //function
-    push()
-    textSize(20)
-    textAlign(CENTER, TOP)
-    fill(secret_text)
-    text('Congradulations you won', 500, 30)
-    pop()
 
-    //this code doesnt work and probly isnt even close its just a place holder
-    push()
-    //  if (mousex, mouseY = x, y(secret_text + 1))
 
-    //       if (secrets === 4(secret_text = 255, 255, 255))
-    pop()
 
+
+
+    //code from previous projects
 
 
     /**
@@ -162,7 +208,7 @@ function draw() {
         //creates a circle that's the same colour as the background to hide the sharp edges
         push()
         noStroke()
-        fill(0, 255, 255)
+        fill(255, 255, 255)
         circle(150, 190, 150)
         pop()
 
@@ -240,4 +286,6 @@ function draw() {
 
 
     }
+
 }
+
