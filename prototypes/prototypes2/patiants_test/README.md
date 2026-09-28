@@ -2,7 +2,7 @@
 
 kosta
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/patiants_test/index.html)
 
 ## Description 
 
