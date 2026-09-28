@@ -28,8 +28,8 @@ async function setup() {
     createCanvas(1000, 1000)
     waving = await loadImage('images/waving.gif')
     cristian = await loadImage('images/screamingcristian.jpg')
-    happy  = await loadImage("Images/Steamhappy.png")
-    flower  = await loadImage("images/flower2.png")
+    happy  = await loadImage('images/Steamhappy.png')
+    flower  = await loadImage('images/flower2.png')
 }
 
 
