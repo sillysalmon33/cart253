@@ -15,7 +15,7 @@
 let thumb
 let low
 //sets how long the timer is in seconds
-let timelimit = 10
+let timelimit = 60
 let countdown
 let size = 20
 
@@ -53,7 +53,7 @@ function draw() {
         textAlign(CENTER, TOP)
         fill(122, 52, 235)
         textSize(size)
-        text('congradulations!!!', 250, 10)
+        text('CONGRADULATIONS!!! You showed completed a simple task :D', 250, 10)
 
     }
 }

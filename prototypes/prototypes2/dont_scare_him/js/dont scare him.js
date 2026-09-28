@@ -28,7 +28,7 @@ function draw() {
     push()
     textSize(16)
     textAlign(CENTER, TOP)
-    text('DONT SCARE HIM!!!!',250,30)
+    text('DONT SCARE HIM!!!! (he is very affraid of the cursor)',250,30)
     pop()
 
 
