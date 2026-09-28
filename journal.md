@@ -11,3 +11,9 @@ Overall its been nice getting back into programing. Github and Markdown are (mos
 Making the 3 prototypes where a lot more annoying than I thought they'ed be, loading the audio and model took way longer than they should have and I only kinda get why they wouldnt work. This is what I was worried about last week of programing being really annoying about how you write stuff. Working with beziers where also super annoying since its almost impossible to visualize what they'll look like before you program them but using the mouse to move 2 of thr points did make it a bit easier. Actually making the stuff was kinda just ok, I wanted to do more with them but they all annoyed me soo much and it was soo tedious working on them that I dont really want to touch them any more since it was really boring and unintuitive to work on them.
 
 ![404](/Images/404.PNG)
+
+## September 27 2026
+
+This week wasnt that bad I decided to focus less on making the projects look good to focus just on them doing what I wanted them to do, which I think was a good call since I didnt spend as much time on aligning all the shapes compared to the last week. The ideas I decided to explore where simple but I hope will be be useful since knowing where a person's mouse is, is probably very important when making a website, and knowing how to keep track of time could also be very important. One thing I couldnt get working was constraints I wanted the little guy's eyes to look at the mouse but for some reason it wouldn't let me make a constraint with mouse x or y so I guess I'll try again next week. I do wish I experimented with some more interesting ideas but whatever I can just do some more interesting things in a future week.
+
+![little guy](/Images/dont_scare_him.PNG)
