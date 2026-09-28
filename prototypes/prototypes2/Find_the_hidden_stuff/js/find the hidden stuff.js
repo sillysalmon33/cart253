@@ -121,7 +121,7 @@ function draw() {
         secret3++
     }
     //shows the milkshake
-    if (mouseX >= 800 && mouseX <= 900 && mouseY >= 750 && mouseY <= 850 && win == 0) {
+    if (mouseX >= 800 && mouseX <= 900 && mouseY >= 750 && mouseY <= 900 && win == 0) {
         push()
         translate(800, 800)
         scale(0.2)
