@@ -28,8 +28,8 @@ async function setup() {
     createCanvas(1000, 1000)
     waving = await loadImage('images/waving.gif')
     cristian = await loadImage('images/screamingcristian.jpg')
-    happy  = await loadImage('images/Steamhappy.png')
-    flower  = await loadImage('images/flower2.png')
+    happy = await loadImage('images/Steamhappy.png')
+    flower = await loadImage('images/flower2.png')
 }
 
 
@@ -81,7 +81,7 @@ function draw() {
         push()
         textSize(20)
         textAlign(CENTER, TOP)
-        text('Move your mouse the find all the secrets', 500, 50)
+        text('Move your mouse the find all the secrets', 500, 120)
         pop()
 
         push()
@@ -117,13 +117,13 @@ function draw() {
     }
     //shows the flower
     if (mouseX >= 50 && mouseX <= 150 && mouseY >= 250 && mouseY <= 400 && win == 0) {
-       drawflower()
+        drawflower()
         secret3++
     }
     //shows the milkshake
-    if (mouseX >= 800 && mouseX <= 900 && mouseY >= 900 && mouseY <= 1000 && win == 0) {
+    if (mouseX >= 800 && mouseX <= 900 && mouseY >= 750 && mouseY <= 850 && win == 0) {
         push()
-        translate(800, 870)
+        translate(800, 800)
         scale(0.2)
         drawmilkshake()
         pop()
