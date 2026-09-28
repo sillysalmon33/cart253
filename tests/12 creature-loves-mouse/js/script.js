@@ -1,12 +1,3 @@
-/**
- * Creature Loves Mouse
- * Pippin Barr
- * 
- * A creature that responds to the mouse by changing colour
- */
-
-"use strict";
-
 // Our creature
 const creature = {
     // Position
@@ -18,7 +9,7 @@ const creature = {
     fill: "#000000", // Starts out bored
     // Possible fills for the creature that show its mood
     // We'll need these when we start changing its colour
-    // and it's nice to keep them along with all the other info
+    // and its nice to keep them along with all the other info
     // about the creature
     fills: {
         bored: "#000000", // Black
@@ -48,7 +39,25 @@ function draw() {
  * Responds to user input
  */
 function checkInput() {
-    // We'll need to figure this out
+    // Check if the mouse is pressed...
+    if (mouseIsPressed) {
+        // The mouse is pressed!
+        // Change the colour of the creature to show it's happy
+        // It likes the mouse! Squeak squeak!
+        creature.fill = creature.fills.happy;
+    }
+    // Mouse if not pressed, check if a key is pressed...
+    else if (keyIsPressed) {
+        // A key is pressed!
+        // Change the colour of the creature to show it's angry
+        // It hates those keys! Ugh!
+        creature.fill = creature.fills.angry;
+    }
+    else {
+        // The mouse isn't pressed and no key is pressed!
+        // Change the colour of the creature to show it's bored
+        creature.fill = creature.fills.bored;
+    }
 }
 
 /**

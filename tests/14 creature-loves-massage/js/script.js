@@ -1,12 +1,3 @@
-/**
- * Creature Loves Massage
- * Pippin Barr
- * 
- * A creature that responds to mouse massage by changing colour
- */
-
-"use strict";
-
 // Our creature
 const creature = {
     // Position
@@ -23,8 +14,15 @@ const creature = {
     fills: {
         bored: "#000000", // Black
         happy: "#33cc33", // Green
-        angry: "#cc3333" // Red
-    }
+        angry: "#cc3333", // Red
+        dead: "#777777" // Grey
+    },
+    // Is the creature alive?
+    alive: true,
+    // How bored is the creature right now?
+    boredomLevel: 0,
+    // How bored can the creature get before dying (in frames)
+    deathByBoredomThresshold: 500
 };
 
 /**
@@ -43,29 +41,50 @@ function draw() {
     checkInput();
     drawCreature();
 }
-
 /**
- * Responds to user input
+ * Creature is happy if being massaged and otherwise bored... sometimes to death
  */
 function checkInput() {
-    // Check if the mouse is pressed...
-    if (mouseIsPressed) {
-        // The mouse is pressed!
-        // Change the colour of the creature to show it's happy
-        // It likes the mouse! Squeak squeak!
+    // Check if the creature is dead
+    // Which is to say if it is NOT alive
+    if (!creature.alive) {
+        // If it's dead, just stop this function here
+        // so that we don't check out massaging and so on
+        return;
+    }
+
+    // If we get to here it means the creature IS alive (because the
+    // if-statement above didn't trigger)
+
+    // Calculate the distance between the cursor and the creature
+    // and put it into a "distance" variable (using const again since
+    // we won't change this again later!)
+    const distance = dist(mouseX, mouseY, creature.x, creature.y);
+    // Calculate whether the mouse overlaps the creature by checking whether
+    // the distance is less than its radius! (Half its diameter)
+    const mouseIsOverlapping = (distance < creature.size / 2);
+    // Check if EITHER movedX OR movedY are NOT equal to zero
+    // and store the result in our mouseIsMoving variable (another
+    // const because we don't want to change it later)
+    const mouseIsMoving = (movedX !== 0 || movedY !== 0);
+    // Check if the mouse if over the creature and moving
+    if (mouseIsOverlapping && mouseIsMoving) {
+        // The cursor is overlapping the creature AND it's moving
+        // So the creature is happy! Massage!
         creature.fill = creature.fills.happy;
     }
-    // Mouse if not pressed, check if a key is pressed...
-    else if (keyIsPressed) {
-        // A key is pressed!
-        // Change the colour of the creature to show it's angry
-        // It hates those keys! Ugh!
-        creature.fill = creature.fills.angry;
-    }
     else {
-        // The mouse isn't pressed and no key is pressed!
-        // Change the colour of the creature to show it's bored
+        // Otherwise the creature is bored
         creature.fill = creature.fills.bored;
+        // Increase its boredom level by one
+        creature.boredomLevel += 1;
+        // Check if the creature has died of boredom
+        if (creature.boredomLevel > creature.deathByBoredomThresshold) {
+            // Creature dies of boredom!
+            creature.alive = false;
+            // Creature turns dead coloured!
+            creature.fill = creature.fills.dead;
+        }
     }
 }
 
