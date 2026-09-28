@@ -1,18 +1,18 @@
 /**
  * find the hidden stuff
  * kosta
- * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * find all 5 hidden secrets scatered around the canvas
  */
 
 "use strict";
 
 
-
+//loads images and creates variables needed to know if the secrets where found
 let secrets
 let waving
 let cristian
+let happy
+let flower
 let secret1 = 0
 let secret2 = 0
 let secret3 = 0
@@ -28,6 +28,8 @@ async function setup() {
     createCanvas(1000, 1000)
     waving = await loadImage('images/waving.gif')
     cristian = await loadImage('images/screamingcristian.jpg')
+    happy  = await loadImage('images/Steamhappy.png')
+    flower  = await loadImage('images/flower2.png')
 }
 
 
@@ -60,16 +62,26 @@ function draw() {
      */
     function drawsteamhappy() {
         push()
-        image("images/Steamhappy2.png", 500, 500, 70, 70)
+        image(happy, 500, 500, 70, 70)
         pop()
     }
+    /**
+     * draws a flower
+     */
+    function drawflower() {
+        push()
+        image(flower, 100, 300, 70, 70)
+        pop()
+    }
+
+
 
     //creates tutorial text and circle that can reveal stuff
     function drawfind() {
         push()
         textSize(20)
         textAlign(CENTER, TOP)
-        text('Move the mouse the find all the secrets', 500, 10)
+        text('Move your mouse the find all the secrets', 500, 50)
         pop()
 
         push()
@@ -83,7 +95,7 @@ function draw() {
     function drawcongradulations() {
         push()
         textSize(50)
-        text('Congradulations you won!!!', 250, 500)
+        text('Congradulations you won!!! :D', 250, 500)
         pop()
     }
 
@@ -104,18 +116,14 @@ function draw() {
         secret2++
     }
     //shows the flower
-    if (mouseX >= 50 && mouseX <= 150 && mouseY >= 150 && mouseY <= 250 && win == 0) {
-        push()
-        scale(0.2)
-        translate(200, 500)
-        drawflower()
-        pop()
+    if (mouseX >= 50 && mouseX <= 150 && mouseY >= 250 && mouseY <= 400 && win == 0) {
+       drawflower()
         secret3++
     }
     //shows the milkshake
     if (mouseX >= 800 && mouseX <= 900 && mouseY >= 900 && mouseY <= 1000 && win == 0) {
         push()
-        translate(800, 900)
+        translate(800, 870)
         scale(0.2)
         drawmilkshake()
         pop()
@@ -181,59 +189,6 @@ function draw() {
         circle(270, 220, 50)
         pop()
 
-
-    }
-
-
-    function drawflower() {
-        //creates background petal
-        push()
-        fill(209, 93, 215)
-        noStroke()
-        bezier(230, 200, 230, 330, 125, 550, 300, 330)
-        pop()
-
-
-        //creates stem
-        push()
-        stroke(52, 173, 84)
-        strokeWeight(15)
-        line(235, 500, 235, 230)
-        pop()
-
-
-        //creates left petal
-        push()
-        noStroke()
-        fill(229, 113, 235)
-        translate(30, -30,)
-        bezier(250, 230, 350, 270, 275, 550, 200, 320)
-        pop()
-
-        //creates right petal
-        push()
-        fill(229, 113, 235)
-        noStroke()
-        bezier(280, 200, 230, 330, 125, 550, 150, 175)
-        pop()
-
-        /**
-         * fixes left petal to make it look curved
-        */
-
-        //creates a circle that's the same colour as the background to hide the sharp edges
-        push()
-        noStroke()
-        fill(255, 255, 255)
-        circle(150, 190, 150)
-        pop()
-
-        //creates a cirlce that makes the flower look curved
-        push()
-        noStroke()
-        fill(229, 113, 235)
-        circle(210, 253, 130)
-        pop()
 
     }
 
