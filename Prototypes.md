@@ -34,3 +34,5 @@
 - [Dont Scare Him Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/dont_scare_him/js/dont%20scare%20him.js)
 
 ![dont scare him](Images/dont_scare_him.PNG)
+
+### Third
