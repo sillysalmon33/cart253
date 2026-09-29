@@ -53,7 +53,7 @@ function draw() {
         textAlign(CENTER, TOP)
         fill(122, 52, 235)
         textSize(size)
-        text('CONGRADULATIONS!!! You showed completed a simple task :D', 250, 10)
+        text('CONGRADULATIONS!!! You completed a simple task :D', 250, 10)
 
     }
 }
