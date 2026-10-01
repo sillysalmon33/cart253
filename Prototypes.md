@@ -3,7 +3,7 @@
 ## [Journal](journal.md)
 ## [README](README.md)
 
-### First
+## Intrsuctions
 - [3D Scene](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/3D_model/index.html)
 - [3D Scene Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes1/3D_model/js/3D_Model.js)
 
@@ -19,7 +19,7 @@
 
 ![Flower](Images/flower.PNG)
 
-### Second
+## Variables
 - [Find The Hidden Stuff](https://sillysalmon33.github.io/cart253/prototypes/prototypes2/Find_the_hidden_stuff/index.html)
 - [Find The Hidden Stuff Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes2/Find_the_hidden_stuff/js/find%20the%20hidden%20stuff.js)
 
@@ -35,4 +35,21 @@
 
 ![dont scare him](Images/dont_scare_him.PNG)
 
-### Third
+## Conditions
+
+-[Catch]()
+-[Catch Code]()
+
+![1]()
+
+
+-[2]()
+-[2 Code]()
+
+![2]()
+
+
+-[3]()
+-[3 Code]()
+
+![3]()
