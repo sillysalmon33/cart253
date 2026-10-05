@@ -58,7 +58,7 @@ function draw() {
         pop()
     }
 
-    //if mouse is clicked on the left side on the first question set A1 to 0 and switches questions
+    //if mouse is clicked on the left side on the first question set A1 to 0 and switches questions and sets the mouse/choice back to 0
     if (Q1 === 0 && mouseX < 400 && choice === 1) {
         A1 = 0
         Q2 = 0
@@ -66,7 +66,7 @@ function draw() {
         choice = 0
     }
 
-    //if mouse is clicked on the right side on the first question set A1 to 1 and switches questions
+    //if mouse is clicked on the right side on the first question set A1 to 1 and switches questions and sets the mouse/choice back to 0
     if (Q1 === 0 && mouseX > 400 && choice === 1) {
         A1 = 1
         Q2 = 0
@@ -87,7 +87,7 @@ function draw() {
                 pop()
                 }
 
-                //if mouse is clicked on the left side set A2 to 0 and switches questions
+                //if mouse is clicked on the left side set A2 to 0 and switches questions and sets the mouse/choice back to 0
                 if (Q2 === 0 && mouseX < 400 && choice === 1) {
                     Q2 = 1
                     A2 = 0
@@ -95,7 +95,7 @@ function draw() {
                     choice = 0
                 }
 
-                //if mouse is clicked on the right side set A2 to 1 and switches questions
+                //if mouse is clicked on the right side set A2 to 1 and switches questions and sets the mouse/choice back to 0
                 if (Q2 === 0 && mouseX > 400 && choice === 1) {
                     Q2 = 1
                     A2 = 1
@@ -112,7 +112,7 @@ function draw() {
                             pop()
                         }
 
-                        //if mouse clicked on the left side  set A3 to 0 and switches questions
+                        //if mouse clicked on the left side  set A3 to 0 and switches questions and sets the mouse/choice back to 0
                         if (Q3 === 0 && mouseX < 400 && choice === 1) {
                             Q4 = 0
                             A3 = 0
@@ -120,7 +120,7 @@ function draw() {
                             choice = 0
                         }
 
-                        //if mouse is clicked on the right side set A3 to 1 and switches questions
+                        //if mouse is clicked on the right side set A3 to 1 and switches questions and sets the mouse/choice back to 0
                         if (Q3 === 0 && mouseX > 400 && choice === 1) {
                             Q4 = 0
                             A3 = 1
@@ -136,7 +136,7 @@ function draw() {
                                         pop()
                                     }
 
-                                    //if mouse is clicked on the left side  set A4 to 0 and switches questions
+                                    //if mouse is clicked on the left side set A4 to 0 and switches questions and sets the mouse/choice back to 0
                                     if (Q4 === 0 && mouseX < 400 && choice === 1) {
                                         Q4 = 1
                                         A4 = 0
@@ -144,7 +144,7 @@ function draw() {
                                         choice = 0
                                     }
 
-                                    //if mouse is clicked on the right side set A4 to 1 and switches questions
+                                    //if mouse is clicked on the right side set A4 to 1 and switches questions and sets the mouse/choice back to 0
                                     if (Q4 === 0 && mouseX > 400 && choice === 1) {
                                         Q4 = 1
                                         A4 = 1
@@ -163,7 +163,7 @@ function draw() {
                                                 pop()
                                             }
 
-                                            //if mouse is clicked on the left side A5 set red to 0 and set finished to 1
+                                            //if mouse is clicked on the left side A5 and set finished to 1 and sets the mouse/choice back to 0
                                             if (Q5 === 0 && mouseX < 400 && choice === 1 ) {
                                                 Q5 = 1
                                                 A5 = 1
@@ -171,7 +171,7 @@ function draw() {
                                                 finished = 1
                                             }
 
-                                            //if mouse is clicked on the right side set A5 to 1 and finished to 1
+                                            //if mouse is clicked on the right side set A5 to 1 and finished to 1 and sets the mouse/choice back to 0
                                             if (Q5 === 0 && mouseX > 400 && choice === 1) {
                                                 Q5 = 1
                                                 A5 = 0
@@ -269,7 +269,7 @@ if (finished === 1) {
 
 
 
-
+// if the mouse is clicked chanced choice to 1 which let the game know the user made a choice 
 function mousePressed() {
     choice = 1
 }
