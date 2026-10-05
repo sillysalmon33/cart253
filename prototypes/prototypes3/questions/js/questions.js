@@ -25,6 +25,7 @@ let Q2 = 1
 let Q3 = 1
 let Q4 = 1
 let Q5 = 1
+let choice = 0
 let finished = 0
 
 /**
@@ -48,31 +49,29 @@ function draw() {
     background(255, 255, 255)
 
 
+
     //loads cat and dog images and text
     if (Q1 === 0) {
         push()
         image(dog, 0, 0, 400, 800)
         image(cat, 400, 0, 400, 800)
         pop()
-        push()
-        textSize(30)
-        fill(255,255,255)
-        text("Press A to Pick which is your favorite", 150, 40,)
-        pop()
     }
 
-    //if A is clicked on the left side on the first question set A1 to 0 and switches questions
-    if (Q1 === 0 && mouseX < 400 && key === "a") {
+    //if mouse is clicked on the left side on the first question set A1 to 0 and switches questions
+    if (Q1 === 0 && mouseX < 400 && choice === 1) {
         A1 = 0
         Q2 = 0
         Q1 = 1
+        choice = 0
     }
 
-    //if A is clicked on the right side on the first question set A1 to 1 and switches questions
-    if (Q1 === 0 && mouseX > 400 && key === "a") {
+    //if mouse is clicked on the right side on the first question set A1 to 1 and switches questions
+    if (Q1 === 0 && mouseX > 400 && choice === 1) {
         A1 = 1
         Q2 = 0
         Q1 = 1
+        choice = 0
     }
 
 
@@ -86,25 +85,22 @@ function draw() {
                 fill(0, 0, 255)
                 rect(400, 0, 400, 800,)
                 pop()
-                push()
-                textSize(30)
-                fill(255,255,255)
-                text("Press B to Pick which is your favorite", 150, 40,)
-                pop()
                 }
 
-                //if B is clicked on the left side set A2 to 0 and switches questions
-                if (Q2 === 0 && mouseX < 400 && key === "b") {
+                //if mouse is clicked on the left side set A2 to 0 and switches questions
+                if (Q2 === 0 && mouseX < 400 && choice === 1) {
                     Q2 = 1
                     A2 = 0
                     Q3 = 0
+                    choice = 0
                 }
 
-                //if B is clicked on the right side set A2 to 1 and switches questions
-                if (Q2 === 0 && mouseX > 400 && key === "b") {
+                //if mouse is clicked on the right side set A2 to 1 and switches questions
+                if (Q2 === 0 && mouseX > 400 && choice === 1) {
                     Q2 = 1
                     A2 = 1
                     Q3 = 0
+                    choice = 0
                 }
 
 
@@ -113,26 +109,23 @@ function draw() {
                             push()
                             image(halloween, 0, 0, 400, 800)
                             image(christmas, 400, 0, 400, 800)
-                            push()
-                            textSize(30)
-                            fill(255,255,255)
-                            text("Press C to Pick which is your favorite", 150, 40,)
-                            pop()
                             pop()
                         }
 
-                        //if C clicked on the left side  set A3 to 0 and switches questions
-                        if (Q3 === 0 && mouseX < 400 && key === "c") {
+                        //if mouse clicked on the left side  set A3 to 0 and switches questions
+                        if (Q3 === 0 && mouseX < 400 && choice === 1) {
                             Q4 = 0
                             A3 = 0
                             Q3 = 1
+                            choice = 0
                         }
 
-                        //if C is clicked on the right side set A3 to 1 and switches questions
-                        if (Q3 === 0 && mouseX > 400 && key === "c") {
+                        //if mouse is clicked on the right side set A3 to 1 and switches questions
+                        if (Q3 === 0 && mouseX > 400 && choice === 1) {
                             Q4 = 0
                             A3 = 1
                             Q3 = 1
+                            choice = 0
                         }
 
                                     //creates 2 images and text if the forth question is active
@@ -140,89 +133,94 @@ function draw() {
                                         push()
                                         image(noelling, 0, 0, 400, 800)
                                         image(chudlling, 400, 0, 400, 800)
-                                        push()
-                                        textSize(30)
-                                        fill(0,0,0,)
-                                        text("Press D to Pick which is your favorite", 150, 40,)
-                                        pop()
                                         pop()
                                     }
 
-                                    //if D is clicked on the left side  set A4 to 0 and switches questions
-                                    if (Q4 === 0 && mouseX < 400 && key === "d") {
+                                    //if mouse is clicked on the left side  set A4 to 0 and switches questions
+                                    if (Q4 === 0 && mouseX < 400 && choice === 1) {
                                         Q4 = 1
                                         A4 = 0
                                         Q5 = 0
+                                        choice = 0
                                     }
 
-                                    //if D is clicked on the right side set A4 to 1 and switches questions
-                                    if (Q4 === 0 && mouseX > 400 && key === "d") {
+                                    //if mouse is clicked on the right side set A4 to 1 and switches questions
+                                    if (Q4 === 0 && mouseX > 400 && choice === 1) {
                                         Q4 = 1
                                         A4 = 1
                                         Q5 = 0
+                                        choice = 0
                                     }
                                                 //creates text if the Fifth question is active
                                                 if (Q5 === 0) {
                                                 push()
                                                 textSize(30)
                                                 text("I like this Project", 100, 400,)
-                                                push()
+                                                pop()
                                                 push()
                                                 textSize(30)
                                                 text("I Hate this Project", 500, 400,)
                                                 pop()
-                                                textSize(30)
-                                                fill(0,0,0)
-                                                text("Press E to Pick which is your Answer", 150, 40,)
-                                                pop()
-                                                pop()
                                             }
 
-                                            //if E is clicked on the left side A5 set red to 0 and set finished to 1
-                                            if (Q5 === 0 && mouseX < 400 && key === "e") {
-                                                A5 = 0
+                                            //if mouse is clicked on the left side A5 set red to 0 and set finished to 1
+                                            if (Q5 === 0 && mouseX < 400 && choice === 1 ) {
                                                 Q5 = 1
-                                                finished = 1
-                                            }
-
-                                            //if E is clicked on the right side set A5 to 1 and finished to 1
-                                            if (Q5 === 0 && mouseX > 400 && key === "e") {
                                                 A5 = 1
-                                                Q5 = 1
+                                                choice = 0
                                                 finished = 1
                                             }
 
+                                            //if mouse is clicked on the right side set A5 to 1 and finished to 1
+                                            if (Q5 === 0 && mouseX > 400 && choice === 1) {
+                                                Q5 = 1
+                                                A5 = 0
+                                                choice = 0
+                                                finished = 1
+                                            }
+
+if (finished === 0){
+    push()
+    textSize(30)
+    text("Press Mouse to Pick which is your favorite", 150, 40,)
+    pop()
+}
 
     //if finished is set to 1 show results based on answers                                        
-    if (finished === 1) {
-        push()
-        textSize(30)
-        text("Congradulations, here are your results, you chose",100,40)
-        pop()
+if (finished === 1) {
+    push()
+    textSize(30)
+    text("Congradulations, here are your results, you chose",100,40)
+    pop()
+    
     
     //displays dogs answer
     if (A1 === 0) {
-        push()
-        textSize(50)
-        text("Dogs over cats",250,100)
-        pop()
+    push()
+    textSize(50)
+    text("Dogs over cats",250,100)
+    pop()
     }
     //displays cats answer
-    else {
+    if (A1 === 1) {
+    push()
     textSize(40)
     text("cats over dogs",250,100)
+    pop()
     }
         //displays red answer
         if (A2 === 0) {
         push()
-        textSize(50)
+        textSize(40)
         text("Red over blue",250,200)
         pop()
     }
         //displays blue answer
-        else {
-        textsize(40)
+        if (A2 === 1) {
+        push()
+        textSize(40)
         text("Blue over red", 250,200)
+        pop()
         }
             //displays halloween answer
             if (A3 === 0) {
@@ -232,9 +230,11 @@ function draw() {
             pop()
             }
             //displays christmas answer
-            else {
+            if (A3 === 1) {
+            push()
             textSize(40)
             text("Christmas over Halloween", 250,300)
+            pop()
             }
                 //displays Noelling answer
                 if (A4 === 0) {
@@ -244,9 +244,11 @@ function draw() {
                 pop()
                 }
                 //displays Chudlling answer
-                else {
+                if(A4 === 1) {
+                push()
                 textSize(40)
                 text("Chudlling over Noelling",250,400)
+                pop()
                 }
                     //displays like answer
                     if (A5 === 0) {
@@ -256,9 +258,18 @@ function draw() {
                     pop()
                     }
                     //displays hate answer
-                    else {
+                    if (A5 === 1) {
+                    push()
                     textSize(40)
                     text("And you hated this Project :(", 250,500)
+                    pop()
                     }
     }
+}
+
+
+
+
+function mousePressed() {
+    choice = 1
 }
