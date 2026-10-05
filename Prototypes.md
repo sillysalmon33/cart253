@@ -37,19 +37,19 @@
 
 ## Conditions
 
--[Lottery](https://sillysalmon33.github.io/cart253/prototypes/prototypes3/lottery/index.html)
--[Lottery Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes3/lottery/js/lottery.js)
+- [Lottery](https://sillysalmon33.github.io/cart253/prototypes/prototypes3/lottery/index.html)
+- [Lottery Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes3/lottery/js/lottery.js)
 
 ![1](Images/lottery.PNG)
 
 
--[Questions](https://sillysalmon33.github.io/cart253/prototypes/prototypes3/questions/index.html)
--[Questions Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes3/questions/js/questions.js)
+- [Questions](https://sillysalmon33.github.io/cart253/prototypes/prototypes3/questions/index.html)
+- [Questions Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes3/questions/js/questions.js)
 
 ![2](Images/questions.PNG)
 
 
--[Please](https://sillysalmon33.github.io/cart253/prototypes/prototypes3/pleases/index.html)
--[Please Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes3/pleases/js/please.js)
+- [Please](https://sillysalmon33.github.io/cart253/prototypes/prototypes3/pleases/index.html)
+- [Please Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes3/pleases/js/please.js)
 
 ![3](Images/please.PNG)
