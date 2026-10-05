@@ -1,8 +1,8 @@
 /**
- * catch
+ * Lottery
  * kosta
  * 
- * You just found a super cool pokemon, test your luck to see if you can catch them.
+ * Gamble your (imaginary) money away to see what you'll win
  */
 
 "use strict";
@@ -14,7 +14,7 @@ let textb
 
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * creates a canvas and loads an image
 */
  async function setup() {
     createCanvas(800, 800)
@@ -23,42 +23,47 @@ let textb
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * draws a background
 */
 function draw() {
     background(0, 255, 255)
 
+    //displays text, and image and a little guy
     if(win === 0 ) {
     push()
     textSize(25)
-    text("press space to try your luck at this little guy's lottery try to get over 5 ", 40, 25)
+    text("press space to try your luck at this little guy's lottery try to get over 8 ", 40, 25)
     pop()
+
     push()
     image(textb, 120, 210, 200, 200)
     pop()
+
     push()
     textSize(15)
     text("I can be trusted with", 150,280)
     text("your money", 150, 300)
     pop()
+
     push()
     drawlittleguy(translate(100, 200,))
     pop()
     }
 
 
-
+        //if mouse is clicked pickes a whole numebr between 1 and 10
         if(play === 1){
         push()
         chance = floor (random(1, 10))
         pop()
         }
 
-
+            //if its higher or equal to 8 you win
             if (chance >= 8 ){
             win = 1
             play = 0
             }
+                // if its lower than 8 you lose and display your number with text
                 if (chance < 8){
                 push()
                 textSize(30)
@@ -66,7 +71,7 @@ function draw() {
                 play = 0
                 pop()
             }
-
+//displays text when you win and removes everything else
 if (win === 1) {
     textSize(30)
     text("Congradulations you didnt get anything :D", 110, 400)
@@ -76,7 +81,7 @@ if (win === 1) {
 }
 
 }
-
+//if mouse clicked makes play 1 so its interactable
 function keyPressed() {
     play = 1
 }
@@ -85,29 +90,6 @@ function keyPressed() {
 
 
 
-function drawpokeball() {
-    push()
-    fill(255, 10, 10)
-    circle(250, 250, 100)
-    pop()
-
-    push()
-    fill(255, 255, 255)
-    arc(250, 250, 100, 100, 0, PI)
-    pop()
-
-    push()
-    fill(255, 255, 255)
-    stroke(5)
-    line(200, 250, 300, 250)
-    pop()
-
-    push()
-    fill(255, 255, 255)
-    stroke(50)
-    circle(250, 250, 10)
-    pop()
-}
 
 function drawlittleguy() {
     //main head
