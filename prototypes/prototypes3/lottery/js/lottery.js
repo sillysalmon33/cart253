@@ -16,10 +16,10 @@ let textb
 /**
  * creates a canvas and loads an image
 */
- async function setup() {
+async function setup() {
     createCanvas(800, 800)
     textb = await loadImage('images/textb.png')
- }
+}
 
 
 /**
@@ -29,56 +29,56 @@ function draw() {
     background(0, 255, 255)
 
     //displays text, and image and a little guy
-    if(win === 0 ) {
-    push()
-    textSize(25)
-    text("press space to try your luck at this little guy's lottery try to get over 8 ", 40, 25)
-    pop()
+    if (win === 0) {
+        push()
+        textSize(25)
+        text("press space to try your luck at this little guy's lottery try to get over 8 ", 40, 25)
+        pop()
 
-    push()
-    image(textb, 120, 210, 200, 200)
-    pop()
+        push()
+        image(textb, 120, 210, 200, 200)
+        pop()
 
-    push()
-    textSize(15)
-    text("I can be trusted with", 150,280)
-    text("your money", 150, 300)
-    pop()
+        push()
+        textSize(15)
+        text("I can be trusted with", 150, 280)
+        text("your money", 150, 300)
+        pop()
 
-    push()
-    drawlittleguy(translate(100, 200,))
-    pop()
+        push()
+        drawlittleguy(translate(100, 200,))
+        pop()
     }
 
 
-        //if mouse is clicked pickes a whole numebr between 1 and 10
-        if(play === 1){
+    //if mouse is clicked pickes a whole numebr between 1 and 10
+    if (play === 1) {
         push()
-        chance = floor (random(1, 10))
+        chance = floor(random(1, 10))
         pop()
-        }
+    }
 
-            //if its higher or equal to 8 you win
-            if (chance >= 8 ){
-            win = 1
-            play = 0
-            }
-                // if its lower than 8 you lose and display your number with text
-                if (chance < 8){
-                push()
-                textSize(30)
-                text(`Oh you only got ${chance} try again`, 200, 100)
-                play = 0
-                pop()
-            }
-//displays text when you win and removes everything else
-if (win === 1) {
-    textSize(30)
-    text("Congradulations you didnt get anything :D", 110, 400)
+    //if its higher or equal to 8 you win
+    if (chance >= 8) {
+        win = 1
+        play = 0
+    }
+    // if its lower than 8 you lose and display your number with text
+    if (chance < 8 && win === 0 && chance > 0) {
+        push()
+        textSize(30)
+        text(`Oh you only got ${chance} try again`, 200, 100)
+        play = 0
+        pop()
+    }
+    //displays text when you win and removes everything else
+    if (win === 1) {
+        textSize(30)
+        text("Congradulations you didnt get anything :D", 110, 400)
 
 
 
-}
+    }
 
 }
 //if mouse clicked makes play 1 so its interactable
