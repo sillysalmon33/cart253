@@ -8,7 +8,7 @@
 "use strict";
 
 
-let win = random(1, 10)
+let win = 0
 let start = 1
 let throw1 = 0
 let throw2 = 0
@@ -30,12 +30,12 @@ let trainer4
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
 async function setup() {
-    createCanvas(500, 500)
-    trainer1 = await loadImage('images/')
-    trainer2 = await loadImage('images/')
-    trainer3 = await loadImage('images/')
-    trainer4 = await loadImage('images/')
-    shakeA = await loadSound('images/')
+    createCanvas(800, 800)
+    trainer1 = await loadImage('images/trainer1.png')
+    trainer2 = await loadImage('images/trainer2.png')
+    trainer3 = await loadImage('images/trainer3.png')
+    trainer4 = await loadImage('images/trainer4.png')
+    //shakeA = await loadSound('images/')
 }
 
 
@@ -48,7 +48,7 @@ function draw() {
     //loads the first trainer spite and text if the game hasnt started yet
     if (start === 1) {
         t1 = 1
-        image(img, x, y, width, height)
+        image(trainer1, 0, 600, 200, 200)
         textSize()
         text(str, x, y, x2, y2)
     }
@@ -63,26 +63,26 @@ function draw() {
 
     //switches trainer sprite when space bar is pressed
     if (key === ' ' && start === 1) {
-        image(trainer1, x, y, width, height)
+        image(trainer1, 0, 600, 200, 200)
         start = 0
         t1 = 0
         t2 = 1
     }
 
     if (t2 === 1) {
-        image(trainer2, x, y, width, height)
+        image(trainer2, 0, 600, 200, 200)
         t2 = 0
         t3 = 1
     }
 
     if (t3 === 1) {
-        image(trainer3, x, y, width, height)
+        image(trainer3, 0, 600, 200, 200)
         t3 = 0
         t4 = 1
     }
 
     if (t4 === 1) {
-        image(trainer4, x, y, width, height)
+        image(trainer4, 0, 600, 200, 200)
         t4 = 0
         t1 = 1
         throw1 = 1
