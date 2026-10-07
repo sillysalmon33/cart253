@@ -1,7 +1,7 @@
 # Prototypes
 
-## [Journal](journal.md)
-## [README](README.md)
+# [Journal](journal.md)
+# [README](README.md)
 
 ## Intrsuctions
 - [3D Scene](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/3D_model/index.html)
