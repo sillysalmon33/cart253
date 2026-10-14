@@ -8,6 +8,8 @@
 
 "use strict";
 
+// google kept saying it didnt know what push() or nofill() meant in functions, I dont know how to fix it plus the settimeout wouldnt work
+
 
 let BG = {
     r: 235,
