@@ -79,47 +79,47 @@ if (keyIsDown("a") === true) {
     A1.play()
 }
 
-if (keyIsDown(w) === true) {
+if (keyIsDown("w") === true) {
     A2.play()
 }
 
-if (keyIsDown(d) === true) {
+if (keyIsDown("d") === true) {
     A3.play()
 }
 
-if (keyIsDown(r) === true) {
+if (keyIsDown("r") === true) {
     A4.play()
 }
 
-if (keyIsDown(f) === true) {
+if (keyIsDown("f") === true) {
     A5.play()
 }
 
-if (keyIsDown(g) === true) {
+if (keyIsDown("g") === true) {
     A6.play()
 }
 
-if (keyIsDown(t) === true) {
+if (keyIsDown("t") === true) {
     A7.play()
 }
 
-if (keyIsDown(h) === true) {
+if (keyIsDown("h") === true) {
     A8.play()
 }
 
-if (keyIsDown(u) === true) {
+if (keyIsDown("u") === true) {
     A9.play()
 }
 
-if (keyIsDown(a) === true) {
+if (keyIsDown("j") === true) {
     A10.play()
 }
 
-if (keyIsDown(a) === true) {
+if (keyIsDown("k") === true) {
     A11.play()
 }
 
-if (keyIsDown(a) === true) {
+if (keyIsDown("i") === true) {
     A12.play()
 }
 }

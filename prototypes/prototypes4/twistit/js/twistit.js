@@ -75,8 +75,11 @@ if (WrongKey === 1) {
 
 }
 
+/*
 if (keyReleased(Key1 || Key2 || Key3 || Key4) === true) {
     Lose = 1
 
 }
+ */
+
 }
