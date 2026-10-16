@@ -52,33 +52,6 @@ function draw() {
 }
 
 
-function first() {
-
-    push();
-    noStroke()
-    fill(20, 200, 90)
-    rect(0, 600, 800, 800)
-    pop();
-}
-
-function seconds() {
-
-    push();
-    noStroke()
-    fill(160, 0, 90)
-    rect(0, 400, 800, 800)
-    pop();
-}
-
-
-if (sunrise === 1) {
-    first()
-}
-
-if (day === 1) {
-    seconds()
-}
-
 function changes() {
     sunrise = 0
     day = 1
