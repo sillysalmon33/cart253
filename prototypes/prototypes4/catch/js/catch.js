@@ -240,7 +240,7 @@ function BallShake() {
 function Final() {
     //picks a random number between 1-10 for chance sets wait to 0 so it does it once, sets Escape to 1 and sets S4 to 0 to remove pokeball
     if (wait === 1) {
-        chance = floor(random(7, 10))
+        chance = floor(random(1, 10))
         wait = 0
         Escape = 1 // usesed to make sure fail condition isnt triggered all the time because !changce === 0 doesnt work for some reason
         S4 = 0
