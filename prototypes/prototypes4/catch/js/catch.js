@@ -9,6 +9,7 @@
 
 
 let win = 0 //the win condition
+let WinA = 0 //condition so win audio only plays once
 let start = 1 //the start condition
 let fail = 0 //let the game know if you failed
 let Input = 0 // variable for if the user presses a key
@@ -41,6 +42,7 @@ let trainer2 // second trainer sprit
 let trainer3 // third trainer sprit
 let trainer4 // forth trainer sprit
 let shakeA // shake audio
+let catchA // catch audio
 
 /**
  * loads a canvas, 4 trainer sprites and shake audio
@@ -51,7 +53,8 @@ async function setup() {
     trainer2 = await loadImage('images/trainer2.png')
     trainer3 = await loadImage('images/trainer3.png')
     trainer4 = await loadImage('images/trainer4.png')
-    //shakeA = await loadSound('images/')
+    catchA = await loadSound('images/catch.mp3')
+    shakeA = await loadSound('images/shake.mp3')
 
     //waits 0.3 seconds to switch trainer sprites to make it not instant
     setInterval(ChangeSprite, 300)
@@ -197,6 +200,7 @@ function BallShake() {
         shake1 = 1
         shake3 = 0
         S0 = 1
+        shakeA.play()
     }
     else if (shake1 === 1 && S1 === 0 && S2 === 0 && S3 === 0) {
         shake1 = 0
@@ -236,7 +240,7 @@ function BallShake() {
 function Final() {
     //picks a random number between 1-10 for chance sets wait to 0 so it does it once, sets Escape to 1 and sets S4 to 0 to remove pokeball
     if (wait === 1) {
-        chance = floor(random(1, 10))
+        chance = floor(random(7, 10))
         wait = 0
         Escape = 1 // usesed to make sure fail condition isnt triggered all the time because !changce === 0 doesnt work for some reason
         S4 = 0
@@ -246,6 +250,12 @@ function Final() {
             win = 1
             wait = 0
     }
+    //makes it so win audio only plays once
+    if (WinA === 0 && win === 1){
+        WinA = 1
+        catchA.play()
+    }
+
     //if change is lower than 7 and escape is set to 1 sets a bunch of veriables back to 0 just to be safe and adds 1 to the fail variable to know if the user failed atleast once
     if (chance <= 6 && Escape === 1) {
             chance = false
