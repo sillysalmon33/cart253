@@ -39,10 +39,12 @@ function setup() {
 */
 function draw() {
     background(R, G, B)
-
     R = constrain(R, 0, 255)
     G = constrain(G, 0, 255)
     B = constrain(B, 0, 255)
+
+    //draws the cirlcel to repressent the user
+    DrawYou()
 
 
 
@@ -72,13 +74,6 @@ function draw() {
         G -= 6
         B -= 4
     }
-
-
-    fill(255, 255, 255)
-    text(`${R}`, 400, 30)
-    text(`${G}`, 400, 60)
-    text(`${B}`, 400, 90)
-    DrawYou()
 }
 
 
