@@ -43,10 +43,15 @@ function draw() {
     G = constrain(G, 0, 255)
     B = constrain(B, 0, 255)
 
+    push()
+    textSize(20)
+    fill(255,255,255)
+    textAlign(CENTER, TOP)
+    text("Move around and try to see what pretty colors you can make", 400, 20)
+    pop()
+
     //draws the cirlcel to repressent the user
     DrawYou()
-
-
 
     //if the arrow keys or wasd keys are pressed move the player and change the color of the background by set numbers
 
