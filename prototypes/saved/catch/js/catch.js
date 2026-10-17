@@ -63,14 +63,22 @@ async function setup() {
 
 
 /**
- * creates a back ground and loads the trainer sprites if conditions are met
+ * creates a back ground and loads the trainer sprites if conditions are met and grass
 */
 function draw() {
     background(0, 255, 255)
+    //grass
+    push()
+    noStroke()
+    fill(112, 192, 160)
+    rect(0, 150, 800, 800,)
+    pop()
+    //sprites
     Sprite1()
     Sprite2()
     Sprite3()
     Sprite4()
+
 
     //loads the first trainer spite and text if the game hasnt started yet
     if (start === 1) {
