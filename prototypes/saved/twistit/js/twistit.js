@@ -19,6 +19,10 @@ let Lose = 0
 let PressedKey = 0
 
 
+
+//does not register that the key you press it the same as the keys in the key list
+
+
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
