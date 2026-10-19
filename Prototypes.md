@@ -3,6 +3,12 @@
 # [Journal](journal.md)
 # [README](README.md)
 
+
+[Intructions](#Instructions)
+[Variables](#variables)
+[Conditions](#conditions)
+[Events](#events)
+
 ## Intrsuctions
 - [3D Scene](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/3D_model/index.html)
 - [3D Scene Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes1/3D_model/js/3D_Model.js)
