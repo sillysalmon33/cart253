@@ -36,7 +36,8 @@ function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background(0,255,255)
+    background(0, 255, 255)
+
 
     push()
     textSize(20)
@@ -54,36 +55,37 @@ function draw() {
 
 
 
-if (Key1 === keyIsDown() === true){
 
-    Lose = 1
-    Key2 = random(KeyList)
-}
+    if (keyIsDown(Key1) === true) {
+
+        Lose = 1
+        Key2 = random(KeyList)
+    }
 
 
 
 
-function NewestKey() {
+    function NewestKey() {
+
+    }
+
+
+
+
+
+
+
+    // the 2 lose states, pressing the wrong key and letting go
+    if (WrongKey === 1) {
+        lose = 1
+
+    }
+
+    /*
+    if (keyReleased(Key1 || Key2 || Key3 || Key4) === true) {
+        Lose = 1
     
-}
-
-
-
-
-
-
-
-// the 2 lose states, pressing the wrong key and letting go
-if (WrongKey === 1) {
-    lose = 1
-
-}
-
-/*
-if (keyReleased(Key1 || Key2 || Key3 || Key4) === true) {
-    Lose = 1
-
-}
- */
+    }
+     */
 
 }
