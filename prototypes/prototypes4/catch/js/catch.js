@@ -245,8 +245,8 @@ function Final() {
         Escape = 1 // usesed to make sure fail condition isnt triggered all the time because !changce === 0 doesnt work for some reason
         S4 = 0
     }
-    //if change is higher or equal to 7 set win to 1 and end the game
-    if (chance >= 7) {
+    //if change is higher or equal to 8 set win to 1 and end the game
+    if (chance >= 8) {
         win = 1
         wait = 0
     }
