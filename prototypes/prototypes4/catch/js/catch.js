@@ -85,27 +85,27 @@ function draw() {
 
     //loads the first trainer spite and text if the game hasnt started yet
     if (start === 1) {
-    push()
-    textSize(20)
-    textAlign(CENTER, TOP)
-    text("Press the keyboard to catch the pokemon", 400, 20)
-    pop()
+        push()
+        textSize(20)
+        textAlign(CENTER, TOP)
+        text("Press The Keyboard To Catch The Pokémon", 400, 20)
+        pop()
     }
     //if the user fails atleast once display this text
-    if (start === 1 && fail === 1){
-    push()
-    textSize(20)
-    textAlign(CENTER, TOP)
-    text("Oh no! it broke out. Try again", 400, 40)  
-    pop()
+    if (start === 1 && fail === 1) {
+        push()
+        textSize(20)
+        textAlign(CENTER, TOP)
+        text("Oh No! It Broke Out. Try Again", 400, 40)
+        pop()
     }
     // if the user wins display this text
-    if (win === 1){
-    textSize(30)
-    push()
-    textAlign(CENTER, CENTER)
-    text("Congradulations you caught a little guy", 400, 40)
-    pop()
+    if (win === 1) {
+        textSize(30)
+        push()
+        textAlign(CENTER, CENTER)
+        text("Congradulations You Caught 'A Little Guy'", 400, 40)
+        pop()
     }
 
     //if the pokemon isnt in the ball render it
@@ -161,8 +161,8 @@ function draw() {
         wait = 1
     }
     //renders a still pokeball for 4.5 seconds when the user is waiting to see if they won when S4=1
-    if (S4 === 1){
-    drawpokeball(translate(BX2, BY2))
+    if (S4 === 1) {
+        drawpokeball(translate(BX2, BY2))
     }
 
 
@@ -247,32 +247,32 @@ function Final() {
     }
     //if change is higher or equal to 7 set win to 1 and end the game
     if (chance >= 7) {
-            win = 1
-            wait = 0
+        win = 1
+        wait = 0
     }
     //makes it so win audio only plays once
-    if (WinA === 0 && win === 1){
+    if (WinA === 0 && win === 1) {
         WinA = 1
         catchA.play()
     }
 
     //if change is lower than 7 and escape is set to 1 sets a bunch of veriables back to 0 just to be safe and adds 1 to the fail variable to know if the user failed atleast once
     if (chance <= 6 && Escape === 1) {
-            chance = false
-            wait = 0
-            ball = 0
-            start = 1
-            Input = 0
-            fail = 1
-            Escape = 0
-            throw1 = 0
-            shake1 = 0
-            shake2 = 0
-            shake3 = 0
-            S0 = 0
-            S1 = 0
-            S2 = 0
-            S3 = 0
+        chance = false
+        wait = 0
+        ball = 0
+        start = 1
+        Input = 0
+        fail = 1
+        Escape = 0
+        throw1 = 0
+        shake1 = 0
+        shake2 = 0
+        shake3 = 0
+        S0 = 0
+        S1 = 0
+        S2 = 0
+        S3 = 0
     }
 }
 
