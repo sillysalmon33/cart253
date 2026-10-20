@@ -48,3 +48,10 @@ let NAME = {
   ex:blue,
   ex:green,
 }
+
+//-------------------------------------------------------------------------------
+
+createCanvas(windowWidth, windowHeight)
+
+hopfully makes canvas full screan
+
