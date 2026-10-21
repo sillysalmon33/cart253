@@ -1,12 +1,15 @@
 /**
- * Title of Project
- * Author Name
+ * Make your own Room
+ * Kosta
  * 
  * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
  * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
  */
 
 "use strict";
+
+
+//the user picks the color of different items (wallpaper, chairs, etc) and creates their own room
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
