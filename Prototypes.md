@@ -10,6 +10,9 @@
 - [Conditions](#conditions)
 - [Events](#events)
 - [Functions](#functions)
+- [Arrays](#arrays)
+- [Loops](#loops)
+- [Data](#data)
 
 ## Intrsuctions
 - [3D Scene](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/3D_model/index.html)
@@ -82,6 +85,63 @@
 ![Sun](Images/sun.PNG)
 
 ## Functions
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+## Arrays
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+## Loops
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+
+- [p1]()
+- [p2]()
+
+- [i]()
+
+## Data
 
 - [p1]()
 - [p2]()
