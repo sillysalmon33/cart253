@@ -9,6 +9,7 @@
 - [Variables](#variables)
 - [Conditions](#conditions)
 - [Events](#events)
+- [Functions](#functions)
 
 ## Intrsuctions
 - [3D Scene](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/3D_model/index.html)
@@ -79,4 +80,23 @@
 - [Sun Code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes4/sun/js/sun.js)
 
 ![Sun](Images/sun.PNG)
+
+## Functions
+
+-[p1]()
+-[p2]()
+
+-[i]()
+
+
+-[p1]()
+-[p2]()
+
+-[i]()
+
+
+-[p1]()
+-[p2]()
+
+-[i]()
 
