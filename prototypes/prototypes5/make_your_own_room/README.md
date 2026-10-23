@@ -2,11 +2,11 @@
 
 Kosta
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://sillysalmon33.github.io/cart253/prototypes/prototypes5/make_your_own_room/index.html)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+You've just moved into your new (1 room) apartment and you want to decarate it (with 2 items and paint)
 
 ## Attribution
 

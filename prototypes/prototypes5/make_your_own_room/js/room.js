@@ -2,8 +2,7 @@
  * Make your own Room
  * Kosta
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * You've just moved into your new (1 room) apartment and you want to decarate it (with 2 items and paint)
  */
 
 "use strict";
@@ -44,7 +43,7 @@ let LChoice2 = 0
  * creates canvas and 4 color pickers on top of one another
 */
 function setup() {
-    createCanvas(windowWidth, windowHeight)
+    createCanvas(windowWidth, windowHeight) // If this breaks on other screans put: 1919, 920
     colorPicker = createColorPicker('white')
     colorPicker.position(200, 100)
 
