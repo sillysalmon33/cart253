@@ -89,74 +89,74 @@
 - [Room](https://sillysalmon33.github.io/cart253/prototypes/prototypes5/make_your_own_room/index.html)
 - [Room Code](https://sillysalmon33.github.io/cart253/prototypes/prototypes5/make_your_own_room/js/room.js)
 
-- [Room](Images/room.PNG)
+![Room](Images/room.PNG)
 
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
+![i]()
 
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
+![i]()
 
 ## Arrays
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
-
-
-- [p1]()
-- [p2]()
-
-- [i]()
+![i]()
 
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
+![i]()
+
+
+- [p1]()
+- [p2 code]()
+
+![i]()
 
 ## Loops
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
-
-
-- [p1]()
-- [p2]()
-
-- [i]()
+![i]()
 
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
+![i]()
+
+
+- [p1]()
+- [p2 code]()
+
+![i]()
 
 ## Data
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
-
-
-- [p1]()
-- [p2]()
-
-- [i]()
+![i]()
 
 
 - [p1]()
-- [p2]()
+- [p2 code]()
 
-- [i]()
+![i]()
+
+
+- [p1]()
+- [p2 code]()
+
+![i]()
 
