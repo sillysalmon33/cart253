@@ -20,24 +20,14 @@ let Wallcolor = "#ffffff"
 let Fcolor = "#ffffff"
 let Ccolor = "#ffffff"
 let GColor = "#ffffff"
-let Choice = 0
 let colorPicker
 let colorPicker2
 let colorPicker3
 let colorPicker4
-let input = 0
 let Finished = false
 let LChoice1 = 0
 let LChoice2 = 0
 
-
-
-
-
-
-
-
-//the user picks the color of different items (wallpaper, poster, etc) and creates their own room
 
 /**
  * creates canvas and 4 color pickers on top of one another
