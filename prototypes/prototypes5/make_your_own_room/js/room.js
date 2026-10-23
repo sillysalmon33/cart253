@@ -9,25 +9,18 @@
 "use strict";
 
     
-let WLocation = {
-    X:0,
-    Y:0
-}
-let Wallcolor = {
-    R:10,
-    G:0,
-    B:0
-}
-let Fcolor = {
-    R:0,
-    G:0,
-    B:10
-}
-let Ccolor = {
-    R:0,
-    G:20,
-    B:255
-}
+let WLocation ="#ffffff"
+let Wallcolor = "#ffffff"
+let Fcolor = "#ffffff"
+let Ccolor = "#ffffff"
+let Choice = 0
+let colorPicker
+let colorPicker2
+let colorPicker3
+let colorPicker4
+let input = 0
+let Finished = false
+
 
 
 
@@ -40,9 +33,19 @@ let Ccolor = {
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
-async function setup() {
+function setup() {
     createCanvas(windowWidth, windowHeight)
+    colorPicker = createColorPicker('white')
+    colorPicker.position(200, 100)
 
+    colorPicker2 = createColorPicker('white')
+    colorPicker2.position(200, 150)
+
+    colorPicker3 = createColorPicker('white')
+    colorPicker3.position(200, 200)
+
+    colorPicker4 = createColorPicker('white')
+    colorPicker4.position(200, 250)
 }
 
 
@@ -51,18 +54,36 @@ async function setup() {
 */
 function draw() {
     background(150, 0, 0)
-
+    Wallcolor = colorPicker.value()   
+    Fcolor = colorPicker2.value()
+    Ccolor = colorPicker3.value()
 
 Room(Wallcolor, Fcolor, Ccolor)
 Window(WLocation)
 
 
+if (Finished === false){
+    push()
+    fill(0,0,0,)
+    text("Wall Color", 125, 117)
+    text("Floor Color", 125, 167)
+    text("Celling Color", 120, 217)
+    text("Chair Color", 125, 267)
+    pop()
+
+    push()
+    textSize(20)
+    textAlign(CENTER, TOP)
+    text("Pick The colors Of Your Room, When Your Done Press Space", width/2, 20)
+    pop()
+}
 
 push()
 fill(0)
 textSize(16)
-text(`X: ${mouseX}, Y: ${mouseY}`, 20, 30)
+text(`X: ${Wallcolor}, Y: ${Choice}`, 20, 30)
 pop()
+
 
 
 }
@@ -71,22 +92,22 @@ pop()
 function Room(Wallcolor, Fcolor, Ccolor) {
 
 push()
-fill(Wallcolor.R, Wallcolor.G, Wallcolor.B)
+fill(Wallcolor)
 quad(0,0,840,150,840,550,0,800) // left wall
 pop()
 
 push()
-fill(Wallcolor.R, Wallcolor.G, Wallcolor.B)
+fill(Wallcolor)
 quad(840,150, 2000, 150, 2000, 550, 840, 550) //right wall
 pop()
 
 push()
-fill(Fcolor.R, Fcolor.G, Fcolor.B)
+fill(Fcolor)
 quad(-500,950,840,550,2000,550,2000,950) // floor
 pop()
 
 push()
-fill(Ccolor.R, Ccolor.G, Ccolor.B)
+fill(Ccolor)
 quad(0, 0, 2000, 0, 2000, 150, 840, 150) //celling
 pop()
 }
@@ -113,3 +134,5 @@ pop()
 function LittleGuyPoster(GLocation) {
     
 }
+
+
