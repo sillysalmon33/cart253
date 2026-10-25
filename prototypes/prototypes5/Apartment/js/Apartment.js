@@ -43,7 +43,7 @@ function setup() {
  * creates a black background and 2 floor and then dublicates those floors 200 and 400 units down
 */
 function draw() {
-    background(0, 0, 0)
+    background(20,50,200)
 
     Apartment()
     F2()
