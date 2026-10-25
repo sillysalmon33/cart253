@@ -1,9 +1,8 @@
 /**
- * balls
+ * Balls
  * kosta
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * You are exploring a museum and have discover the Jackson Pollock (the guy who painted with dots) machine and desided to try it out
  */
 
 "use strict";
@@ -20,11 +19,14 @@ let Ball9 = undefined
 let Ball10 = undefined
 let Ball11 = undefined
 let Ball12 = undefined
+let R = undefined
+let G = undefined
+let B = undefined
 
 
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * creates a canvas and chooses a randow location, size, and color for each ball
 */
 function setup() {
     createCanvas(800,800)
@@ -41,21 +43,25 @@ function setup() {
     Ball10 = createBall(random(1,1000), random(1,1000), random(1,500),random(1,255),random(1,255),random(1,255))
     Ball11 = createBall(random(1,1000), random(1,1000), random(1,500),random(1,255),random(1,255),random(1,255))
     Ball12 = createBall(random(1,1000), random(1,1000), random(1,500),random(1,255),random(1,255),random(1,255))
+    //sets a random backroung color
+    R = random(1,255)
+    G = random(1,255)
+    B = random(1,255)
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * sets a random background color
 */
 function draw() {
-    background(0, 255, 0)
+    background(R,G,B)
 
-
+//renders 12 ball
 drawBalls()
 
 
 }
-
+//assigns each ball a randow x y size and color
 function createBall(x, y, size, r,g,b) {
     const Ball = {
         x: x,
@@ -67,7 +73,7 @@ function createBall(x, y, size, r,g,b) {
     }
     return Ball
 }
-
+//renders 12 balls
 function drawBalls() {
     drawBall(Ball1)
     drawBall(Ball2)
@@ -83,7 +89,7 @@ function drawBalls() {
     drawBall(Ball12)
 }
 
-
+//draws a ball with random color size and location set my Ball const
 function drawBall(Ball) {
     push()
     noStroke()

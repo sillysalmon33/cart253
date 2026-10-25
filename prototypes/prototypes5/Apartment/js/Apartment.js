@@ -2,7 +2,7 @@
  * Apartment
  * Konstantinos
  * 
- * You are deciding which apartment you're going to live at (is this a prequal to rooms)
+ * You are deciding which apartment you're going to live at (is this a prequal to room?)
  */
 
 "use strict";

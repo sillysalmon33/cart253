@@ -6,7 +6,7 @@ kosta
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+You are exploring a museum and have discover the Jackson Pollock (the guy who painted with dots) machine and desided to try it out
 
 ## Attribution
 
