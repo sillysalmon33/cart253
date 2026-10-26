@@ -51,13 +51,21 @@ function setup() {
 
 
 /**
- * sets a random background color
+ * sets a random background color and renders text
 */
 function draw() {
     background(R,G,B)
 
 //renders 12 ball
 drawBalls()
+
+    push()
+    fill(0,0,0)
+    textSize(20)
+    textAlign(CENTER, TOP)
+    text("Refresh the Page to See what else you can make", 400, 10)
+    pop()
+
 
 
 }

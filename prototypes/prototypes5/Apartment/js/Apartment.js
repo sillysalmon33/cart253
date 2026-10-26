@@ -40,15 +40,20 @@ function setup() {
 
 
 /**
- * creates a black background and 2 floor and then dublicates those floors 200 and 400 units down
+ * creates a black background and 2 floor and then dublicates those floors 200 and 400 units down and renders text
 */
 function draw() {
     background(20,50,200)
 
     Apartment()
     F2()
-    reset()
 
+    push()
+    fill(0,0,0)
+    textSize(20)
+    textAlign(CENTER, TOP)
+    text("Refresh the Page to See what else you can make", 500, 50)
+    pop()
 }
 
 //lets the rooms location and color and windows location be changed
