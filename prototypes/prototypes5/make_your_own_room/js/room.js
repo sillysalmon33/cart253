@@ -80,7 +80,7 @@ function draw() {
         textSize(20)
         textAlign(CENTER, TOP)
         text("Pick The colors Of Your Room, When Your Done Press Space", width / 2, 20)
-        text("move your mouse to deside where to place the window", width / 2, 50)
+        text("move your mouse to deside where to place the window and Poster", width / 2, 50)
         pop()
 
         push()
