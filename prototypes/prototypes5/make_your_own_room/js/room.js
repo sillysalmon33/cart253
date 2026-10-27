@@ -33,7 +33,7 @@ let LChoice2 = 0
  * creates canvas and 4 color pickers on top of one another
 */
 function setup() {
-    createCanvas(2000, 915)
+    createCanvas(2000, 800)
     colorPicker = createColorPicker('white')
     colorPicker.position(250, 105)
 
