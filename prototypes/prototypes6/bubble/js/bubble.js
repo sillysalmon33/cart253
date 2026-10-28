@@ -20,12 +20,11 @@ let max = 0
 
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * createss a 1000 by 1000 canvas and loads the pop sound
 */
 function setup() {
     createCanvas(1000, 1000)
-
-
+    popsound = loadSound("assets/sounds/pop_sfx.mp3")
 }
 
 
