@@ -8,7 +8,7 @@
 
 "use strict";
 
-//ever couple of seconds a bubble spawns that the user can pop (will play a popping sound) and if all the bubbles are popped a sad face apears asking why you poped all the bubbles (add bubble icon for the site in the html file) (maybe if there are less bubbles, the bubbles apear faster (use 2 different setintervals with a variable to tell which one to use))
+//ever couple of seconds a bubble spawns that the user can pop (will play a popping sound) and if all the bubbles are popped a sad face apears asking why you poped all the bubbles (add bubble icon for the site in the html file)  if there are less bubbles, the bubbles apear faster.
 
 let Bubbles = []
 let Fast = false
