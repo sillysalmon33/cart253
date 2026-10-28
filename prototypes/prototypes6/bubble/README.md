@@ -13,6 +13,7 @@ This description should help the reader understand what the program is, anything
 This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
+> - Bubble popping code from Pippen Bar
 
 
 ## License

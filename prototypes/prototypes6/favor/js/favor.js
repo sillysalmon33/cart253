@@ -20,7 +20,7 @@ let YourAnswer = "#ffffff"
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
 function setup() {
-    createCanvas(1000, 1000)
+    createCanvas(900, 900)
 
     colorPicker = createColorPicker('white')
     colorPicker.position(500, 500) // replace with x and y values that are randomly generated (the values change by adding and then subtracting a number to move it on and off screen when needed)

@@ -11,8 +11,8 @@
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
-function setup() {
-    createCanvas(1000, 1000)
+async function setup() {
+    createCanvas(900, 900)
 }
 
 
