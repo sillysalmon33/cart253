@@ -12,7 +12,7 @@
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
 */
 function setup() {
-    createCanvas(500, 500)
+    createCanvas(1000, 1000)
 }
 
 
