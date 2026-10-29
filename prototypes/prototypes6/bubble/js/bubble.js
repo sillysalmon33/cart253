@@ -16,6 +16,8 @@ let Started = false
 let Finished = false
 let popsound
 let Emoji
+let sad
+let AudioTrigger = 0
 let B1 = 0
 let B2 = 0
 let B3 = 0
@@ -25,11 +27,12 @@ let MaxBubbles = 50
 
 
 /**
- * createss a 900 by 900 canvas and loads the pop sound
+ * createss a 900 by 900 canvas and loads 2 sounds and a
 */
 async function setup() {
     createCanvas(900, 900)
     popsound = await loadSound('assets/sounds/pop.mp3')
+    sad = await loadSound('assets/sounds/sad.mp3')
     Emoji = await loadImage('assets/images/DustEmoji.gif')
 }
 
@@ -68,7 +71,7 @@ function draw() {
     if (NumberOfBubbles === 0 && Started === true) {
     Finished = true
 }
-    //if the game is finished display text and an image
+    //if the game is finished display text and an image and adds 1 to audio trigger
     if (Finished === true){
         push()
         image(Emoji, 0, 0, width, height)
@@ -79,6 +82,12 @@ function draw() {
         textAlign(CENTER, CENTER)
         text("Why did you pop all the bubbles 🥺", 450, 450)
         pop()
+        AudioTrigger++
+    }
+
+    // if Audio trigger is 1 play a sad sfx
+    if (AudioTrigger === 1){
+        sad.play()
     }
 }
 
