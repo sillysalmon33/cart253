@@ -12,13 +12,16 @@
 
 let Bubbles = []
 let Fast = true
+let Started = false
 let Finished = false
 let popsound
+let Emoji
 let B1 = 0
 let B2 = 0
+let B3 = 0
 let NumberOfBubbles = 0
 let MaxBubbles = 50
-let Started = false
+
 
 
 /**
@@ -27,6 +30,7 @@ let Started = false
 async function setup() {
     createCanvas(900, 900)
     popsound = await loadSound('assets/sounds/pop.mp3')
+    Emoji = await loadImage('assets/images/DustEmoji.gif')
 }
 
 
@@ -35,36 +39,47 @@ async function setup() {
 */
 function draw() {
     background(50, 35, 90)
-    //creates the bubbles
+
+    //creates the bubbles in an array
     for (let bubble of Bubbles) {
         Bubble(bubble)
     }
+    
     //blows bubbles every ~5 seconds
     blowslow()
-    //blows bubbles every ~2.5 seconds
+    //blows bubbles every ~2 seconds
     blowfast()
+    //blows bubbles extremely fast for the first 25 bubbles if the user hasnt popped any bubbles
+    blowSuperfast()
 
     //when the number of bubbles is 25 make bubbles spawn slower
     if (NumberOfBubbles > 25){
         Fast = false
     }
-
-    //when all the bubbles have been popped and the user pressed a bubble finish the game and stop bubbles from spawning
+    //if no bubbles where popped display this text
+    if (Started === false){
+        push()
+        textSize(20)
+        textAlign(CENTER, TOP)
+        text("Try to pop all the bubbles with your mouse", 450, 20)
+        pop()
+    }
+    //when all the bubbles have been popped and the game has started finish the game and stop bubbles from spawning
     if (NumberOfBubbles === 0 && Started === true) {
     Finished = true
 }
     //if the game is finished display text and an image
     if (Finished === true){
         push()
+        image(Emoji, 0, 0, width, height)
+        pop()
 
+        push()
+        textSize(50)
+        textAlign(CENTER, CENTER)
+        text("Why did you pop all the bubbles 🥺", 450, 450)
         pop()
     }
-
-    fill(0)
-textSize(16)
-
-text(`X: ${Finished}, Y: ${NumberOfBubbles}`, 100, 300)
-
 }
 
 //creates bubbles at the random location specified in bubble.D
@@ -86,8 +101,8 @@ function Bubble(bubbleD) {
 //creates the values for a new bubble at a random location and set size
 function BlowBubble() {
     let bubbleD = {
-        x: random(10, width),
-        y: random(10, height),
+        x: random(20, width - 20),
+        y: random(20, height - 20),
         size:40
     }
     return bubbleD;
@@ -100,12 +115,12 @@ function BlowBubblesNow() {
 }
 
 //creates bubbles slowly
-//if the NumberOfBubbles amount of bubbles hasnt been reached, and if fast and finished are false add, 1 to B1
+//if the max Number Of Bubbles hasnt been reached, and if fast and finished are false add, 1 to B1
 function blowslow() {
     if (NumberOfBubbles < MaxBubbles && Fast === false && Finished === false) {
         B1++
     }
-    //if the NumberOfBubbles amount of bubbles hasnt bean reached and B1 is 50 set B1 back to 1,create a bubble, and add 1 to NumberOfBubbles
+    //if the max Number Of Bubbles hasnt been reached and B1 is 200 set B1 back to 1,create a bubble, and add 1 to NumberOfBubbles
     if (B1 === 200 && NumberOfBubbles < MaxBubbles ) {
         B1 = 1
         NumberOfBubbles++
@@ -114,14 +129,28 @@ function blowslow() {
 }
 
 //creates bubbles fast
-//if the max NumberOfBubbles amount hasnt been reached, and if fast is true and finished is false, add 1 to B2
+//if the max Number Of Bubbles hasnt been reached, and if fast is true and finished is false, add 1 to B2
 function blowfast() {
     if (NumberOfBubbles < MaxBubbles && Fast == true && Finished === false) {
         B2++
     }
-    //if the NumberOfBubbles amount of bubbles hasnt bean reached and B2 is 20 set B2 back to 1,create a bubble, and add 1 to NumberOfBubbles
-    if (B2 === 100 && NumberOfBubbles < MaxBubbles) {
+    //if the max Number Of Bubbles hasnt been reached and B2 is 75 set B2 back to 1,create a bubble, and add 1 to NumberOfBubbles
+    if (B2 === 75 && NumberOfBubbles < MaxBubbles) {
         B2 = 1
+        NumberOfBubbles++
+        BlowBubblesNow()
+    }
+}
+
+//creates bubbles super fast if the user hasnt popped a bubble yet for the fisrt 25 bubbles
+//if the max Number Of Bubbles hasnt been reached, and if started and finished is false, add 1 to B3
+function blowSuperfast() {
+    if (NumberOfBubbles < MaxBubbles && Started == false && Finished === false) {
+        B3++
+    }
+    //if the Number Of Bubbles less than 25 and B3 is 10 set B3 back to 1,create a bubble, and add 1 to NumberOfBubbles
+    if (B3 === 10 && NumberOfBubbles < 25) {
+        B3 = 1
         NumberOfBubbles++
         BlowBubblesNow()
     }
