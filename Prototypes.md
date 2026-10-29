@@ -105,10 +105,10 @@
 
 ## Arrays
 
-- [p1]()
-- [p2 code]()
+- [Bubbles](https://sillysalmon33.github.io/cart253/prototypes/prototypes6/bubble/index.html)
+- [Bubbles code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes6/bubble/js/bubble.js)
 
-![i]()
+![Bubbles](Images/bubbles.PNG)
 
 
 - [p1]()
