@@ -10,7 +10,7 @@
 
 //the little guy asks you to do a quick favor (click some stuff that aprears in random positions, keep your mouse in a spot for a few seconds, set a color picker to a specific color) but the game never ends and he keeps on saying your almost their but eventually his dialogue loops and you never finish
 
-let Dialogue = ["Hey can you do Me a favor I want a different colored background", "Can You change it to", "Actually do", "No Wait do", "Actually That's terrible do", "How About", "Nevermind do"]
+let Dialogue = ["Hey can you do Me a favor I want a different colored background. Can You change it to", "hmmmm, can I see", "Actually do", "No Wait do", "Actually That's terrible do", "How About", "Nevermind do"]
 let DialogueIndex = 0
 let colorPicker
 let YourAnswer = "255,0,255"
@@ -19,45 +19,66 @@ let RA = undefined
 let GA = undefined
 let BA = undefined
 let Choice = 0
+let textb
 
 
 
 
 /**
- * OH LOOK I DIDN'T DESCRIBE SETUP!!
+ * creates a canvas loads an image and creates a color picker with the cyan color selected
 */
-function setup() {
+async function setup() {
     createCanvas(900, 900)
+    textb = await loadImage('images/textb.png')
 
     colorPicker = createColorPicker('Cyan')
-    colorPicker.position(900, 450) // replace with x and y values that are randomly generated (the values change by adding and then subtracting a number to move it on and off screen when needed)
+    colorPicker.position(900, 550)
 }
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * sets all the variables for dialogue, color and creates a background with the color of the color picker
 */
 function draw() {
+
     //set the variable for the dialogue
     let CurrentDialogue = Dialogue[DialogueIndex]
+
     //set the variable for the current color from the color picker
     YourAnswer = colorPicker.value()
+
     //gets the individual r, g, b values from the color picker
     let R = red(YourAnswer)
     let G = green(YourAnswer)
     let B = blue(YourAnswer)
+
     //displays the background with the color of the color picker
     background(R, G, B)
+
+    //displays the text bubble and the little guy
+    push()
+    DrawLittleGuy(translate(500, 350))
+    pop()
+
+    push()
+    image(textb,450,280,300,300)
+    pop()
 
     //displays dialogue and the answer
     push()
     textSize(15)
     textAlign(CENTER, CENTER)
-    text(`${CurrentDialogue}`,650, 400)
-    text(`${RA}, ${GA}, ${BA}?`, 650, 450)
+    text(`${CurrentDialogue}`,500, 400,200)
+    text(`${RA}, ${GA}, ${BA}?`, 600, 450)
     pop()
 
-    //everytime
+
+
+
+
+
+    //everytime the dialogue is switched, picks a random color for the answer and sets Choice 1 ahead of the current
+    //  dialogue index number so it only choices a color once, and if it reaches the end of the array set choice to 1 so it can loop
     if (DialogueIndex === 0 && Choice === 0) {
     Choice = 1
     RA = floor(random(1,255))
@@ -111,3 +132,30 @@ function draw() {
     }
 }
 
+/**
+ * draws a little guy
+ */
+function DrawLittleGuy() {
+    //main head
+    push() 
+    fill(255,255,255)
+    circle(250,250,100)
+    pop()
+    //eyes
+    push()
+    fill(0,0,0)
+    circle(220,230,80)
+    circle(280,230,80)
+    pop()
+    //mouth
+    push()
+    line(230,280,270,280)
+    pop()
+    //iris'
+    push()
+    fill(255,255,255)
+    noStroke()
+    circle(200,220,50)
+    circle(270,220,50)
+    pop()
+}
