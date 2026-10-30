@@ -111,8 +111,8 @@
 ![Bubbles](Images/bubbles.PNG)
 
 
-- [p1](https://sillysalmon33.github.io/cart253/prototypes/prototypes6/favor/index.html)
-- [p2 code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes6/favor/js/favor.js)
+- [Favor](https://sillysalmon33.github.io/cart253/prototypes/prototypes6/favor/index.html)
+- [Favor code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes6/favor/js/favor.js)
 
 ![Favor](Images/Favor.PNG)
 
