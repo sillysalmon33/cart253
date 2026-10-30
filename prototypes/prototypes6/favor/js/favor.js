@@ -2,18 +2,15 @@
  * Favor
  * Konstantinos
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ * A little guy asks you for a favor (surely it wont take long)
  */
 
 "use strict";
 
-//the little guy asks you to do a quick favor (click some stuff that aprears in random positions, keep your mouse in a spot for a few seconds, set a color picker to a specific color) but the game never ends and he keeps on saying your almost their but eventually his dialogue loops and you never finish
-
 let Dialogue = ["Hey can you do Me a favor I want a different colored background. Can You change it to", "hmmmm, can I see", "Actually do", "No Wait do", "Actually That's terrible do", "How About", "Nevermind do"]
 let DialogueIndex = 0
 let colorPicker
-let YourAnswer = "255,0,255"
+let YourAnswer = undefined
 let Task = undefined
 let RA = undefined
 let GA = undefined

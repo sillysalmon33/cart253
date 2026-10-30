@@ -1,12 +1,12 @@
-# TITLE OF PROJECT
+# Favor
 
 Konstantinos
 
-[View this project online](URL_FOR_THE_RUNNING_PROJECT)
+[View this project online](https://sillysalmon33.github.io/cart253/prototypes/prototypes6/favor/index.html)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+A little guy asks you for a favor (surely it wont take long)
 
 ## Attribution
 

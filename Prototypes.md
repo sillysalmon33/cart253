@@ -111,10 +111,10 @@
 ![Bubbles](Images/bubbles.PNG)
 
 
-- [p1]()
-- [p2 code]()
+- [p1](https://sillysalmon33.github.io/cart253/prototypes/prototypes6/favor/index.html)
+- [p2 code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes6/favor/js/favor.js)
 
-![i]()
+![Favor](Images/Favor.PNG)
 
 
 - [p1]()
