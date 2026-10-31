@@ -96,14 +96,14 @@ function Bubble(bubbleD) {
     //bubble
     push()
     noStroke()
-    fill(30, 20, 225, 90)
+    fill(184, 227, 242)
     circle(bubbleD.x, bubbleD.y, bubbleD.size)
     pop()
     //highlight
     push()
     noStroke()
-    fill(255, 255, 255, 50)
-    circle(bubbleD.x + 10, bubbleD.y - 10, bubbleD.size - 25)
+    fill(255, 255, 255)
+    circle(bubbleD.x + 9, bubbleD.y - 9, bubbleD.size - 25)
     pop()
 }
 
