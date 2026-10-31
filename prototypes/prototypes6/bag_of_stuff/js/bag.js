@@ -10,7 +10,7 @@
 
 // little guy lets you pick stuff from his bag for halloween (hopefully you get somthing good)
 
-let Prices = [Candy, Pie, Nothing, Money, Cristian]
+let Prices = [NULL1, Candy, Pie, Nothing, Money, Cristian] //NULL1 is the base when nothing is on screen (cant put just null as its already a function)
 let yayA //fnaf yay sfx, for when you get something nice
 let YayAR // reversed yay sfx for when you get money but he puts it back in the bag
 let SadA
@@ -56,25 +56,25 @@ function draw() {
  */
 function DrawLittleGuy() {
     //main head
-    push() 
-    fill(255,255,255)
-    circle(250,250,100)
+    push()
+    fill(255, 255, 255)
+    circle(250, 250, 100)
     pop()
     //eyes
     push()
-    fill(0,0,0)
-    circle(220,230,80)
-    circle(280,230,80)
+    fill(0, 0, 0)
+    circle(220, 230, 80)
+    circle(280, 230, 80)
     pop()
     //mouth
     push()
-    line(230,280,270,280)
+    line(230, 280, 270, 280)
     pop()
     //iris'
     push()
-    fill(255,255,255)
+    fill(255, 255, 255)
     noStroke()
-    circle(200,220,50)
-    circle(270,220,50)
+    circle(200, 220, 50)
+    circle(270, 220, 50)
     pop()
 }
