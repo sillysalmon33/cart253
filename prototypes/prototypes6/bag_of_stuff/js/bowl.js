@@ -7,8 +7,6 @@
 
 "use strict";
 
-// little guy lets you pick stuff from his bag for halloween (hopefully you get somthing good)
-
 let Prices = ["Candy", "Meta", "Nothing", "Money", "Happy", "Pumkin",]
 let CurrentDialogue = "Happy (late) Halloween, try your luck and you what you get"
 let Pick = false
@@ -29,7 +27,7 @@ let PumkinI
 
 
 /**
- * creates a canvas and loads 2 sounds and an image
+ * creates a canvas and loads  sounds and images
 */
 async function setup() {
     createCanvas(900, 900)
@@ -48,22 +46,26 @@ async function setup() {
 
 
 /**
- * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
+ * creates a background and the text and images
 */
 function draw() {
     background(232, 177, 42)
 
+    //function used to play sounds once
     PlaySounds()
 
+    //draws the little guy on the right side
     push()
     DrawLittleGuy(translate(550, 300,))
     pop()
 
+    //draws the bowl and text bubble
     push()
     image(BowlI, 250, 300, 300, 300)
     image(TextB, 550, 270, 250, 250)
     pop()
 
+    //craws the current dialogue that uses the prices array to know what to display
     push()
     textSize(15)
     textAlign(CENTER, CENTER)
@@ -140,8 +142,8 @@ function PlaySounds() {
     if (Pick === "Candy" && Sounds === 1) {
         yayA.play()
     }
-    else if (Pick === "PUT SOMTHING" && Sounds === 1) {
-        //PUT SOMTHING
+    else if (Pick === "Meta" && Sounds === 1) {
+        yayA.play()
     }
     else if (Pick === "Nothing" && Sounds === 1) {
         CricketsA.play()
@@ -188,6 +190,7 @@ function DrawLittleGuy() {
     pop()
 }
 
+//picks a random object from the array and sets location size, and sound back to default so the animation and sound can play again
 function mousePressed() {
     //picks a random thing from the prices array
     Pick = random(Prices)
