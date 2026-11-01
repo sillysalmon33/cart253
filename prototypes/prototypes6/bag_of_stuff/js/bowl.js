@@ -9,15 +9,14 @@
 
 // little guy lets you pick stuff from his bag for halloween (hopefully you get somthing good)
 
-let Prices = ["Candy", "Meta", "Nothing", "Money", "Happy"]
+let Prices = ["Candy", "Meta", "Nothing", "Money", "Happy", "Pumkin",]
 let CurrentDialogue = "Happy (late) Halloween, try your luck and you what you get"
 let Pick = false
 let Sounds = false
 let size = 100
 let x = 300
 let y = 270
-let wait = 0
-let BowlA
+let BowlI
 let MoneyA
 let CandyA
 let yayA
@@ -25,8 +24,8 @@ let MetaI
 let SadA
 let TextB
 let CricketsA
-let HappyA  //cristian image
-let Interact = true
+let HappyA
+let PumkinI
 
 
 /**
@@ -38,11 +37,13 @@ async function setup() {
     yayA = await loadSound('assets/sounds/yay.mp3')
     MetaI = await loadImage('assets/images/bag.png')
     CricketsA = await loadSound('assets/sounds/nothing.mp3')
-    BowlA = await loadImage('assets/images/bowl3.png')
+    BowlI = await loadImage('assets/images/bowl3.png')
     HappyA = await loadImage('assets/images/Steamhappy.png')
     TextB = await loadImage('assets/images/textb.png')
     CandyA = await loadImage('assets/images/candy.jpg')
     MoneyA = await loadImage('assets/images/money.png')
+    PumkinI = await loadImage('assets/images/pumkin.png')
+
 }
 
 
@@ -50,7 +51,7 @@ async function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background(255, 0, 255)
+    background(232, 177, 42)
 
     PlaySounds()
 
@@ -59,7 +60,7 @@ function draw() {
     pop()
 
     push()
-    image(BowlA, 250, 300, 300, 300)
+    image(BowlI, 250, 300, 300, 300)
     image(TextB, 550, 270, 250, 250)
     pop()
 
@@ -110,6 +111,14 @@ function draw() {
         pop()
     }
 
+    if (Pick === "Pumkin") {
+        push()
+        image(PumkinI, x -= 1, y -= 1, size += 1, size += 1)
+        Sounds++
+        CurrentDialogue = "How did a whole pumkin fit in there?"
+        pop()
+    }
+
 
 
     //the max size of the images
@@ -141,6 +150,9 @@ function PlaySounds() {
         yayA.play()
     }
     else if (Pick === "Happy" && Sounds === 1) {
+        yayA.play()
+    }
+    else if (Pick === "Pumkin" && Sounds === 1) {
         yayA.play()
     }
 }

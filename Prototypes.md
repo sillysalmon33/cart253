@@ -117,10 +117,10 @@
 ![Favor](Images/Favor.PNG)
 
 
-- [p1]()
-- [p2 code]()
+- [Bowl Of Stuff](https://sillysalmon33.github.io/cart253/prototypes/prototypes6/bag_of_stuff/index.html)
+- [Bowl Of Stuff code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes6/bag_of_stuff/js/bowl.js)
 
-![i]()
+![Bowl](Images/bag.png)
 
 ## Loops
 
