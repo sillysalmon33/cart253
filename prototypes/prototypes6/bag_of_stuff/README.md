@@ -1,4 +1,4 @@
-# TITLE OF PROJECT
+# Bowl of Stuff
 
 Konstantinos
 
@@ -6,7 +6,7 @@ Konstantinos
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+Its Halloween and your at a little guy's house for trick or treating, lets see what you'll get
 
 ## Attribution
 
