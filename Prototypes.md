@@ -11,8 +11,6 @@
 - [Events](#events)
 - [Functions](#functions)
 - [Arrays](#arrays)
-- [Loops](#loops)
-- [Data](#data)
 
 ## Intrsuctions
 - [3D Scene](https://sillysalmon33.github.io/cart253/prototypes/prototypes1/3D_model/index.html)
@@ -121,41 +119,3 @@
 - [Bowl Of Stuff code](https://github.com/sillysalmon33/cart253/blob/main/prototypes/prototypes6/bag_of_stuff/js/bowl.js)
 
 ![Bowl](Images/bag.png)
-
-## Loops
-
-- [p1]()
-- [p2 code]()
-
-![i]()
-
-
-- [p1]()
-- [p2 code]()
-
-![i]()
-
-
-- [p1]()
-- [p2 code]()
-
-![i]()
-
-## Data
-
-- [p1]()
-- [p2 code]()
-
-![i]()
-
-
-- [p1]()
-- [p2 code]()
-
-![i]()
-
-
-- [p1]()
-- [p2 code]()
-
-![i]()

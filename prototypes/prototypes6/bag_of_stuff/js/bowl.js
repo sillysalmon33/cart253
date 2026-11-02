@@ -143,10 +143,10 @@ function PlaySounds() {
         yayA.play()
     }
     else if (Pick === "Meta" && Sounds === 1) {
-        yayA.play()
+        CricketsA.play()
     }
     else if (Pick === "Nothing" && Sounds === 1) {
-        CricketsA.play()
+        SadA.play()
     }
     else if (Pick === "Money" && Sounds === 1) {
         yayA.play()

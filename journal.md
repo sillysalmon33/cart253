@@ -45,3 +45,9 @@ This week was kinda a rollercoster at first I was having trouble with none of my
 This week could of gone better, I originally wanted to make a pirate game where you would have to dodge cannon balls that would come from random location but I couldnt get the random location part to work and was paranoid I wouldnt finish in time to I scarped it and desided to make some more simplier projects with completly random and controled randomness as practise instead which turned out ok if a little boring, (my room project was nice tho I like that). I had less time to work on my stuff this week because of personal reasons and I honestly kinda dont really understand how perameters and funtions work fully which is why I didnt feel I would finish in time. Hopfully next week ill make some more intresting stuff since Arrays will probably be easier to understand.
 
 ![balls](/Images/Balls.PNG)
+
+## November 1 2026
+
+This week went a lot better than I expected, I got the hang of arrays pretty quickly since it was pretty simple to understand them. The bubbles project was the best to work on and is the most gamely and fun of the 3 projects, while the other 2 where me testing out some other stuff with arrays without a real end goal in mind for how you would finish the projects. Being able to add and remove stuff from the arrays was probably the most usefull thing thing by far, but using it to hold info is also (probably) usefull and I probably should of used it for the animations for the pokemon game since it would of saved a looooot of space. This week I stayed with some simple ideas since its the last set of projects and I wanted to just finish them all and because it was halloween 🎃. Supricingly I basically didnt struggle with anything at all this week, I dont know if its because the projects where pretty simple or because this is our 6th set of projects but hey I'm not complaining less work for me.
+
+![bubbles code](/Images/bubble%20code.PNG)
