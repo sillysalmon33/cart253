@@ -27,7 +27,7 @@ let PumkinI
 
 
 /**
- * creates a canvas and loads  sounds and images
+ * creates a canvas and loads sounds and images
 */
 async function setup() {
     createCanvas(900, 900)
@@ -65,7 +65,7 @@ function draw() {
     image(TextB, 550, 270, 250, 250)
     pop()
 
-    //craws the current dialogue that uses the prices array to know what to display
+    //draws the current dialogue that uses the prices array/ if statments under this to know what to display
     push()
     textSize(15)
     textAlign(CENTER, CENTER)
@@ -73,8 +73,8 @@ function draw() {
     pop()
 
 
-    //if the specific word in the array is selected render an image that grows to a set amount and triggers the Sounds variable
-    //the image is also moved backwards and up to a specific amount since making the image bigger moves the image forwards and down
+    //if the specific word in the array is selected render an image that grows to a set amount, displays text and constantly adds 1 to the Sounds variable so it only triggers once
+    //the image is also moved backwards and up to a specific amount since making the image bigger moves the image forwards and down, so now they cancel each other out
     if (Pick === "Candy") {
         push()
         image(CandyA, x -= 1, y -= 1, size += 1, size += 1)
@@ -132,12 +132,14 @@ function draw() {
     if (x < 300) {
         x = 300
     }
-    //minumum x location to make it look like the image isnt moving
+    //minumum y location to make it look like the image isnt moving
     if (y < 270) {
         y = 270
     }
 }
-//plays the coresponding sound 1 when a word in the array is chosen
+
+
+//plays the coresponding sound once since Sounds is constantly increasing when a word in the array is chosen
 function PlaySounds() {
 
     if (Pick === "Candy" && Sounds === 1) {
