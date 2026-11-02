@@ -86,6 +86,7 @@ function draw() {
     if (Pick === "Meta") {
         push()
         image(MetaI, x -= 1, y -= 1, size += 1, size += 1)
+        Sounds++
         CurrentDialogue = "Wow you got this whole project, how meta"
         pop()
     }
