@@ -9,6 +9,8 @@ This website will be used to showcase the work done in Pippin Barr's CART253 cla
 
 # [Prototypes](Prototypes.md)
 
+# [Final](Final.md)
+
 
 ## Links
 
