@@ -14,6 +14,7 @@
 let Rooms = 0
 let MaxRooms = 30
 let RunOver = false
+let DialogueSize = 20
 let PlayerA
 let TreeA
 let GrassA
@@ -23,6 +24,12 @@ let P = {
     Y:400,
     R:0
 }
+//Dialogue
+let LittleGuyTalk = true
+let DialogueIndex = 0
+let CurrentLine = false
+let LittleGuyText = ['hi', "how are you", "waa"]
+
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
@@ -35,6 +42,7 @@ async function setup() {
 
 
 
+
 }
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
@@ -42,18 +50,20 @@ async function setup() {
 function draw() {
     background(255,0,255)
 
+
     DrawPlayer(P)
     MovePlayer(P)
     ChangeDirection()
     ChangeRoom()
-    
+    LittleGuyDialogue()
+
+    //test code
+    if (keyIsDown(" ") === true) {
+    LittleGuyTalk = true
+}
 
 
-
-
-
-
-    //if the user goes through rooms than the max number of rooms they enter the lose room
+    //if the user goes through more rooms than the max number of rooms they enter the lose room
     if (Rooms > MaxRooms) {
         RunOver = true
     }
@@ -145,6 +155,43 @@ if (P.Y > width-75){
     Rooms++
 }
 }
+
+
+function LittleGuyDialogue() {
+    if (LittleGuyTalk === true){
+        CurrentLine = LittleGuyText[DialogueIndex]
+        //Charecter talking
+        push()
+        translate(220,150)
+        DrawLittleGuy()
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 150, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 450, 500)
+        pop()
+    }
+}
+
+
+
+function mousePressed() {
+    //when the user is talking to someone let the mouse progress the dialogue
+    if (LittleGuyTalk === true) {
+    DialogueIndex ++
+    }
+        //when the user reaches the end of a charecters dialogue, remove the charceter and text and set DialogueIndex to 0
+        if (DialogueIndex >= LittleGuyText.length){
+        LittleGuyTalk = false
+        CurrentLine = 0
+        DialogueIndex = 0
+    }  
+}
+
 
 /**
  * draws a little guy
