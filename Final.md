@@ -5,25 +5,21 @@
 # [README](README.md)
 
 
-# TITLE OF PROJECT
-
+# The Forest
 Konstantinos
 
-[Final](https://sillysalmon33.github.io/cart253/Final/index.html)
+[The Forest](https://sillysalmon33.github.io/cart253/Final/index.html)
+[The Forest Code](https://github.com/sillysalmon33/cart253/blob/main/Final/js/Forest.js)
 
 ## Description
 
-This description should help the reader understand what the program is, anything they should know to be able to experience it (controls, special features, etc.), and what the desired user experience is. For example:
+You wake up in a dark forest with no idea where you are. Meet other's and try to find a way out of the forest before you become lost forever.
 
 ## Attribution
-
-This bit should attribute any code, assets or other elements used taken from other sources. For example:
 
 > - This project uses [p5.js](https://p5js.org).
 
 
 ## License
-
-This bit could include the license you want to apply to your work. For example:
 
 > This project is licensed under a Creative Commons Attribution ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)) license with the exception of libraries and other components with their own licenses.
