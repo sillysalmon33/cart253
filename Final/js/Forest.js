@@ -157,19 +157,19 @@ function ChangeDirection() {
 }
 //everytime the player goes off screen teleport them back on the opposite side and add 1 to the Rooms counter
 function ChangeRoom() {
-if (P.X < width-75){
+if (P.X < width){
     P.X += 900
     Rooms++
 }
-if (P.X > width-75){
+if (P.X > width){
     P.X -= 900
     Rooms++
 }
-if (P.Y < width-75){
+if (P.Y < width){
     P.Y += 900
     Rooms++
 }
-if (P.Y > width-75){
+if (P.Y > width){
     P.Y -= 900
     Rooms++
 }
