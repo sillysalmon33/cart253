@@ -25,10 +25,17 @@ let P = {
     R:0
 }
 //Dialogue
-let LittleGuyTalk = true
+let MaxLength
+let Speaker
+let Nobody = 0
+let LittleGuy = 1
+//test
+let BigLittleGuy = 2
 let DialogueIndex = 0
 let CurrentLine = false
-let LittleGuyText = ['hi', "how are you", "waa"]
+let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", "...","I dont feel like it."]
+//test
+let BigLittleGuyText = ['test1', "tes2", "test3","test4"]
 
 
 /**
@@ -40,7 +47,8 @@ async function setup() {
   imageMode(CENTER);
   angleMode(DEGREES);
 
-
+//test code
+Speaker = LittleGuy
 
 
 }
@@ -56,10 +64,21 @@ function draw() {
     ChangeDirection()
     ChangeRoom()
     LittleGuyDialogue()
+    //test
+    BigLittleGuyDialogue()
+
+    text(`X: ${Speaker}, Y: ${mouseY}`, 20, 30)
+
+    console.log(Speaker)
 
     //test code
     if (keyIsDown(" ") === true) {
-    LittleGuyTalk = true
+    Speaker = LittleGuy
+}
+
+    //test code 2
+    if (keyIsDown("b") === true) {
+    Speaker = BigLittleGuy
 }
 
 
@@ -158,8 +177,10 @@ if (P.Y > width-75){
 
 
 function LittleGuyDialogue() {
-    if (LittleGuyTalk === true){
+    if (Speaker === LittleGuy){
+        //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
         CurrentLine = LittleGuyText[DialogueIndex]
+        MaxLength = LittleGuyText.length
         //Charecter talking
         push()
         translate(220,150)
@@ -167,28 +188,53 @@ function LittleGuyDialogue() {
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 150, 100, 25)
+        rect(400, 450, 200, 100, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 450, 500)
+        text(CurrentLine, 410, 470,180)
+        pop()
+    }
+}
+
+//test
+function BigLittleGuyDialogue() {
+    if (Speaker === BigLittleGuy){
+        //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
+        CurrentLine = BigLittleGuyText[DialogueIndex]
+        MaxLength = BigLittleGuyText.length
+        //Charecter talking
+        push()
+        translate(220,150)
+        DrawLittleGuy()
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470,180)
         pop()
     }
 }
 
 
 
+
 function mousePressed() {
     //when the user is talking to someone let the mouse progress the dialogue
-    if (LittleGuyTalk === true) {
+    if (Speaker !== Nobody) {
     DialogueIndex ++
     }
         //when the user reaches the end of a charecters dialogue, remove the charceter and text and set DialogueIndex to 0
-        if (DialogueIndex >= LittleGuyText.length){
-        LittleGuyTalk = false
+        if (DialogueIndex >= MaxLength){
+        Speaker = Nobody
         CurrentLine = 0
         DialogueIndex = 0
+        MaxLength = Nobody
     }  
 }
 
