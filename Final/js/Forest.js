@@ -13,13 +13,14 @@
 
 //rooms
 let NewRoom = 1
-let Room
+let Room = 0
 let Forest = 0
 let Road = 1
 let Bunker = 2
 let Lost = 0
 let MaxLost = 30
 let RunOver = false
+let TP = 0
 
 //images and player location
 let PlayerA
@@ -51,6 +52,12 @@ let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", 
 //test
 let BigLittleGuyText = ['test1', "tes2", "test3", "test4"]
 
+//Events/items
+let Car = {
+    X: 500,
+    Y: 1
+}
+
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
@@ -60,7 +67,6 @@ async function setup() {
     PlayerA = await loadImage('assets/images/test.jpg')
     imageMode(CENTER);
     angleMode(DEGREES);
-    Room = Forest
 
     //test code
     Speaker = LittleGuy
@@ -78,7 +84,7 @@ function draw() {
         PlaceTree(Tree)
     }
 
-
+    RoadRoom()
     DrawPlayer(P)
     MovePlayer(P)
     ChangeDirection()
@@ -89,26 +95,27 @@ function draw() {
 
     NewForest()
     RemoveTrees()
+    PermRemoveTrees()
 
-    console.log(NewRoom)
+
+    console.log(TP)
     text(`X: ${Room}, Y: ${CurrentTrees}`, 20, 30)
 
     //test code
     if (keyIsDown(" ") === true) {
-        Speaker = LittleGuy
+        Room = 0
     }
 
     //test code 2
     if (keyIsDown("b") === true) {
-        Speaker = BigLittleGuy
+        Room = 1
     }
 
 
     //if the user goes through more rooms than the max number of rooms they enter the lose room
     if (Lost > MaxLost) {
-        Room = Road
+        Room = 1
     }
-    else (Room = Forest)
 }
 
 /*
@@ -236,7 +243,7 @@ function CreateForest() {
 
 //if the Room is set to forest and the max number of trees hasnt been met set newroom to 0, create a tree, and add 1 to currentTrees
 function NewForest() {
-    if (Room === Forest && CurrentTrees <= MaxTrees) {
+    if (Room === 0 && CurrentTrees <= MaxTrees) {
         NewRoom = 0
         CurrentTrees++
         CreateForest()
@@ -251,6 +258,62 @@ function RemoveTrees() {
             Trees.splice(index, CurrentTrees)
             CurrentTrees = 0
             NewRoom = 0
+        }
+    }
+}
+//when the player enters a premade room remove all the trees in the array and make it so no new trees will spawn
+function PermRemoveTrees() {
+    for (let TreeD of Trees) {
+        if (Room !== 0) {
+            let index = Trees.indexOf(TreeD)
+            Trees.splice(index, CurrentTrees)
+            CurrentTrees = MaxTrees + 1
+            NewRoom = 0
+        }
+    }
+}
+
+/*
+                                              Non Random Rooms
+
+*/
+//if the user  goes through more rooms than the max number of rooms they enter the road and get run over
+function RoadRoom() {
+    if (Room === 1) {
+        //constantly add 1 to TP so the teleport function will only happen once
+        TP++
+        //teleport player to specific location and constrain movement so they cant teleport away
+        if (TP === 1) {
+            push()
+            P.X = 75
+            P.Y = 450
+            pop()
+        }
+        push()
+        P.X = constrain(P.X, 10, 800)
+        P.Y = constrain(P.Y, 10, 800)
+        pop()
+
+        //road
+        push()
+        noStroke()
+        fill(255, 100, 255)
+        rect(300, 0, 300, 900,)
+        pop()
+
+        //trees
+        push()
+        image(PlayerA, 100, 200, 50, 50)
+        image(PlayerA, 800, 100, 50, 50)
+        image(PlayerA, 700, 300, 50, 50)
+        image(PlayerA, 150, 700, 50, 50)
+        pop()
+
+        //car
+        if (P.X > 450) {
+            push()
+            image(PlayerA, Car.X, Car.Y += 15, 50, 50)
+            pop()
         }
     }
 }
