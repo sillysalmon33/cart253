@@ -11,20 +11,34 @@
 
 "use strict";
 
-let Rooms = 0
-let MaxRooms = 30
+//rooms
+let NewRoom = 1
+let Room
+let Forest = 0
+let Road = 1
+let Bunker = 2
+let Lost = 0
+let MaxLost = 30
 let RunOver = false
-let DialogueSize = 20
+
+//images and player location
 let PlayerA
 let TreeA
 let GrassA
 let CristianA
 let P = {
-    X:400,
-    Y:400,
-    R:0
+    X: 400,
+    Y: 400,
+    R: 0
 }
+
+//trees
+let Trees = []
+let CurrentTrees = 0
+let MaxTrees = 50
+
 //Dialogue
+let DialogueSize = 20
 let MaxLength
 let Speaker
 let Nobody = 0
@@ -33,9 +47,9 @@ let LittleGuy = 1
 let BigLittleGuy = 2
 let DialogueIndex = 0
 let CurrentLine = false
-let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", "...","I dont feel like it."]
+let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", "...", "I dont feel like it."]
 //test
-let BigLittleGuyText = ['test1', "tes2", "test3","test4"]
+let BigLittleGuyText = ['test1', "tes2", "test3", "test4"]
 
 
 /**
@@ -44,11 +58,12 @@ let BigLittleGuyText = ['test1', "tes2", "test3","test4"]
 async function setup() {
     createCanvas(900, 900)
     PlayerA = await loadImage('assets/images/test.jpg')
-  imageMode(CENTER);
-  angleMode(DEGREES);
+    imageMode(CENTER);
+    angleMode(DEGREES);
+    Room = Forest
 
-//test code
-Speaker = LittleGuy
+    //test code
+    Speaker = LittleGuy
 
 
 }
@@ -56,7 +71,12 @@ Speaker = LittleGuy
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background(255,0,255)
+    background(255, 0, 255)
+
+    //creates the Trees in an array
+    for (let Tree of Trees) {
+        PlaceTree(Tree)
+    }
 
 
     DrawPlayer(P)
@@ -67,42 +87,49 @@ function draw() {
     //test
     BigLittleGuyDialogue()
 
-    text(`X: ${Speaker}, Y: ${mouseY}`, 20, 30)
+    NewForest()
+    RemoveTrees()
 
-    console.log(Speaker)
+    console.log(NewRoom)
+    text(`X: ${Room}, Y: ${CurrentTrees}`, 20, 30)
 
     //test code
     if (keyIsDown(" ") === true) {
-    Speaker = LittleGuy
-}
+        Speaker = LittleGuy
+    }
 
     //test code 2
     if (keyIsDown("b") === true) {
-    Speaker = BigLittleGuy
-}
+        Speaker = BigLittleGuy
+    }
 
 
     //if the user goes through more rooms than the max number of rooms they enter the lose room
-    if (Rooms > MaxRooms) {
-        RunOver = true
+    if (Lost > MaxLost) {
+        Room = Road
     }
+    else (Room = Forest)
 }
+
+/*
+                                    Player Movement
+*/
 
 function DrawPlayer(P) {
     push()
     //translate is used so the rotate function doesnt break since it doesnt understand that the location has changed if P.X/P.Y is in image
-    translate(P.X,P.Y)
+    translate(P.X, P.Y)
     //rotates the image from the center
     imageMode(CENTER);
     rotate(P.R)
-    image(PlayerA,0,0, 150,100)
+    image(PlayerA, 0, 0, 150, 100)
     pop()
 
 }
 
 //allows the user to move via wasd
 function MovePlayer(P) {
-if (keyIsDown("a") === true || keyIsDown("A") === true) {
+    if (keyIsDown("a") === true || keyIsDown("A") === true) {
         P.X -= 1.5
     }
     if (keyIsDown("d") === true || keyIsDown("D") === true) {
@@ -118,72 +145,130 @@ if (keyIsDown("a") === true || keyIsDown("A") === true) {
 
 //if the user is moving rotates the sprite to face the direction they are facing
 function ChangeDirection() {
-    if (keyIsDown("w") === true && keyIsDown("a") === true)  {
+    if (keyIsDown("w") === true && keyIsDown("a") === true) {
         push()
         P.R = 315
         pop()
-}
-        else if (keyIsDown("s") === true && keyIsDown("a") === true){
-            push()
-            P.R =225
-            pop()
-            }
+    }
+    else if (keyIsDown("s") === true && keyIsDown("a") === true) {
+        push()
+        P.R = 225
+        pop()
+    }
 
-            else if (keyIsDown("s") === true && keyIsDown("d") === true){
-                push()
-                P.R = 135
-                pop()
-            }
-                else if (keyIsDown("w") === true && keyIsDown("d") === true){
-                    push()
-                    P.R = 45
-                    pop()
-            }
-                    else if (keyIsDown("w")) {
-                        P.R=0
-                    }
-                        else if (keyIsDown("d")) {
-                            P.R=90
-                        }
-                            else if (keyIsDown("s")) {
-                                P.R=180
-                            }
-                                else if (keyIsDown("a")) {
-                                    P.R=270
-                                 }
-                    //the default rotation
-                    else {P.R =0}
+    else if (keyIsDown("s") === true && keyIsDown("d") === true) {
+        push()
+        P.R = 135
+        pop()
+    }
+    else if (keyIsDown("w") === true && keyIsDown("d") === true) {
+        push()
+        P.R = 45
+        pop()
+    }
+    else if (keyIsDown("w")) {
+        P.R = 0
+    }
+    else if (keyIsDown("d")) {
+        P.R = 90
+    }
+    else if (keyIsDown("s")) {
+        P.R = 180
+    }
+    else if (keyIsDown("a")) {
+        P.R = 270
+    }
+    //the default rotation
+    else { P.R = 0 }
 
 }
 //everytime the player goes off screen teleport them back on the opposite side and add 1 to the Rooms counter
 function ChangeRoom() {
-if (P.X < width){
-    P.X += 900
-    Rooms++
-}
-if (P.X > width){
-    P.X -= 900
-    Rooms++
-}
-if (P.Y < width){
-    P.Y += 900
-    Rooms++
-}
-if (P.Y > width){
-    P.Y -= 900
-    Rooms++
-}
+    if (P.X <= 0) {
+        P.X += 900
+        Lost++
+        NewRoom = 1
+    }
+    if (P.X > width) {
+        P.X -= 900
+        Lost++
+        NewRoom = 1
+    }
+    if (P.Y <= 0) {
+        P.Y += 900
+        Lost++
+        NewRoom = 1
+    }
+    if (P.Y > height) {
+        P.Y -= 900
+        Lost++
+        NewRoom = 1
+    }
 }
 
+/*
+                                    Random trees for Forest
+*/
+
+//creates the sprite for the trees at a random location adn with a random heighth and width
+function PlaceTree(TreeD) {
+    push()
+    image(PlayerA, TreeD.x, TreeD.y, TreeD.w, TreeD.h)
+    pop()
+}
+
+//creates the values for a new Trees at a random location and size
+function GrowTree() {
+    let TreeD = {
+        x: random(20, width - 20),
+        y: random(20, height - 20),
+        w: 10,
+        h: 20
+    }
+    return TreeD;
+}
+
+//creates a Tree in the array and on screen at a random location chosen by GrowTree
+function CreateForest() {
+    let Tree = GrowTree()
+    Trees.push(Tree)
+}
+
+//if the Room is set to forest and the max number of trees hasnt been met set newroom to 0, create a tree, and add 1 to currentTrees
+function NewForest() {
+    if (Room === Forest && CurrentTrees <= MaxTrees) {
+        NewRoom = 0
+        CurrentTrees++
+        CreateForest()
+    }
+}
+
+//when the user enters a new room delete all the trees and set current trees to 0
+function RemoveTrees() {
+    for (let TreeD of Trees) {
+        if (NewRoom === 1 && CurrentTrees >= MaxTrees) {
+            let index = Trees.indexOf(TreeD)
+            Trees.splice(index, CurrentTrees)
+            CurrentTrees = 0
+            NewRoom = 0
+        }
+    }
+}
+
+
+/*
+                                              Dialogue
+
+*/
 
 function LittleGuyDialogue() {
-    if (Speaker === LittleGuy){
+    if (Speaker === LittleGuy) {
         //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
         CurrentLine = LittleGuyText[DialogueIndex]
         MaxLength = LittleGuyText.length
         //Charecter talking
         push()
-        translate(220,150)
+        translate(220, 150)
         DrawLittleGuy()
         pop()
         //Dialogue Box
@@ -193,20 +278,20 @@ function LittleGuyDialogue() {
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470,180)
+        text(CurrentLine, 410, 470, 180)
         pop()
     }
 }
 
 //test
 function BigLittleGuyDialogue() {
-    if (Speaker === BigLittleGuy){
+    if (Speaker === BigLittleGuy) {
         //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
         CurrentLine = BigLittleGuyText[DialogueIndex]
         MaxLength = BigLittleGuyText.length
         //Charecter talking
         push()
-        translate(220,150)
+        translate(220, 150)
         DrawLittleGuy()
         pop()
         //Dialogue Box
@@ -216,7 +301,7 @@ function BigLittleGuyDialogue() {
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470,180)
+        text(CurrentLine, 410, 470, 180)
         pop()
     }
 }
@@ -227,15 +312,15 @@ function BigLittleGuyDialogue() {
 function mousePressed() {
     //when the user is talking to someone let the mouse progress the dialogue
     if (Speaker !== Nobody) {
-    DialogueIndex ++
+        DialogueIndex++
     }
-        //when the user reaches the end of a charecters dialogue, remove the charceter and text and set DialogueIndex to 0
-        if (DialogueIndex >= MaxLength){
+    //when the user reaches the end of a charecters dialogue, remove the charceter and text and set DialogueIndex to 0
+    if (DialogueIndex >= MaxLength) {
         Speaker = Nobody
         CurrentLine = 0
         DialogueIndex = 0
         MaxLength = Nobody
-    }  
+    }
 }
 
 
@@ -244,25 +329,25 @@ function mousePressed() {
  */
 function DrawLittleGuy() {
     //main head
-    push() 
-    fill(255,255,255)
-    circle(250,250,100)
+    push()
+    fill(255, 255, 255)
+    circle(250, 250, 100)
     pop()
     //eyes
     push()
-    fill(0,0,0)
-    circle(220,230,80)
-    circle(280,230,80)
+    fill(0, 0, 0)
+    circle(220, 230, 80)
+    circle(280, 230, 80)
     pop()
     //mouth
     push()
-    line(230,280,270,280)
+    line(230, 280, 270, 280)
     pop()
     //iris'
     push()
-    fill(255,255,255)
+    fill(255, 255, 255)
     noStroke()
-    circle(200,220,50)
-    circle(270,220,50)
+    circle(200, 220, 50)
+    circle(270, 220, 50)
     pop()
 }
