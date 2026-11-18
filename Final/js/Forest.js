@@ -22,6 +22,9 @@ let MaxLost = 30
 let RunOver = false
 let TP = 0
 
+//screens
+let Menu = 4
+
 //images and player location
 let PlayerA
 let TreeA
@@ -84,6 +87,9 @@ function draw() {
         PlaceTree(Tree)
     }
 
+    TitleScreen()
+    
+    if (Menu === 0) {
     RoadRoom()
     DrawPlayer(P)
     MovePlayer(P)
@@ -92,25 +98,27 @@ function draw() {
     LittleGuyDialogue()
     //test
     BigLittleGuyDialogue()
-
     NewForest()
     RemoveTrees()
     PermRemoveTrees()
+    }
+
+    
 
 
     console.log(TP)
     text(`X: ${Room}, Y: ${CurrentTrees}`, 20, 30)
 
-    //test code
-    if (keyIsDown(" ") === true) {
-        Room = 0
-    }
 
     //test code 2
     if (keyIsDown("b") === true) {
         Room = 1
     }
 
+        //test code 2
+    if (keyIsDown("c") === true) {
+        Room = 0
+    }
 
     //if the user goes through more rooms than the max number of rooms they enter the lose room
     if (Lost > MaxLost) {
@@ -243,7 +251,7 @@ function CreateForest() {
 
 //if the Room is set to forest and the max number of trees hasnt been met set newroom to 0, create a tree, and add 1 to currentTrees
 function NewForest() {
-    if (Room === 0 && CurrentTrees <= MaxTrees) {
+    if (Room === 0 && CurrentTrees <= MaxTrees && screen ===0) {
         NewRoom = 0
         CurrentTrees++
         CreateForest()
@@ -386,6 +394,68 @@ function mousePressed() {
     }
 }
 
+
+/*
+                                              Screens
+
+*/
+
+function TitleScreen() {
+    if (Menu === 1) {
+        push()
+        textSize(50)
+        textAlign(CENTER, CENTER)
+        textFont(ITALIC)
+        text("The Forest", 450, 40)
+        pop()
+        push()
+        textSize(40)
+        text("You Wake up alone in the middle of a cold dark forest with no idea how you got there.\n\n Try to find your way out before somthing else finds you", 10, 200, 900)
+        pop()
+    }
+
+    if (keyIsDown(" ") === true && Menu === 1) {
+        Menu = 0
+    }
+
+    if (Menu === 2) {
+        push()
+        textSize(50)
+        textAlign(CENTER, CENTER)
+        textFont(ITALIC)
+        text("You Were Run Over", 450, 40)
+        pop()
+        push()
+        textSize(40)
+        text("You Where so close but forgot to check both sides before crosing the road", 10, 200, 900)
+        pop()
+    }
+
+        if (Menu === 3) {
+        push()
+        textSize(50)
+        textAlign(CENTER, CENTER)
+        textFont(ITALIC)
+        text("You Found Somthing You Wern't Supposed To", 450, 40)
+        pop()
+        push()
+        textSize(40)
+        text("You Open the door but before you can see what's inside you were knocked, were you wake up next... I can't tell you", 10, 200, 900)
+        pop()
+    }
+        if (Menu === 4) {
+        push()
+        textSize(50)
+        textAlign(CENTER, CENTER)
+        textFont(ITALIC)
+        text("You Finally Find The Way Out", 450, 40)
+        pop()
+        push()
+        textSize(40)
+        text("After thinking you'd never make it out of this hell you see a light at the end of the tunnel, you see a car in the distance and start trying to get their attention", 10, 200, 900)
+        pop()
+    }
+}
 
 /**
  * draws a little guy
