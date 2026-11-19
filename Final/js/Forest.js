@@ -28,9 +28,11 @@ let Menu = 1
 
 //images and player location
 let PlayerA
-let TreeA
-let GrassA
-let CristianA
+let TreeI
+let GrassI
+let CristianI
+let KeyI
+let PaperI
 let P = {
     X: 400,
     Y: 400,
@@ -61,6 +63,11 @@ let Car = {
     X: 500,
     Y: 1
 }
+let Spawn = 0
+let SpawnL = {
+    X:0,
+    Y:0
+}
 
 
 /**
@@ -69,11 +76,11 @@ let Car = {
 async function setup() {
     createCanvas(900, 900)
     PlayerA = await loadImage('assets/images/test.jpg')
+    KeyI = await loadImage('assets/images/Key.png')
+    PaperI = await loadImage('assets/images/tornpaper.png')
     imageMode(CENTER);
     angleMode(DEGREES);
 
-    //test code
-    Speaker = LittleGuy
 
 
 }
@@ -91,6 +98,7 @@ function draw() {
     TitleScreen()
     
     if (Menu === 0) {
+    SpawnStuff()
     RoadRoom()
     DrawPlayer(P)
     MovePlayer(P)
@@ -108,7 +116,7 @@ function draw() {
     
 
 
-    text(`X: ${RightWay}, Y: ${P.X}`, 20, 30)
+    text(`X: ${Spawn}, Y: ${P.X}`, 20, 30)
 
 
     //test code 2
@@ -505,6 +513,61 @@ if (RightWay === 8) {
 
 */
 
+//everytime the room changes has a random chance to spawn an item or NPC
+function SpawnStuff() {
+    //when room changes sets Spawn to a random number
+    if (NewRoom === 1) {
+       Spawn = floor(random(0, 30))
+       SpawnL.X = random(50, 850)
+       SpawnL.Y = random(50, 850)
+    }
+    //if  Spawn is between 5 and 8 spawn the first half of the note
+    if (Spawn >= 5 && Spawn <= 8) {
+        push()
+        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        pop()
+    }
+        //if  Spawn is between 9 and 12 spawn the Second half of the note
+        if (Spawn >= 9 && Spawn <= 12) {
+            push()
+            image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+            pop()
+        }  
+            //if  Spawn is between 13 and 16 spawn An NPC that hinds towards the bunker
+            if (Spawn >= 13 && Spawn <= 16) {
+                push()
+                image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+                pop()
+            }
+
+                //if  Spawn is between 17 and 25 spawn An NPC that hinds towards the Letters
+                if (Spawn >= 17 && Spawn <= 23) {
+                    push()
+                    image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+                    pop()
+                }
+                    //if  Spawn is between 24 and 26 spawn the key to the bunker
+                    if (Spawn >= 24 && Spawn <= 26) {
+                        push()
+                        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+                        pop()
+                    }
+
+                         //if  Spawn is between 24 and 26 spawn the bunker
+                        if (Spawn >= 27 && Spawn <= 29) {
+                            push()
+                            image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+                            pop()
+                        }
+                            //if Spawn is 30 spawn Little Guy
+                            if (Spawn === 30) {
+                                push()
+                                translate(SpawnL.X, SpawnL.Y)
+                                DrawLittleGuy()
+                                pop()
+                            }
+    
+}
 /**
  * draws a little guy
  */
