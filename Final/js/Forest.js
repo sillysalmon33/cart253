@@ -22,7 +22,6 @@ let MaxLost = 30
 let RunOver = false
 let TP = 0
 let RightWay = 0
-let test = 0
 
 //screens
 let Menu = 1
@@ -60,6 +59,7 @@ let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", 
 let BigLittleGuyText = ['test1', "tes2", "test3", "test4"]
 
 //Events/items
+let PickUp = false
 let Car = {
     X: 500,
     Y: 1
@@ -403,11 +403,10 @@ function mousePressed() {
         DialogueIndex = 0
         MaxLength = Nobody
     }
-
+    //lets the player click on items and NPCs
      let d = dist(mouseX, mouseY, SpawnL.X, SpawnL.Y)
-        // if the click was inside a bubble deletes that bubble, subtracts 1 from NumberOfBubbles, and plays a poping sound
             if (d < SpawnL.Size) {
-            test = 10
+            PickUp = true
 }
 }
 
