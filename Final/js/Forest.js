@@ -22,6 +22,7 @@ let MaxLost = 30
 let RunOver = false
 let TP = 0
 let RightWay = 0
+let test = 0
 
 //screens
 let Menu = 1
@@ -66,7 +67,8 @@ let Car = {
 let Spawn = 0
 let SpawnL = {
     X:0,
-    Y:0
+    Y:0,
+    Size:50
 }
 
 
@@ -116,7 +118,7 @@ function draw() {
     
 
 
-    text(`X: ${Spawn}, Y: ${P.X}`, 20, 30)
+    text(`X: ${test}, Y: ${P.X}`, 20, 30)
 
 
     //test code 2
@@ -401,6 +403,12 @@ function mousePressed() {
         DialogueIndex = 0
         MaxLength = Nobody
     }
+
+     let d = dist(mouseX, mouseY, SpawnL.X, SpawnL.Y)
+        // if the click was inside a bubble deletes that bubble, subtracts 1 from NumberOfBubbles, and plays a poping sound
+            if (d < SpawnL.Size) {
+            test = 10
+}
 }
 
 
