@@ -55,6 +55,11 @@ let BigLittleGuy = 2
 let DialogueIndex = 0
 let CurrentLine = false
 let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", "...", "I dont feel like it."]
+let KeyText = ['Yoy picked up a key, maybe it opens somthing']
+let NoteLeft = ['You Found the left side of a note']
+let NoteRight = ['You Found the Right side of a note']
+let BunkerClosed = ['You Found a locked bunker door, maybe you need a key to open it']
+let BunkerOpen = ['You unlocked the bunker door with the key and enter']
 //test
 let BigLittleGuyText = ['test1', "tes2", "test3", "test4"]
 
@@ -65,6 +70,7 @@ let Car = {
     Y: 1
 }
 let Spawn = 0
+let OwnKey = false
 let SpawnL = {
     X:0,
     Y:0,
@@ -107,9 +113,13 @@ function draw() {
     MovePlayer(P)
     ChangeDirection()
     ChangeRoom()
+    LeftPaperDialigue()
+    RightPaperDialigue()
+    LetterNPCDialogue()
+    BunkerNPC()
     LittleGuyDialogue()
-    //test
-    BigLittleGuyDialogue()
+    KeyDialogue()
+    BunkerSpawn()
     NewForest()
     RemoveTrees()
     PermRemoveTrees()
@@ -366,28 +376,7 @@ function LittleGuyDialogue() {
     }
 }
 
-//test
-function BigLittleGuyDialogue() {
-    if (Speaker === BigLittleGuy) {
-        //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
-        CurrentLine = BigLittleGuyText[DialogueIndex]
-        MaxLength = BigLittleGuyText.length
-        //Charecter talking
-        push()
-        translate(220, 150)
-        DrawLittleGuy()
-        pop()
-        //Dialogue Box
-        push()
-        rect(400, 450, 200, 100, 25)
-        pop()
-        //Dialogue
-        push()
-        textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
-        pop()
-    }
-}
+
 
 
 
@@ -578,13 +567,106 @@ function SpawnStuff() {
 }
 
 function Interact() {
-    if (PickUp = true && Spawn >= 5 && Spawn <= 8 ) {
+    //left note pickup
+    if (PickUp === true && Spawn >= 5 && Spawn <= 8 ) {
+        Speaker = 2
+    }
+        //Right note pickup
+        if (PickUp === true && Spawn >= 9 && Spawn <= 12) {
+            Speaker = 3
+        }   //Letter NPC
+            if (PickUp === true && Spawn >= 13 && Spawn <= 16) {
+            Speaker = 4
+            }
+            //Bunker NPC
+            if (PickUp === true && Spawn >= 17 && Spawn <= 23) {
+            Speaker = 5
+            }
+                //Key
+                if (PickUp === true && Spawn >= 24 && Spawn <= 26) {
+                Speaker = 6
+                }
+                    //Bunker
+                    if (PickUp === true && Spawn >= 27 && Spawn <= 29) {
+                    Speaker = 7
+                    OwnKey = true
+                    }
+                        //Little Guy
+                        if (PickUp === true && Spawn === 30) {
+                        Speaker = 8
+                        }
+
+}
+
+//displays the key and its dialogue
+function LeftPaperDialigue() {
+    if (Speaker === 2) {
+
+    }
+}
+
+//displays the key and its dialogue
+function RightPaperDialigue() {
+    if (Speaker === 3) {
+
+    }
+}
+
+//displays the key and its dialogue
+function LetterNPCDialogue() {
+    if (Speaker === 4) {
+
+    }
+}
+
+//displays the key and its dialogue
+function BunkerNPC() {
+    if (Speaker === 5) {
+
+    }
+}
+
+//displays the key and its dialogue
+function KeyDialogue() {
+    if (Speaker === 6) {
+
+    }
+}
+
+//displays the Bunker and its dialogue
+function BunkerSpawn() {
+    if (Speaker === 7 && OwnKey === true) {
+
+    }
+
+        if (Speaker === 7 && OwnKey === false) {
+
+    }
+}
+
+function LittleGuyDialogue() {
+    if (Speaker === 7) {
+        //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
+        CurrentLine = LittleGuyText[DialogueIndex]
+        MaxLength = LittleGuyText.length
+        //Charecter talking
         push()
-        image(PaperI, 450, 450, 300, 500)
+        translate(220, 150)
+        DrawLittleGuy()
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
         pop()
     }
-    
 }
+
+
 /**
  * draws a little guy
  */
