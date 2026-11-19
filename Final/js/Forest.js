@@ -100,6 +100,7 @@ function draw() {
     TitleScreen()
     
     if (Menu === 0) {
+    Interact()
     SpawnStuff()
     RoadRoom()
     DrawPlayer(P)
@@ -118,7 +119,7 @@ function draw() {
     
 
 
-    text(`X: ${test}, Y: ${P.X}`, 20, 30)
+    text(`X: ${PickUp}, Y: ${P.X}`, 20, 30)
 
 
     //test code 2
@@ -573,6 +574,15 @@ function SpawnStuff() {
                                 DrawLittleGuy()
                                 pop()
                             }
+    
+}
+
+function Interact() {
+    if (PickUp = true && Spawn >= 5 && Spawn <= 8 ) {
+        push()
+        image(PaperI, 450, 450, 300, 500)
+        pop()
+    }
     
 }
 /**
