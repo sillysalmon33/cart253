@@ -21,9 +21,10 @@ let Lost = 0
 let MaxLost = 30
 let RunOver = false
 let TP = 0
+let RightWay = 0
 
 //screens
-let Menu = 4
+let Menu = 1
 
 //images and player location
 let PlayerA
@@ -101,13 +102,13 @@ function draw() {
     NewForest()
     RemoveTrees()
     PermRemoveTrees()
+    CorrectWay()
     }
 
     
 
 
-    console.log(TP)
-    text(`X: ${Room}, Y: ${CurrentTrees}`, 20, 30)
+    text(`X: ${RightWay}, Y: ${P.X}`, 20, 30)
 
 
     //test code 2
@@ -117,7 +118,7 @@ function draw() {
 
         //test code 2
     if (keyIsDown("c") === true) {
-        Room = 0
+        RightWay++
     }
 
     //if the user goes through more rooms than the max number of rooms they enter the lose room
@@ -251,7 +252,7 @@ function CreateForest() {
 
 //if the Room is set to forest and the max number of trees hasnt been met set newroom to 0, create a tree, and add 1 to currentTrees
 function NewForest() {
-    if (Room === 0 && CurrentTrees <= MaxTrees && screen ===0) {
+    if (Room === 0 && CurrentTrees <= MaxTrees) {
         NewRoom = 0
         CurrentTrees++
         CreateForest()
@@ -401,6 +402,7 @@ function mousePressed() {
 */
 
 function TitleScreen() {
+    //Title Screen
     if (Menu === 1) {
         push()
         textSize(50)
@@ -413,11 +415,11 @@ function TitleScreen() {
         text("You Wake up alone in the middle of a cold dark forest with no idea how you got there.\n\n Try to find your way out before somthing else finds you", 10, 200, 900)
         pop()
     }
-
+    //changes to actuall game
     if (keyIsDown(" ") === true && Menu === 1) {
         Menu = 0
     }
-
+    //Run Over Ending
     if (Menu === 2) {
         push()
         textSize(50)
@@ -430,7 +432,7 @@ function TitleScreen() {
         text("You Where so close but forgot to check both sides before crosing the road", 10, 200, 900)
         pop()
     }
-
+        //Bunker ending
         if (Menu === 3) {
         push()
         textSize(50)
@@ -443,6 +445,7 @@ function TitleScreen() {
         text("You Open the door but before you can see what's inside you were knocked, were you wake up next... I can't tell you", 10, 200, 900)
         pop()
     }
+        //Escape Ending
         if (Menu === 4) {
         push()
         textSize(50)
@@ -456,6 +459,51 @@ function TitleScreen() {
         pop()
     }
 }
+
+//if the players follows a specific path they dont gain lost and gain RightWay if it reaches 8 they escape
+function CorrectWay() {
+    //Correct way is right Down, right, Up, Left, up, left, up
+    if (P.X > width -1 && RightWay === 0) {
+        Lost--
+        RightWay = 1
+    }
+        if (P.Y > height -1 && RightWay === 1) {
+        Lost--
+        RightWay = 2
+        }
+            if (P.X > width -1 && RightWay === 2) {
+            Lost--
+            RightWay = 3
+            }  
+                if (P.Y < 5 && RightWay === 3) {
+                Lost--
+                RightWay = 4
+                }
+                    if (P.X < 5 && RightWay === 4) {
+                    Lost--
+                    RightWay = 5
+                    }  
+                        if (P.Y < 5 && RightWay === 5) {
+                        Lost--
+                        RightWay = 6
+                        }
+                            if (P.X < 5 && RightWay === 6) {
+                            Lost--
+                            RightWay = 7
+                            }
+                                if (P.Y < 5 && RightWay === 7) {
+                                Lost--
+                                RightWay = 8
+                                }
+if (RightWay === 8) {
+    Room = 3
+}
+}
+
+/*
+                                              Charecters and Items
+
+*/
 
 /**
  * draws a little guy
