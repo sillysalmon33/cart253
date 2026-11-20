@@ -47,7 +47,7 @@ let MaxTrees = 50
 //Dialogue
 let DialogueSize = 20
 let MaxLength
-let Speaker
+let Speaker = 0
 let Nobody = 0
 let LittleGuy = 1
 let DialogueIndex = 0
@@ -58,6 +58,8 @@ let NoteLeft = ['You Found the left side of a note']
 let NoteRight = ['You Found the Right side of a note']
 let BunkerClosed = ['You Found a locked bunker door, maybe you need a key to open it']
 let BunkerOpen = ['You unlocked the bunker door with the key and enter']
+let LetterNPCText = ['test']
+let BunkerrNPCText = ['test']
 
 //Events/items
 let PickUp = false
@@ -66,13 +68,17 @@ let Car = {
     Y: 1
 }
 let Spawn = 0
+let SpawnItem = false
 let KeyInv = false
-let LetterL = false
-let LetterR = false
+let LetterLInv = false
+let LetterRInv = false
+let LetterNPCTalked = false
+let BunkerNPCTalked = false
+let LittleGuyTalked = false
 let SpawnL = {
-    X:0,
-    Y:0,
-    Size:50
+    X: 0,
+    Y: 0,
+    Size: 50
 }
 
 
@@ -96,39 +102,43 @@ async function setup() {
 function draw() {
     background(255, 0, 255)
 
+    // if (CurrentLine == undefined) {
+    //     CurrentLine = 1
+    // }
+
     //creates the Trees in an array
     for (let Tree of Trees) {
         PlaceTree(Tree)
     }
 
     TitleScreen()
-    
+
     if (Menu === 0) {
-    Interact()
-    SpawnStuff()
-    RoadRoom()
-    DrawPlayer(P)
-    MovePlayer(P)
-    ChangeDirection()
-    ChangeRoom()
-    LeftPaperDialigue()
-    RightPaperDialigue()
-    LetterNPCDialogue()
-    BunkerNPC()
-    LittleGuyDialogue()
-    KeyDialogue()
-    BunkerSpawn()
-    Inventory()
-    NewForest()
-    RemoveTrees()
-    PermRemoveTrees()
-    CorrectWay()
+        Interact()
+        SpawnStuff()
+        RoadRoom()
+        DrawPlayer(P)
+        MovePlayer(P)
+        ChangeDirection()
+        ChangeRoom()
+        LeftPaperDialigue()
+        RightPaperDialigue()
+        LetterNPCDialogue()
+        BunkerNPC()
+        LittleGuyDialogue()
+        KeyDialogue()
+        BunkerSpawn()
+        Inventory()
+        NewForest()
+        RemoveTrees()
+        PermRemoveTrees()
+        CorrectWay()
     }
 
-    
 
 
-    text(`X: ${PickUp}, Y: ${P.X}`, 20, 30)
+
+    text(`X: ${PickUp}, Y: ${Speaker}`, 20, 30)
 
 
     //test code 2
@@ -136,7 +146,7 @@ function draw() {
         Room = 1
     }
 
-        //test code 2
+    //test code 2
     if (keyIsDown("c") === true) {
         RightWay++
     }
@@ -224,21 +234,25 @@ function ChangeRoom() {
         P.X += 900
         Lost++
         NewRoom = 1
+        SpawnItem = true
     }
     if (P.X > width) {
         P.X -= 900
         Lost++
         NewRoom = 1
+        SpawnItem = true
     }
     if (P.Y <= 0) {
         P.Y += 900
         Lost++
         NewRoom = 1
+        SpawnItem = true
     }
     if (P.Y > height) {
         P.Y -= 900
         Lost++
         NewRoom = 1
+        SpawnItem = true
     }
 }
 
@@ -348,32 +362,7 @@ function RoadRoom() {
 }
 
 
-/*
-                                              Dialogue
 
-*/
-
-function LittleGuyDialogue() {
-    if (Speaker === LittleGuy) {
-        //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
-        CurrentLine = LittleGuyText[DialogueIndex]
-        MaxLength = LittleGuyText.length
-        //Charecter talking
-        push()
-        translate(220, 150)
-        DrawLittleGuy()
-        pop()
-        //Dialogue Box
-        push()
-        rect(400, 450, 200, 100, 25)
-        pop()
-        //Dialogue
-        push()
-        textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
-        pop()
-    }
-}
 
 
 
@@ -382,21 +371,22 @@ function LittleGuyDialogue() {
 
 function mousePressed() {
     //when the user is talking to someone let the mouse progress the dialogue
-    if (Speaker !== Nobody) {
+    if (Speaker !== 0) {
         DialogueIndex++
     }
     //when the user reaches the end of a charecters dialogue, remove the charceter and text and set DialogueIndex to 0
     if (DialogueIndex >= MaxLength) {
-        Speaker = Nobody
+        Speaker = 0
         CurrentLine = 0
         DialogueIndex = 0
-        MaxLength = Nobody
+        MaxLength = 0
+        PickUp = false
     }
     //lets the player click on items and NPCs
-     let d = dist(mouseX, mouseY, SpawnL.X, SpawnL.Y)
-            if (d < SpawnL.Size) {
-            PickUp = true
-}
+    let d = dist(mouseX, mouseY, SpawnL.X, SpawnL.Y)
+    if (d < SpawnL.Size) {
+        PickUp = true
+    }
 }
 
 
@@ -436,8 +426,8 @@ function TitleScreen() {
         text("You Where so close but forgot to check both sides before crosing the road", 10, 200, 900)
         pop()
     }
-        //Bunker ending
-        if (Menu === 3) {
+    //Bunker ending
+    if (Menu === 3) {
         push()
         textSize(50)
         textAlign(CENTER, CENTER)
@@ -449,8 +439,8 @@ function TitleScreen() {
         text("You Open the door but before you can see what's inside you were knocked, were you wake up next... I can't tell you", 10, 200, 900)
         pop()
     }
-        //Escape Ending
-        if (Menu === 4) {
+    //Escape Ending
+    if (Menu === 4) {
         push()
         textSize(50)
         textAlign(CENTER, CENTER)
@@ -467,41 +457,41 @@ function TitleScreen() {
 //if the players follows a specific path they dont gain lost and gain RightWay if it reaches 8 they escape
 function CorrectWay() {
     //Correct way is right Down, right, Up, Left, up, left, up
-    if (P.X > width -1 && RightWay === 0) {
+    if (P.X > width - 1 && RightWay === 0) {
         Lost--
         RightWay = 1
     }
-        if (P.Y > height -1 && RightWay === 1) {
+    if (P.Y > height - 1 && RightWay === 1) {
         Lost--
         RightWay = 2
-        }
-            if (P.X > width -1 && RightWay === 2) {
-            Lost--
-            RightWay = 3
-            }  
-                if (P.Y < 5 && RightWay === 3) {
-                Lost--
-                RightWay = 4
-                }
-                    if (P.X < 5 && RightWay === 4) {
-                    Lost--
-                    RightWay = 5
-                    }  
-                        if (P.Y < 5 && RightWay === 5) {
-                        Lost--
-                        RightWay = 6
-                        }
-                            if (P.X < 5 && RightWay === 6) {
-                            Lost--
-                            RightWay = 7
-                            }
-                                if (P.Y < 5 && RightWay === 7) {
-                                Lost--
-                                RightWay = 8
-                                }
-if (RightWay === 8) {
-    Room = 3
-}
+    }
+    if (P.X > width - 1 && RightWay === 2) {
+        Lost--
+        RightWay = 3
+    }
+    if (P.Y < 5 && RightWay === 3) {
+        Lost--
+        RightWay = 4
+    }
+    if (P.X < 5 && RightWay === 4) {
+        Lost--
+        RightWay = 5
+    }
+    if (P.Y < 5 && RightWay === 5) {
+        Lost--
+        RightWay = 6
+    }
+    if (P.X < 5 && RightWay === 6) {
+        Lost--
+        RightWay = 7
+    }
+    if (P.Y < 5 && RightWay === 7) {
+        Lost--
+        RightWay = 8
+    }
+    if (RightWay === 8) {
+        Room = 3
+    }
 }
 
 /*
@@ -512,174 +502,101 @@ if (RightWay === 8) {
 //everytime the room changes has a random chance to spawn an item or NPC
 function SpawnStuff() {
     //when room changes sets Spawn to a random number
-    if (NewRoom === 1) {
-       Spawn = floor(random(0, 30))
-       SpawnL.X = random(50, 850)
-       SpawnL.Y = random(50, 850)
+    if (SpawnItem === true) {
+        Spawn = floor(random(0, 30))
+        SpawnL.X = floor(random(50, 850))
+        SpawnL.Y = floor(random(50, 850))
+        SpawnItem = false
     }
     //if  Spawn is between 5 and 8 spawn the first half of the note
-    if (Spawn >= 5 && Spawn <= 8) {
+    if (Spawn >= 5 && Spawn <= 8 && LetterLInv === false) {
         push()
         image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
         pop()
     }
-        //if  Spawn is between 9 and 12 spawn the Second half of the note
-        if (Spawn >= 9 && Spawn <= 12) {
-            push()
-            image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
-            pop()
-        }  
-            //if  Spawn is between 13 and 16 spawn An NPC that hinds towards the bunker
-            if (Spawn >= 13 && Spawn <= 16) {
-                push()
-                image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
-                pop()
-            }
+    //if  Spawn is between 9 and 12 spawn the Second half of the note
+    if (Spawn >= 9 && Spawn <= 12 && LetterRInv === false) {
+        push()
+        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        pop()
+    }
+    //if  Spawn is between 13 and 16 spawn An NPC that hinds towards the bunker
+    if (Spawn >= 13 && Spawn <= 16 && BunkerNPCTalked === false) {
+        push()
+        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        pop()
+    }
 
-                //if  Spawn is between 17 and 25 spawn An NPC that hinds towards the Letters
-                if (Spawn >= 17 && Spawn <= 23) {
-                    push()
-                    image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
-                    pop()
-                }
-                    //if  Spawn is between 24 and 26 spawn the key to the bunker
-                    if (Spawn >= 24 && Spawn <= 26) {
-                        push()
-                        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
-                        pop()
-                    }
+    //if  Spawn is between 17 and 25 spawn An NPC that hinds towards the Letters
+    if (Spawn >= 17 && Spawn <= 23 && LetterNPCTalked === false) {
+        push()
+        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        pop()
+    }
+    //if  Spawn is between 24 and 26 spawn the key to the bunker
+    if (Spawn >= 24 && Spawn <= 26 && KeyInv === false) {
+        push()
+        image(KeyI, SpawnL.X, SpawnL.Y, 50, 50)
+        pop()
+    }
 
-                         //if  Spawn is between 24 and 26 spawn the bunker
-                        if (Spawn >= 27 && Spawn <= 29) {
-                            push()
-                            image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
-                            pop()
-                        }
-                            //if Spawn is 30 spawn Little Guy
-                            if (Spawn === 30) {
-                                push()
-                                translate(SpawnL.X, SpawnL.Y)
-                                DrawLittleGuy()
-                                pop()
-                            }
-    
+    //if  Spawn is between 24 and 26 spawn the bunker
+    if (Spawn >= 27 && Spawn <= 29) {
+        push()
+        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        pop()
+    }
+    //if Spawn is 30 spawn Little Guy
+    if (Spawn === 30 && LittleGuyTalked === false) {
+        push()
+        translate(SpawnL.X, SpawnL.Y)
+        DrawLittleGuy()
+        pop()
+    }
+
 }
 
 function Interact() {
     //left note pickup
-    if (PickUp === true && Spawn >= 5 && Spawn <= 8 ) {
+    if (PickUp === true && Spawn >= 5 && Spawn <= 8) {
         Speaker = 2
     }
-        //Right note pickup
-        if (PickUp === true && Spawn >= 9 && Spawn <= 12) {
-            Speaker = 3
-        }   //Letter NPC
-            if (PickUp === true && Spawn >= 13 && Spawn <= 16) {
-            Speaker = 4
-            }
-            //Bunker NPC
-            if (PickUp === true && Spawn >= 17 && Spawn <= 23) {
-            Speaker = 5
-            }
-                //Key
-                if (PickUp === true && Spawn >= 24 && Spawn <= 26) {
-                Speaker = 6
-                }
-                    //Bunker
-                    if (PickUp === true && Spawn >= 27 && Spawn <= 29) {
-                    Speaker = 7
-                    OwnKey = true
-                    }
-                        //Little Guy
-                        if (PickUp === true && Spawn === 30) {
-                        Speaker = 8
-                        }
+    //Right note pickup
+    if (PickUp === true && Spawn >= 9 && Spawn <= 12) {
+        Speaker = 3
+    }   //Letter NPC
+    if (PickUp === true && Spawn >= 13 && Spawn <= 16) {
+        Speaker = 4
+    }
+    //Bunker NPC
+    if (PickUp === true && Spawn >= 17 && Spawn <= 23) {
+        Speaker = 5
+    }
+    //Key
+    if (PickUp === true && Spawn >= 24 && Spawn <= 26) {
+        Speaker = 6
+        KeyInv = true
+    }
+    //Bunker
+    if (PickUp === true && Spawn >= 27 && Spawn <= 29) {
+        Speaker = 7
+
+    }
+    //Little Guy
+    if (PickUp === true && Spawn === 30) {
+        Speaker = 8
+    }
 
 }
 
-//displays the Left letter and its dialogue
-function LeftPaperDialigue() {
-    if (Speaker === 2) {
-        push()
+/*
+                                              Dialogue
 
-        pop()
-    }
-}
-
-//displays the Right letter and its dialogue
-function RightPaperDialigue() {
-    if (Speaker === 3) {
-        push()
-
-        pop()
-    }
-}
-
-//displays the Letter and its dialogue
-function LetterNPCDialogue() {
-    if (Speaker === 4) {
-        push()
-
-        pop()
-    }
-}
-
-//displays the Bunker and its dialogue
-function BunkerNPC() {
-    if (Speaker === 5) {
-        push()
-
-        pop()
-    }
-}
-
-//displays the key and its dialogue
-function KeyDialogue() {
-    if (Speaker === 6) {
-        push()
-
-        pop()
-    }
-}
-
-//displays the Bunker and its dialogue
-function BunkerSpawn() {
-    if (Speaker === 7 && KeyInv === true) {
-        push()
-
-        pop()
-    }
-
-        if (Speaker === 7 && KeyInv === false) {
-        push()
-
-        pop()
-    }
-}
-//lets the player see the items in their inventory
-function Inventory() {
-    //lets the player see the key
-    if (keyIsDown("K") === true && KeyInv === true) {
-        push()
-            //image(img, x, y, width, height)
-        pop()
-    }
-        //lets the player see left note
-        if (keyIsDown("L") === true && LetterL === true) {
-        push()
-            //image(img, x, y, width, height)
-        pop()
-    }   
-        //lets the player see the Right note
-        if (keyIsDown("L") === true && LetterR === true) {
-        push()
-            //image(img, x, y, width, height)
-        pop()
-    }
-}
+*/
 
 function LittleGuyDialogue() {
-    if (Speaker === 7) {
+    if (Speaker === 1) {
+        LittleGuyTalked = true
         //sets the CurrentLine to the Little guys Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the little guy text array
         CurrentLine = LittleGuyText[DialogueIndex]
         MaxLength = LittleGuyText.length
@@ -696,6 +613,201 @@ function LittleGuyDialogue() {
         push()
         textSize(DialogueSize)
         text(CurrentLine, 410, 470, 180)
+        pop()
+    }
+}
+
+//displays the Left letter and its dialogue
+function LeftPaperDialigue() {
+    if (Speaker === 2) {
+        LetterLInv = true
+        push()
+        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        CurrentLine = NoteLeft[DialogueIndex]
+        MaxLength = NoteLeft.length
+        pop()
+        //Charecter talking
+        push()
+        image(PaperI, 450, 450, 200, 200)
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
+        pop()
+    }
+}
+
+//displays the Right letter and its dialogue
+function RightPaperDialigue() {
+    if (Speaker === 3) {
+        LetterRInv = true
+        push()
+        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        CurrentLine = NoteRight[DialogueIndex]
+        MaxLength = NoteRight.length
+        pop()
+        //Charecter talking
+        push()
+        image(PaperI, 450, 450, 200, 200)
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
+        pop()
+    }
+}
+
+//displays the Letter NPC and its dialogue
+function LetterNPCDialogue() {
+    if (Speaker === 4) {
+        LetterNPCTalked = true
+        push()
+        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        CurrentLine = LetterNPCText[DialogueIndex]
+        MaxLength = LetterNPCText.length
+        pop()
+        //Charecter talking
+        push()
+        image(KeyI, 450, 450, 200, 200)
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
+        pop()
+        pop()
+    }
+}
+
+//displays the Bunker NPC and its dialogue
+function BunkerNPC() {
+    if (Speaker === 5) {
+        BunkerNPCTalked = true
+        push()
+        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        CurrentLine = BunkerrNPCText[DialogueIndex]
+        MaxLength = BunkerrNPCText.length
+        pop()
+        //Charecter talking
+        push()
+        image(KeyI, 450, 450, 200, 200)
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
+        pop()
+        pop()
+    }
+}
+
+//displays the key and its dialogue
+function KeyDialogue() {
+    if (Speaker === 6) {
+        KeyInv = true
+        push()
+        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        CurrentLine = KeyText[DialogueIndex]
+        MaxLength = KeyText.length
+        pop()
+        //Charecter talking
+        push()
+        image(KeyI, 450, 450, 200, 200)
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
+        pop()
+    }
+}
+
+//displays the Bunker and its dialogue
+function BunkerSpawn() {
+    if (Speaker === 7 && KeyInv === true) {
+        push()
+        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        CurrentLine = BunkerOpen[DialogueIndex]
+        MaxLength = BunkerOpen.length
+        pop()
+        //Charecter talking
+        push()
+        image(KeyI, 450, 450, 200, 200)
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
+        pop()
+        pop()
+    }
+
+    if (Speaker === 7 && KeyInv === false) {
+        push()
+        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        CurrentLine = BunkerClosed[DialogueIndex]
+        MaxLength = BunkerClosed.length
+        pop()
+        //Charecter talking
+        push()
+        image(KeyI, 450, 450, 200, 200)
+        pop()
+        //Dialogue Box
+        push()
+        rect(400, 450, 200, 100, 25)
+        pop()
+        //Dialogue
+        push()
+        textSize(DialogueSize)
+        text(CurrentLine, 410, 470, 180)
+        pop()
+        pop()
+    }
+}
+//lets the player see the items in their inventory
+function Inventory() {
+    //lets the player see the key
+    if (keyIsDown("K") === true && KeyInv === true) {
+        push()
+        image(KeyI, 450, 450, 200, 200)
+        pop()
+    }
+    //lets the player see left note
+    if (keyIsDown("L") === true && LetterLInv === true) {
+        push()
+        //image(img, x, y, width, height)
+        pop()
+    }
+    //lets the player see the Right note
+    if (keyIsDown("L") === true && LetterRInv === true) {
+        push()
+        //image(img, x, y, width, height)
         pop()
     }
 }
