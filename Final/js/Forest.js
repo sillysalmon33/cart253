@@ -53,9 +53,9 @@ let LittleGuy = 1
 let DialogueIndex = 0
 let CurrentLine = false
 let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", "...", "I dont feel like it."]
-let KeyText = ['Yoy picked up a key, maybe it opens somthing']
-let NoteLeft = ['You Found the left side of a note']
-let NoteRight = ['You Found the Right side of a note']
+let KeyText = ['Yoy picked up a key, maybe it opens somthing (Press K to view item in inventory)']
+let NoteLeft = ['You Found the left side of a note (Press L to view Item in inventory)']
+let NoteRight = ['You Found the Right side of a note (Press L to view Item in inventory)']
 let BunkerClosed = ['You Found a locked bunker door, maybe you need a key to open it']
 let BunkerOpen = ['You unlocked the bunker door with the key and enter']
 let LetterNPCText = ['test']
@@ -69,7 +69,7 @@ let Car = {
 }
 let Spawn = 0
 let SpawnItem = false
-let KeyInv = false
+let KeyInv = 0
 let LetterLInv = false
 let LetterRInv = false
 let LetterNPCTalked = false
@@ -138,7 +138,7 @@ function draw() {
 
 
 
-    text(`X: ${PickUp}, Y: ${Speaker}`, 20, 30)
+    text(`X: ${KeyInv}, Y: ${Speaker}`, 20, 30)
 
 
     //test code 2
@@ -148,7 +148,7 @@ function draw() {
 
     //test code 2
     if (keyIsDown("c") === true) {
-        RightWay++
+        KeyInv++
     }
 
     //if the user goes through more rooms than the max number of rooms they enter the lose room
@@ -534,7 +534,7 @@ function SpawnStuff() {
         pop()
     }
     //if  Spawn is between 24 and 26 spawn the key to the bunker
-    if (Spawn >= 24 && Spawn <= 26 && KeyInv === false) {
+    if (Spawn >= 24 && Spawn <= 26 && KeyInv === 0) {
         push()
         image(KeyI, SpawnL.X, SpawnL.Y, 50, 50)
         pop()
@@ -793,21 +793,21 @@ function BunkerSpawn() {
 //lets the player see the items in their inventory
 function Inventory() {
     //lets the player see the key
-    if (keyIsDown("K") === true && KeyInv === true) {
+    if (keyIsDown("k") === true && KeyInv === true) {
         push()
         image(KeyI, 450, 450, 200, 200)
         pop()
     }
     //lets the player see left note
-    if (keyIsDown("L") === true && LetterLInv === true) {
+    if (keyIsDown("l") === true && LetterLInv === true) {
         push()
-        //image(img, x, y, width, height)
+        image(PaperI, 450, 450, 200, 200)
         pop()
     }
     //lets the player see the Right note
-    if (keyIsDown("L") === true && LetterRInv === true) {
+    if (keyIsDown("l") === true && LetterRInv === true) {
         push()
-        //image(img, x, y, width, height)
+        image(PaperI, 500, 450, 200, 200)
         pop()
     }
 }
