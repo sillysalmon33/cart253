@@ -50,8 +50,6 @@ let MaxLength
 let Speaker
 let Nobody = 0
 let LittleGuy = 1
-//test
-let BigLittleGuy = 2
 let DialogueIndex = 0
 let CurrentLine = false
 let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", "...", "I dont feel like it."]
@@ -60,8 +58,6 @@ let NoteLeft = ['You Found the left side of a note']
 let NoteRight = ['You Found the Right side of a note']
 let BunkerClosed = ['You Found a locked bunker door, maybe you need a key to open it']
 let BunkerOpen = ['You unlocked the bunker door with the key and enter']
-//test
-let BigLittleGuyText = ['test1', "tes2", "test3", "test4"]
 
 //Events/items
 let PickUp = false
@@ -70,7 +66,9 @@ let Car = {
     Y: 1
 }
 let Spawn = 0
-let OwnKey = false
+let KeyInv = false
+let LetterL = false
+let LetterR = false
 let SpawnL = {
     X:0,
     Y:0,
@@ -120,6 +118,7 @@ function draw() {
     LittleGuyDialogue()
     KeyDialogue()
     BunkerSpawn()
+    Inventory()
     NewForest()
     RemoveTrees()
     PermRemoveTrees()
@@ -598,49 +597,84 @@ function Interact() {
 
 }
 
-//displays the key and its dialogue
+//displays the Left letter and its dialogue
 function LeftPaperDialigue() {
     if (Speaker === 2) {
+        push()
 
+        pop()
     }
 }
 
-//displays the key and its dialogue
+//displays the Right letter and its dialogue
 function RightPaperDialigue() {
     if (Speaker === 3) {
+        push()
 
+        pop()
     }
 }
 
-//displays the key and its dialogue
+//displays the Letter and its dialogue
 function LetterNPCDialogue() {
     if (Speaker === 4) {
+        push()
 
+        pop()
     }
 }
 
-//displays the key and its dialogue
+//displays the Bunker and its dialogue
 function BunkerNPC() {
     if (Speaker === 5) {
+        push()
 
+        pop()
     }
 }
 
 //displays the key and its dialogue
 function KeyDialogue() {
     if (Speaker === 6) {
+        push()
 
+        pop()
     }
 }
 
 //displays the Bunker and its dialogue
 function BunkerSpawn() {
-    if (Speaker === 7 && OwnKey === true) {
+    if (Speaker === 7 && KeyInv === true) {
+        push()
 
+        pop()
     }
 
-        if (Speaker === 7 && OwnKey === false) {
+        if (Speaker === 7 && KeyInv === false) {
+        push()
 
+        pop()
+    }
+}
+//lets the player see the items in their inventory
+function Inventory() {
+    //lets the player see the key
+    if (keyIsDown("K") === true && KeyInv === true) {
+        push()
+            //image(img, x, y, width, height)
+        pop()
+    }
+        //lets the player see left note
+        if (keyIsDown("L") === true && LetterL === true) {
+        push()
+            //image(img, x, y, width, height)
+        pop()
+    }   
+        //lets the player see the Right note
+        if (keyIsDown("L") === true && LetterR === true) {
+        push()
+            //image(img, x, y, width, height)
+        pop()
     }
 }
 
