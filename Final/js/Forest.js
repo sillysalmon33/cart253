@@ -148,7 +148,7 @@ function draw() {
 
     //test code 2
     if (keyIsDown("c") === true) {
-        KeyInv++
+        KeyInv = true
     }
 
     //if the user goes through more rooms than the max number of rooms they enter the lose room
