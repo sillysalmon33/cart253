@@ -33,6 +33,7 @@ let GrassI
 let CristianI
 let KeyI
 let PaperI
+let Vignette
 let P = {
     X: 400,
     Y: 400,
@@ -91,6 +92,7 @@ async function setup() {
     TreeI = await loadImage('assets/images/Tree.png')
     KeyI = await loadImage('assets/images/Key.png')
     PaperI = await loadImage('assets/images/tornpaper.png')
+    Vignette = await loadImage('assets/images/Vignette.png')
     imageMode(CENTER);
     angleMode(DEGREES);
 
@@ -134,6 +136,9 @@ function draw() {
         RemoveTrees()
         PermRemoveTrees()
         CorrectWay()
+        push()
+        image(Vignette, 0,0, 9000, 1800)
+        pop()
     }
 
 
@@ -157,6 +162,7 @@ function draw() {
         Room = 1
     }
 }
+
 
 /*
                                     Player Movement
