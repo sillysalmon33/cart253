@@ -42,7 +42,7 @@ let P = {
 //trees
 let Trees = []
 let CurrentTrees = 0
-let MaxTrees = 50
+let MaxTrees = 200
 
 //Dialogue
 let DialogueSize = 20
@@ -88,6 +88,7 @@ let SpawnL = {
 async function setup() {
     createCanvas(900, 900)
     PlayerA = await loadImage('assets/images/test.jpg')
+    TreeI = await loadImage('assets/images/Tree.png')
     KeyI = await loadImage('assets/images/Key.png')
     PaperI = await loadImage('assets/images/tornpaper.png')
     imageMode(CENTER);
@@ -100,7 +101,7 @@ async function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background(255, 0, 255)
+    background(5, 13, 7)
 
     // if (CurrentLine == undefined) {
     //     CurrentLine = 1
@@ -263,7 +264,7 @@ function ChangeRoom() {
 //creates the sprite for the trees at a random location adn with a random heighth and width
 function PlaceTree(TreeD) {
     push()
-    image(PlayerA, TreeD.x, TreeD.y, TreeD.w, TreeD.h)
+    image(TreeI, TreeD.x, TreeD.y, TreeD.w, TreeD.h)
     pop()
 }
 
@@ -272,8 +273,8 @@ function GrowTree() {
     let TreeD = {
         x: random(20, width - 20),
         y: random(20, height - 20),
-        w: 10,
-        h: 20
+        w: 100,
+        h: 200
     }
     return TreeD;
 }
