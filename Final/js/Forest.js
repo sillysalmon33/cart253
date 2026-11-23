@@ -34,6 +34,8 @@ let CristianI
 let KeyI
 let PaperI
 let Vignette
+let CarI
+let RoadI
 let P = {
     X: 400,
     Y: 400,
@@ -96,6 +98,9 @@ async function setup() {
     KeyI = await loadImage('assets/images/Key.png')
     PaperI = await loadImage('assets/images/tornpaper.png')
     Vignette = await loadImage('assets/images/Vignette.png')
+    GrassI = await loadImage('assets/images/grass.jpg')
+    CarI = await loadImage('assets/images/Car.png')
+    RoadI = await loadImage('assets/images/road.jpg')
     imageMode(CENTER);
     angleMode(DEGREES);
 
@@ -105,25 +110,35 @@ async function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    background(5, 13, 7)
+    
+    background(2, 43,14)
+        push()
+        tint(150)
+        image(GrassI, 450, 450,900 ,900 )
+        pop()
 
-    // if (CurrentLine == undefined) {
-    //     CurrentLine = 1
-    // }
+        //draws the road room under the player
+        Room = 1
+        if (Menu === 0 && Room === 1){
+            RoadRoom()
+        }
+
+        //draws the player charecter under the trees
+        if (Menu === 0) {
+        DrawPlayer(P)
+        MovePlayer(P)
+        }
+
     let fps = frameRate()
-    //creates the Trees in an array
+    //creates the Trees in an array over the player
     for (let Tree of Trees) {
         PlaceTree(Tree)
     }
 
     TitleScreen()
-
-    if (Menu === 0) {
+    if (Menu === 0) {    
         Interact()
         SpawnStuff()
-        RoadRoom()
-        DrawPlayer(P)
-        MovePlayer(P)
         ChangeDirection()
         ChangeRoom()
         LeftPaperDialigue()
@@ -372,25 +387,30 @@ function RoadRoom() {
 
         //road
         push()
-        noStroke()
-        fill(255, 100, 255)
-        rect(300, 0, 300, 900,)
+        tint(150)
+        image(RoadI, 450, 350, 300, 1000)
+        //noStroke()
+        ////fill(130, 127, 127)
+        ////rect(300, 0, 300, 900,)
         pop()
 
         //trees
         push()
-        image(PlayerA, 100, 200, 50, 50)
-        image(PlayerA, 800, 100, 50, 50)
-        image(PlayerA, 700, 300, 50, 50)
-        image(PlayerA, 150, 700, 50, 50)
+        image(TreeI, 100, 200, 128,128)
+        image(TreeI, 800, 100, 128,128)
+        image(TreeI, 700, 300, 128,128)
+        image(TreeI, 150, 700, 128,128)
         pop()
-
         //car
         if (P.X > 450) {
             push()
-            image(PlayerA, Car.X, Car.Y += 15, 50, 50)
+            tint(150)
+            image(CarI, Car.X, Car.Y += 20, 150, 150)
             pop()
         }
+    }
+    if (Car.Y > 450) {
+        Menu = 2
     }
 }
 
