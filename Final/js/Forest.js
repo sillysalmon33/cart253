@@ -57,13 +57,13 @@ let LittleGuy = 1
 let DialogueIndex = 0
 let CurrentLine = false
 let LittleGuyText = ['Hmmm, it looks like your lost.', "I would help you but.", "...", "I dont feel like it."]
-let KeyText = ['Yoy picked up a key, maybe it opens somthing (Press K to view item in inventory)']
+let KeyText = ['You picked up a key, maybe it opens somthing (Press K to view item in inventory)']
 let NoteLeft = ['You Found the left side of a note (Press L to view Item in inventory)']
 let NoteRight = ['You Found the Right side of a note (Press L to view Item in inventory)']
 let BunkerClosed = ['You Found a locked bunker door, maybe you need a key to open it']
 let BunkerOpen = ['You unlocked the bunker door with the key and enter']
-let LetterNPCText = ['test']
-let BunkerrNPCText = ['test']
+let LetterNPCText = ["Oh hello, I don't believe I've seen you before", "You're lost you say", "I would help you but my memory isn't as strong as it used to be I think i'd just get you more lost", "But I think I lost a map a while ago", "If its somehow still around here its all yours"]
+let BunkerrNPCText = ["Your lost you say", "...", "Sorry kid can't help you there", "But hey I hear there's an old bunker around here", "If you can find it I bet you can rest in there until daybreak", "If you can find the key that is", "LOL"]
 
 //Events/items
 let PickUp = false
@@ -110,7 +110,7 @@ function draw() {
     // if (CurrentLine == undefined) {
     //     CurrentLine = 1
     // }
-
+    let fps = frameRate()
     //creates the Trees in an array
     for (let Tree of Trees) {
         PlaceTree(Tree)
@@ -148,7 +148,7 @@ function draw() {
 
     push()
     fill(255, 255, 255)
-    text(`X: ${OverLapping}, Y: ${d}`, 20, 30)
+    text(`X: ${fps}, Y: ${d}`, 20, 30)
     pop()
 
 
@@ -284,8 +284,8 @@ function GrowTree() {
     let TreeD = {
         x: random(20, width - 20),
         y: random(20, height - 20),
-        w: 100,
-        h: 200
+        w: 128,
+        h: 128
     }
     return TreeD;
 }
@@ -316,10 +316,12 @@ function OverLappingCheck() {
 
 //if the Room is set to forest and the max number of trees hasnt been met set newroom to 0, create a tree, and add 1 to currentTrees
 function NewForest() {
+    for (let M = 0; M < 30; M++){
     if (Room === 0 && CurrentTrees <= MaxTrees) {
         NewRoom = 0
         CurrentTrees++
         CreateForest()
+        }
     }
 }
 
@@ -638,12 +640,12 @@ function LittleGuyDialogue() {
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 130, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 470, 180)
         pop()
     }
 }
@@ -659,16 +661,16 @@ function LeftPaperDialigue() {
         pop()
         //Charecter talking
         push()
-        image(PaperI, 450, 450, 200, 200)
+        image(PaperI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 130, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 470, 180)
         pop()
     }
 }
@@ -684,16 +686,16 @@ function RightPaperDialigue() {
         pop()
         //Charecter talking
         push()
-        image(PaperI, 450, 450, 200, 200)
+        image(PaperI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 130, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 470, 180)
         pop()
     }
 }
@@ -709,16 +711,16 @@ function LetterNPCDialogue() {
         pop()
         //Charecter talking
         push()
-        image(KeyI, 450, 450, 200, 200)
+        image(KeyI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 150, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 470, 180)
         pop()
     }
 }
@@ -734,16 +736,17 @@ function BunkerNPC() {
         pop()
         //Charecter talking
         push()
-        image(KeyI, 450, 450, 200, 200)
+        image(KeyI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 130, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 470, 180)
+        pop()
     }
 }
 
@@ -758,16 +761,16 @@ function KeyDialogue() {
         pop()
         //Charecter talking
         push()
-        image(KeyI, 450, 450, 200, 200)
+        image(KeyI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 140, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 460, 180)
         pop()
     }
 }
@@ -782,16 +785,16 @@ function BunkerSpawn() {
         pop()
         //Charecter talking
         push()
-        image(KeyI, 450, 450, 200, 200)
+        image(KeyI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 130, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 470, 180)
         pop()
     }
 
@@ -803,16 +806,16 @@ function BunkerSpawn() {
         pop()
         //Charecter talking
         push()
-        image(KeyI, 450, 450, 200, 200)
+        image(KeyI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
-        rect(400, 450, 200, 100, 25)
+        rect(350, 450, 200, 130, 25)
         pop()
         //Dialogue
         push()
         textSize(DialogueSize)
-        text(CurrentLine, 410, 470, 180)
+        text(CurrentLine, 360, 470, 180)
         pop()
     }
 }
@@ -821,19 +824,19 @@ function Inventory() {
     //lets the player see the key
     if (keyIsDown("k") === true && KeyInv === true) {
         push()
-        image(KeyI, 450, 450, 200, 200)
+        image(KeyI, 450, 400, 200, 200)
         pop()
     }
     //lets the player see left note
     if (keyIsDown("l") === true && LetterLInv === true) {
         push()
-        image(PaperI, 450, 450, 200, 200)
+        image(PaperI, 450, 400, 200, 200)
         pop()
     }
     //lets the player see the Right note
     if (keyIsDown("l") === true && LetterRInv === true) {
         push()
-        image(PaperI, 500, 450, 200, 200)
+        image(PaperI, 450, 400, 200, 200)
         pop()
     }
 }
