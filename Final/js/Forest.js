@@ -117,10 +117,12 @@ function draw() {
         image(GrassI, 450, 450,900 ,900 )
         pop()
 
-        //draws the road room under the player
-        Room = 1
-        if (Menu === 0 && Room === 1){
+        //draws the Custom rooms under the player
+        Room = 2
+        if (Menu === 0){
             RoadRoom()
+            EscapeRoom()
+            BunkerRoom()
         }
 
         //draws the player charecter under the trees
@@ -414,6 +416,51 @@ function RoadRoom() {
     }
 }
 
+function EscapeRoom() {
+    if (Room === 2){
+        TP++
+        //teleport player to specific location and constrain movement so they cant teleport away
+        if (TP === 1) {
+            push()
+            P.X = 450
+            P.Y = 850
+            pop()
+        }
+        push()
+        P.X = constrain(P.X, 10, 800)
+        P.Y = constrain(P.Y, 10, 800)
+        pop()
+        //spawns menu
+         if (P.Y < 100){
+            Menu = 4
+        }
+        //trees
+        push()
+        image(TreeI, 100, 200, 128,128)
+        image(TreeI, 800, 100, 128,128)
+        image(TreeI, 700, 300, 128,128)
+        image(TreeI, 150, 700, 128,128)
+        pop()
+    }
+}
+
+function BunkerRoom() {
+    if (Room === 3){
+        TP++
+        //teleport player to specific location and constrain movement so they cant teleport away
+        if (TP === 1) {
+            push()
+            P.X = 75
+            P.Y = 450
+            pop()
+        }
+        push()
+        P.X = constrain(P.X, 10, 800)
+        P.Y = constrain(P.Y, 10, 800)
+        pop()
+       
+    }
+}
 
 
 
