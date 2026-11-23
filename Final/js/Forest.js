@@ -43,7 +43,7 @@ let P = {
 //trees
 let Trees = []
 let CurrentTrees = 0
-let MaxTrees = 200
+let MaxTrees = 100
 let OverLapping = false
 let d = 0
 let Other
@@ -100,7 +100,6 @@ async function setup() {
     angleMode(DEGREES);
 
 
-
 }
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
@@ -135,7 +134,7 @@ function draw() {
         KeyDialogue()
         BunkerSpawn()
         Inventory()
-        OverLappingCheck()//idk how to fix this
+        //OverLappingCheck()//idk how to fix this
         NewForest()
         RemoveTrees()
         PermRemoveTrees()
@@ -721,7 +720,6 @@ function LetterNPCDialogue() {
         textSize(DialogueSize)
         text(CurrentLine, 410, 470, 180)
         pop()
-        pop()
     }
 }
 
@@ -746,8 +744,6 @@ function BunkerNPC() {
         push()
         textSize(DialogueSize)
         text(CurrentLine, 410, 470, 180)
-        pop()
-        pop()
     }
 }
 
@@ -797,7 +793,6 @@ function BunkerSpawn() {
         textSize(DialogueSize)
         text(CurrentLine, 410, 470, 180)
         pop()
-        pop()
     }
 
     if (Speaker === 7 && KeyInv === false) {
@@ -818,7 +813,6 @@ function BunkerSpawn() {
         push()
         textSize(DialogueSize)
         text(CurrentLine, 410, 470, 180)
-        pop()
         pop()
     }
 }
