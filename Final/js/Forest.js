@@ -44,6 +44,9 @@ let P = {
 let Trees = []
 let CurrentTrees = 0
 let MaxTrees = 200
+let OverLapping = false
+let d = 0
+let Other
 
 //Dialogue
 let DialogueSize = 20
@@ -132,6 +135,7 @@ function draw() {
         KeyDialogue()
         BunkerSpawn()
         Inventory()
+        OverLappingCheck()//idk how to fix this
         NewForest()
         RemoveTrees()
         PermRemoveTrees()
@@ -143,8 +147,10 @@ function draw() {
 
 
 
-
-    text(`X: ${KeyInv}, Y: ${Speaker}`, 20, 30)
+    push()
+    fill(255,255,255)
+    text(`X: ${OverLapping}, Y: ${d}`, 20, 30)
+    pop()
 
 
     //test code 2
@@ -289,6 +295,24 @@ function GrowTree() {
 function CreateForest() {
     let Tree = GrowTree()
     Trees.push(Tree)
+    }
+//idk how to fix this
+function OverLappingCheck() {
+    for (let TreeD of Trees) {
+    Other = Trees[TreeD]
+    d = dist(TreeD.x, TreeD.y, Other.x, Other.y)
+       if (d < 100) {
+       OverLapping = true;
+       break; // Stop checking early since we already found a collision
+}
+    if (OverLapping === true){
+        let index = Trees.indexOf(TreeD)
+            Trees.splice(index, CurrentTrees)
+    }
+   if (!OverLapping && Room === 0 && CurrentTrees <= MaxTrees){
+       NewForest()
+   }
+}
 }
 
 //if the Room is set to forest and the max number of trees hasnt been met set newroom to 0, create a tree, and add 1 to currentTrees
@@ -310,7 +334,8 @@ function RemoveTrees() {
             NewRoom = 0
         }
     }
-}
+    }
+
 //when the player enters a premade room remove all the trees in the array and make it so no new trees will spawn
 function PermRemoveTrees() {
     for (let TreeD of Trees) {
