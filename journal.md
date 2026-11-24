@@ -9,6 +9,11 @@
 - [September 27 2026](#september-27-2026)
 - [October 4 2026](#october-4-2026)
 - [October 17 2026](#october-17-2026)
+- [October 17 2026](#october-17-2026)
+- [October 25 2026](#october-25-2026)
+- [November 1 2026](#november-1-2026)
+- [November 16 2026](#november-16-2026)
+- [November 24 2026](#november-24-2026)
 
 ## September 8th 2026
 
