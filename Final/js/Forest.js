@@ -99,7 +99,7 @@ async function setup() {
     PaperI = await loadImage('assets/images/tornpaper.png')
     Vignette = await loadImage('assets/images/Vignette.png')
     GrassI = await loadImage('assets/images/grass.jpg')
-    CarI = await loadImage('assets/images/Car.png')
+    CarI = await loadImage('assets/images/car.png')
     RoadI = await loadImage('assets/images/road.jpg')
     imageMode(CENTER);
     angleMode(DEGREES);
@@ -110,26 +110,26 @@ async function setup() {
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-    
-    background(2, 43,14)
-        push()
-        tint(150)
-        image(GrassI, 450, 450,900 ,900 )
-        pop()
 
-        //draws the Custom rooms under the player
-        Room = 2
-        if (Menu === 0){
-            RoadRoom()
-            EscapeRoom()
-            BunkerRoom()
-        }
+    background(2, 43, 14)
+    push()
+    tint(150)
+    image(GrassI, 450, 450, 900, 900)
+    pop()
 
-        //draws the player charecter under the trees
-        if (Menu === 0) {
+    //draws the Custom rooms under the player
+    Room = 2
+    if (Menu === 0) {
+        RoadRoom()
+        EscapeRoom()
+        BunkerRoom()
+    }
+
+    //draws the player charecter under the trees
+    if (Menu === 0) {
         DrawPlayer(P)
         MovePlayer(P)
-        }
+    }
 
     let fps = frameRate()
     //creates the Trees in an array over the player
@@ -138,7 +138,7 @@ function draw() {
     }
 
     TitleScreen()
-    if (Menu === 0) {    
+    if (Menu === 0) {
         Interact()
         SpawnStuff()
         ChangeDirection()
@@ -333,11 +333,11 @@ function OverLappingCheck() {
 
 //if the Room is set to forest and the max number of trees hasnt been met set newroom to 0, create a tree, and add 1 to currentTrees
 function NewForest() {
-    for (let M = 0; M < 30; M++){
-    if (Room === 0 && CurrentTrees <= MaxTrees) {
-        NewRoom = 0
-        CurrentTrees++
-        CreateForest()
+    for (let M = 0; M < 30; M++) {
+        if (Room === 0 && CurrentTrees <= MaxTrees) {
+            NewRoom = 0
+            CurrentTrees++
+            CreateForest()
         }
     }
 }
@@ -398,10 +398,10 @@ function RoadRoom() {
 
         //trees
         push()
-        image(TreeI, 100, 200, 128,128)
-        image(TreeI, 800, 100, 128,128)
-        image(TreeI, 700, 300, 128,128)
-        image(TreeI, 150, 700, 128,128)
+        image(TreeI, 100, 200, 128, 128)
+        image(TreeI, 800, 100, 128, 128)
+        image(TreeI, 700, 300, 128, 128)
+        image(TreeI, 150, 700, 128, 128)
         pop()
         //car
         if (P.X > 450) {
@@ -417,7 +417,7 @@ function RoadRoom() {
 }
 
 function EscapeRoom() {
-    if (Room === 2){
+    if (Room === 2) {
         TP++
         //teleport player to specific location and constrain movement so they cant teleport away
         if (TP === 1) {
@@ -431,21 +431,21 @@ function EscapeRoom() {
         P.Y = constrain(P.Y, 10, 800)
         pop()
         //spawns menu
-         if (P.Y < 100){
+        if (P.Y < 100) {
             Menu = 4
         }
         //trees
         push()
-        image(TreeI, 100, 200, 128,128)
-        image(TreeI, 800, 100, 128,128)
-        image(TreeI, 700, 300, 128,128)
-        image(TreeI, 150, 700, 128,128)
+        image(TreeI, 100, 200, 128, 128)
+        image(TreeI, 800, 100, 128, 128)
+        image(TreeI, 700, 300, 128, 128)
+        image(TreeI, 150, 700, 128, 128)
         pop()
     }
 }
 
 function BunkerRoom() {
-    if (Room === 3){
+    if (Room === 3) {
         TP++
         //teleport player to specific location and constrain movement so they cant teleport away
         if (TP === 1) {
@@ -458,7 +458,7 @@ function BunkerRoom() {
         P.X = constrain(P.X, 10, 800)
         P.Y = constrain(P.Y, 10, 800)
         pop()
-       
+
     }
 }
 
