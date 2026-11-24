@@ -8,8 +8,8 @@
 # The Forest
 Konstantinos
 
-[The Forest](https://sillysalmon33.github.io/cart253/Final/index.html)
-[The Forest Code](https://github.com/sillysalmon33/cart253/blob/main/Final/js/Forest.js)
+- [The Forest](https://sillysalmon33.github.io/cart253/Final/index.html)
+- [The Forest Code](https://github.com/sillysalmon33/cart253/blob/main/Final/js/Forest.js)
 
 ## Description
 

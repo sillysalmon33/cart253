@@ -2,8 +2,7 @@
  * The Forest
  * Konstantinos
  * 
- * HOW EMBARRASSING! I HAVE NO DESCRIPTION OF MY PROJECT!
- * PLEASE REMOVE A GRADE FROM MY WORK IF IT'S GRADED!
+ You wake up in a dark forest with no idea where you are. Meet other's and try to find a way out of the forest before you become lost forever.
  * 
  * 
  * The player is lost in a forest and everytime they go off screen another set of trees spawn (even if they go backwards so they are trully lost) there are also npcs and 1 can tell them how to escape (go in specific direction up down down down left right) or if you go through too many rooms you get to a road and get run over. and there is also a secret 1% room where you get jumpscared by cristians face and a pitched down version of his scream
@@ -152,7 +151,7 @@ function draw() {
         KeyDialogue()
         BunkerSpawn()
         Inventory()
-        //OverLappingCheck()//idk how to fix this
+        //OverLappingCheck() //idk how to fix this
         NewForest()
         RemoveTrees()
         PermRemoveTrees()
@@ -507,7 +506,8 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
-        text("You Wake up alone in the middle of a cold dark forest with no idea how you got there.\n\n Try to find your way out before somthing else finds you", 10, 200, 900)
+        fill(255,255,255)
+        text("You Wake up alone in the middle of a cold dark forest with no idea how you got there.\n\n Try to find your way out before somthing else finds you\n\n Press SPACE to continue", 10, 200, 900)
         pop()
     }
     //changes to actuall game
@@ -524,6 +524,7 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
+        fill(255,255,255)
         text("You Where so close but forgot to check both sides before crosing the road", 10, 200, 900)
         pop()
     }
@@ -537,6 +538,7 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
+        fill(255,255,255)
         text("You Open the door but before you can see what's inside you were knocked, were you wake up next... I can't tell you", 10, 200, 900)
         pop()
     }
@@ -550,6 +552,7 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
+        fill(255,255,255)
         text("After thinking you'd never make it out of this hell you see a light at the end of the tunnel, you see a car in the distance and start trying to get their attention", 10, 200, 900)
         pop()
     }
