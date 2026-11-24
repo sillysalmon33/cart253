@@ -105,6 +105,7 @@ async function setup() {
     angleMode(DEGREES);
 
 
+
 }
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
@@ -112,13 +113,13 @@ async function setup() {
 function draw() {
 
     background(2, 43, 14)
-    push()
-    tint(150)
-    image(GrassI, 450, 450, 900, 900)
-    pop()
+    //push()
+    //tint(150)
+    // image(GrassI, 450, 450, 900, 900)
+    // pop()
 
     //draws the Custom rooms under the player
-    Room = 2
+    //Room = 2
     if (Menu === 0) {
         RoadRoom()
         EscapeRoom()
@@ -152,13 +153,13 @@ function draw() {
         BunkerSpawn()
         Inventory()
         //OverLappingCheck()//idk how to fix this
-        NewForest()
+        //NewForest()
         RemoveTrees()
         PermRemoveTrees()
         CorrectWay()
-        push()
-        image(Vignette, 0, 0, 9000, 1800)
-        pop()
+        // push()
+        //image(Vignette, 0, 0, 9000, 1800)
+        //pop()
     }
 
 

@@ -66,3 +66,19 @@ The general mood and look for the game I want to try to be similar to DarkWood o
 
 ![Darkwood](/Images/darkwood.jpg)
 ![bubbles code](/Images/faith.png)
+
+## November 24 2026
+
+This week was going soo well until yesterday 😔. I maneged to finish all the needed stuff for the project with only the player, NPCs, and 1 of the ending needing to be finished plus general polish. But when I started testing on my laptob it was extremly laggy, which I found out was because of the tree images and the vignette I put. Aparently my pc can candle 50 pngs just fine but my laptop can't... yayyyyyyyyyyyyyyyyyy. Im trying to find a way to fix this becaues if I dont I'll be making a game about being lost in a forest with no trees. I'm trying to use p5 graphics instead of images but im not sure how they work, or if that doesnt work find a way to only render 1 image 50 times instead of 50 images 1 time, but im not sure if p5 is able to do that. 
+
+Aside for that god awful realization this week was good. I made the tree model which I thought would take me like an hour but only took like 10 mins in total so that was nice. I put in 2 of the 3 endings, npcs, items, inventory and make the trees spawn instantly by putting them in a loop (which makes them istant for some reason, idk I dont care why). Soon I'll be making the player and 2 NPC textures and then move on to the final ending and some music and sound effects and it'll be done. 
+
+I was originally going to 3D model the player charecter but that seems too unrealistic so instead ill probably draw them in a shaky, sketchy style to add some spookyness, and if I'm nit happy with that I'll just find something online and use that instead
+
+I finally realized you can close stuff in vs code this week also, so me complaining about my project being too big was all my fault lol
+
+I also tried to make the trees look nicer by making them all spawn a minimun distance apart but the code I found wouldnt work with my tree code so I'll either rewrite my code later of just not implament it if I cant figure out a way to fix it.
+
+
+
+![Lag](/Images/lag.png)
