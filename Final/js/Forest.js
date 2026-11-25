@@ -41,6 +41,13 @@ let P = {
     R: 0
 }
 
+// Sounds
+let HornA
+let ScreamA
+let FootStepsGrassA
+let FootStepsMetalA
+let MusicA
+
 //trees
 let Trees = []
 let CurrentTrees = 0
@@ -86,6 +93,8 @@ let SpawnL = {
     Size: 50
 }
 
+let fps
+
 
 /**
  * OH LOOK I DIDN'T DESCRIBE SETUP!!
@@ -103,14 +112,14 @@ async function setup() {
     imageMode(CENTER);
     angleMode(DEGREES);
 
-
-
+    //saves the fps
+    fps = frameRate()
 }
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
 */
 function draw() {
-
+    //loads a backupbackground, and the grass background tinted darker
     background(2, 43, 14)
     push()
     tint(150)
@@ -125,13 +134,12 @@ function draw() {
         BunkerRoom()
     }
 
-    //draws the player charecter under the trees
+    //draws the player charecter under the trees and above custom rooms
     if (Menu === 0) {
         DrawPlayer(P)
         MovePlayer(P)
     }
 
-    let fps = frameRate()
     //creates the Trees in an array over the player
     for (let Tree of Trees) {
         PlaceTree(Tree)
@@ -167,6 +175,15 @@ function draw() {
     fill(255, 255, 255)
     text(`X: ${fps}, Y: ${d}`, 20, 30)
     pop()
+
+    //if the game is laging tell the the player its lagging and how to fix it
+    if (fps <= 25) {
+        push()
+        textAlign(CENTER, CENTER)
+        fill(255, 255, 255)
+        text("Your game is laging, this is probably because you are using integrated graphics, try to play this game on a device with a GPU. Sorry :(", 0, 20, 900)
+        pop()
+    }
 
 
     //test code 2
@@ -506,7 +523,7 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
-        fill(255,255,255)
+        fill(255, 255, 255)
         text("You Wake up alone in the middle of a cold dark forest with no idea how you got there.\n\n Try to find your way out before somthing else finds you\n\n Press SPACE to continue", 10, 200, 900)
         pop()
     }
@@ -524,7 +541,7 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
-        fill(255,255,255)
+        fill(255, 255, 255)
         text("You Where so close but forgot to check both sides before crosing the road", 10, 200, 900)
         pop()
     }
@@ -538,7 +555,7 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
-        fill(255,255,255)
+        fill(255, 255, 255)
         text("You Open the door but before you can see what's inside you were knocked, were you wake up next... I can't tell you", 10, 200, 900)
         pop()
     }
@@ -552,7 +569,7 @@ function TitleScreen() {
         pop()
         push()
         textSize(40)
-        fill(255,255,255)
+        fill(255, 255, 255)
         text("After thinking you'd never make it out of this hell you see a light at the end of the tunnel, you see a car in the distance and start trying to get their attention", 10, 200, 900)
         pop()
     }
