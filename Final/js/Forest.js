@@ -516,10 +516,11 @@ function TitleScreen() {
     //Title Screen
     if (Menu === 1) {
         push()
+        fill(255, 255, 255)
         textSize(50)
         textAlign(CENTER, CENTER)
         textFont(ITALIC)
-        text("The Forest", 450, 40)
+        text("The Forest", 450, 50)
         pop()
         push()
         textSize(40)
