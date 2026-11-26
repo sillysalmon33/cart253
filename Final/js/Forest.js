@@ -32,6 +32,8 @@ let GrassI
 let CristianI
 let KeyI
 let PaperI
+let PaperLI
+let PaperRI
 let Vignette
 let CarI
 let RoadI
@@ -96,6 +98,8 @@ async function setup() {
     TreeI = await loadImage('assets/images/Tree.png')
     KeyI = await loadImage('assets/images/Key.png')
     PaperI = await loadImage('assets/images/tornpaper.png')
+    PaperLI = await loadImage('assets/images/paperL.png')
+    PaperRI = await loadImage('assets/images/paperR.png')
     Vignette = await loadImage('assets/images/Vignette.png')
     GrassI = await loadImage('assets/images/grass.jpg')
     CarI = await loadImage('assets/images/car.png')
@@ -161,7 +165,8 @@ function draw() {
         pop()
     }
 
-
+    LetterLInv = true
+    LetterRInv = true
 
     push()
     fill(255, 255, 255)
@@ -732,7 +737,7 @@ function LeftPaperDialigue() {
         pop()
         //Charecter talking
         push()
-        image(PaperI, 450, 400, 200, 200)
+        image(PaperLI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
@@ -757,7 +762,7 @@ function RightPaperDialigue() {
         pop()
         //Charecter talking
         push()
-        image(PaperI, 450, 400, 200, 200)
+        image(PaperRI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
@@ -901,13 +906,13 @@ function Inventory() {
     //lets the player see left note
     if (keyIsDown("l") === true && LetterLInv === true) {
         push()
-        image(PaperI, 450, 400, 200, 200)
+        image(PaperLI, 450, 400, 200, 200)
         pop()
     }
     //lets the player see the Right note
     if (keyIsDown("l") === true && LetterRInv === true) {
         push()
-        image(PaperI, 450, 400, 200, 200)
+        image(PaperRI, 450, 400, 200, 200)
         pop()
     }
 }
