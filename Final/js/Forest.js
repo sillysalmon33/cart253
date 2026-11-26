@@ -131,7 +131,6 @@ function draw() {
     pop()
 
     //draws the Custom rooms under the player
-    //Room = 2
     if (Menu === 0) {
         RoadRoom()
         EscapeRoom()
@@ -173,9 +172,6 @@ function draw() {
         pop()
     }
 
-    LetterLInv = true
-    LetterRInv = true
-
     push()
     fill(255, 255, 255)
     text(`X: ${fps}, Y: ${d}`, 20, 30)
@@ -188,17 +184,6 @@ function draw() {
         fill(255, 255, 255)
         text("Your game is laging, this is probably because you are using integrated graphics, try to play this game on a device with a GPU. Sorry :(", 0, 20, 900)
         pop()
-    }
-
-
-    //test code 2
-    if (keyIsDown("b") === true) {
-        Room = 1
-    }
-
-    //test code 2
-    if (keyIsDown("c") === true) {
-        KeyInv = true
     }
 
     //if the user goes through more rooms than the max number of rooms they enter the lose room
@@ -459,6 +444,9 @@ function EscapeRoom() {
         //trees
         push()
         image(TreeI, 100, 200, 128, 128)
+        image(TreeI, 200, 600, 128, 128)
+        image(TreeI, 420, 840, 128, 128)
+        image(TreeI, 300, 800, 128, 128)
         image(TreeI, 800, 100, 128, 128)
         image(TreeI, 700, 300, 128, 128)
         image(TreeI, 150, 700, 128, 128)
@@ -617,7 +605,7 @@ function CorrectWay() {
         RightWay = 8
     }
     if (RightWay === 8) {
-        Room = 3
+        Room = 2
     }
 }
 
