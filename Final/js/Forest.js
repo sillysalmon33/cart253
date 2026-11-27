@@ -30,6 +30,8 @@ let PlayerA
 let TreeI
 let GrassI
 let CristianI
+let NPC1
+let NPC2
 let KeyI
 let PaperI
 let PaperLI
@@ -113,6 +115,8 @@ async function setup() {
     GrassI = await loadImage('assets/images/grass.jpg')
     CarI = await loadImage('assets/images/car.png')
     RoadI = await loadImage('assets/images/road.jpg')
+    NPC1 = await loadImage('assets/images/NPC1.png')
+    NPC2 = await loadImage('assets/images/NPC2.png')
     imageMode(CENTER);
     angleMode(DEGREES);
 
@@ -129,7 +133,7 @@ function draw() {
     tint(150)
     image(GrassI, 450, 450, 900, 900)
     pop()
-
+    
     //draws the Custom rooms under the player
     if (Menu === 0) {
         RoadRoom()
@@ -638,14 +642,14 @@ function SpawnStuff() {
     //if  Spawn is between 13 and 16 spawn An NPC that hinds towards the bunker
     if (Spawn >= 13 && Spawn <= 16 && BunkerNPCTalked === false) {
         push()
-        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        image(NPC2, SpawnL.X, SpawnL.Y, 50, 50)
         pop()
     }
 
     //if  Spawn is between 17 and 25 spawn An NPC that hinds towards the Letters
     if (Spawn >= 17 && Spawn <= 23 && LetterNPCTalked === false) {
         push()
-        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        image(NPC1, SpawnL.X, SpawnL.Y, 50, 50)
         pop()
     }
     //if  Spawn is between 24 and 26 spawn the key to the bunker
@@ -793,7 +797,7 @@ function LetterNPCDialogue() {
         pop()
         //Charecter talking
         push()
-        image(KeyI, 450, 400, 200, 200)
+        image(NPC2, 450, 400, 300, 300)
         pop()
         //Dialogue Box
         push()
@@ -818,7 +822,7 @@ function BunkerNPC() {
         pop()
         //Charecter talking
         push()
-        image(KeyI, 450, 400, 200, 200)
+        image(NPC1, 400, 300, 300, 300)
         pop()
         //Dialogue Box
         push()
