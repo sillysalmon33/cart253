@@ -204,16 +204,10 @@ function draw() {
         //saves the fps
     fps = frameRate()
 
-    if (keyIsDown("g") === true) {
-        WalkI = WalkingI2
-    }
-    if (keyIsDown("g") === true) {
-        WalkI = WalkingI1
-    }
 
     push()
     fill(255, 255, 255)
-    text(`X: ${BunkerNPCTalked}, Y: ${WalkTimer}`, 20, 30)
+    text(`X: ${Spawn}, Y: ${WalkTimer}`, 20, 30)
     pop()
 
     //if the game is laging tell the the player its lagging and how to fix it
@@ -448,6 +442,7 @@ function PermRemoveTrees() {
 function RoadRoom() {
     if (Room === 1) {
         SpawnItem = false
+        Spawn = false
         //constantly add 1 to TP so the teleport function will only happen once
         TP++
         //teleport player to specific location and constrain movement so they cant teleport away
@@ -501,6 +496,7 @@ function EscapeRoom() {
     if (Room === 2) {
         TP++
         SpawnItem = false
+        Spawn = false
         //teleport player to specific location and constrain movement so they cant teleport away
         if (TP === 1) {
             push()
@@ -534,6 +530,7 @@ function BunkerRoom() {
     if (EnterBunker === true && Speaker === 0) {
         Room = 3
         SpawnItem = false
+        Spawn = false
         DoorOpenTrigger++
     }
     if (DoorOpenTrigger === 1) {
@@ -615,6 +612,7 @@ function TitleScreen() {
         textSize(50)
         textAlign(CENTER, CENTER)
         textFont(ITALIC)
+        fill(173, 28, 17)
         text("You Were Run Over", 450, 40)
         pop()
         push()
@@ -629,6 +627,7 @@ function TitleScreen() {
         textSize(50)
         textAlign(CENTER, CENTER)
         textFont(ITALIC)
+        fill(255, 255, 255)
         text("You Found Somthing You Wern't Supposed To", 450, 40)
         pop()
         push()
@@ -643,6 +642,7 @@ function TitleScreen() {
         textSize(50)
         textAlign(CENTER, CENTER)
         textFont(ITALIC)
+        fill(255, 255, 255)
         text("You Finally Find The Way Out", 450, 40)
         pop()
         push()
@@ -784,7 +784,7 @@ function Interact() {
     }
     //Little Guy
     if (PickUp === true && Spawn === 30) {
-        Speaker = 8
+        Speaker = 1
     }
     if (PickUp === true) {
         PickUpATrigger++
@@ -812,7 +812,7 @@ function LittleGuyDialogue() {
         MaxLength = LittleGuyText.length
         //Charecter talking
         push()
-        translate(220, 150)
+        translate(450, 400)
         DrawLittleGuy()
         pop()
         //Dialogue Box
@@ -1016,6 +1016,8 @@ function Inventory() {
  * draws a little guy
  */
 function DrawLittleGuy() {
+    //makes the default location 0 ,0 to make it easier to move around later
+    translate(-250,-250)
     //main head
     push()
     fill(255, 255, 255)
