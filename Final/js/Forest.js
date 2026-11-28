@@ -41,6 +41,14 @@ let Vignette
 let CarI
 let RoadI
 let BunkerI
+let CurrentFrame = 0
+let WalkFrames = [1,2]
+let WalkDelay = 40
+let WalkTimer = 0
+let Walking = false
+let WalkingI1
+let WalkingI2
+let WalkI
 let P = {
     X: 400,
     Y: 400,
@@ -56,6 +64,7 @@ let FootStepsGrassA
 let FootStepsMetalA
 let MusicA
 let DoorOpen
+let Step1
 
 //trees
 let Trees = []
@@ -123,13 +132,18 @@ async function setup() {
     NPC1 = await loadImage('assets/images/NPC1.png')
     NPC2 = await loadImage('assets/images/NPC2.png')
     BunkerI = await loadImage('assets/images/bunker.png')
+    WalkingI1 = await loadImage('assets/images/Pwalking1.png')
+    WalkingI2 = await loadImage('assets/images/Pwalking3.png')
     HornA = await loadSound('assets/sounds/horn.mp3')
     DoorOpen = await loadSound('assets/sounds/door_open.mp3')
+    Step1 = await loadSound('assets/sounds/step1.mp3')
+
 
     imageMode(CENTER);
     angleMode(DEGREES);
 
-
+    WalkFrames[0] = WalkingI1
+    WalkFrames[1] = WalkingI2
 }
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
@@ -152,6 +166,7 @@ function draw() {
     if (Menu === 0) {
         DrawPlayer(P)
         MovePlayer(P)
+        WalkingSoundAnimation()
     }
 
     //creates the Trees in an array over the player
@@ -186,9 +201,16 @@ function draw() {
         //saves the fps
     fps = frameRate()
 
+    if (keyIsDown("g") === true) {
+        WalkI = WalkingI2
+    }
+    if (keyIsDown("g") === true) {
+        WalkI = WalkingI1
+    }
+
     push()
     fill(255, 255, 255)
-    text(`X: ${fps}, Y: ${HornTrigger}`, 20, 30)
+    text(`X: ${Walking}, Y: ${WalkTimer}`, 20, 30)
     pop()
 
     //if the game is laging tell the the player its lagging and how to fix it
@@ -218,7 +240,7 @@ function DrawPlayer(P) {
     //rotates the image from the center
     imageMode(CENTER);
     rotate(P.R)
-    image(PlayerA, 0, 0, 150, 100)
+    image(WalkFrames[CurrentFrame], 0, 0, 150, 100)
     pop()
 
 }
@@ -227,15 +249,19 @@ function DrawPlayer(P) {
 function MovePlayer(P) {
     if (keyIsDown("a") === true || keyIsDown("A") === true) {
         P.X -= 1.5
+        Walking = true
     }
     if (keyIsDown("d") === true || keyIsDown("D") === true) {
         P.X += 1.5
+        Walking = true
     }
     if (keyIsDown("w") === true || keyIsDown("W") === true) {
         P.Y -= 1.5
+        Walking = true
     }
     if (keyIsDown("s") === true || keyIsDown("S") === true) {
         P.Y += 1.5
+        Walking = true
     }
 }
 
@@ -303,6 +329,32 @@ function ChangeRoom() {
         Lost++
         NewRoom = 1
         SpawnItem = true
+    }
+}
+
+function WalkingSoundAnimation() {
+    if (Walking === true) {
+    WalkTimer++
+    }
+    if (WalkTimer <= WalkDelay) {
+        WalkI = WalkingI1
+    }
+    if (WalkTimer >= WalkDelay) {
+    WalkI = WalkingI2
+    WalkTimer = 0
+    CurrentFrame++
+    Step1.rate(random(0.9, 1.1))
+    Step1.play()
+    }
+    //resets everything if a key is let go
+    if (!keyIsPressed) {
+        Walking = false
+        WalkTimer = 0
+        CurrentFrame = 0
+    }
+
+    if (CurrentFrame >= WalkFrames.length) {
+        CurrentFrame = 0
     }
 }
 
@@ -394,6 +446,7 @@ function PermRemoveTrees() {
 //if the user  goes through more rooms than the max number of rooms they enter the road and get run over
 function RoadRoom() {
     if (Room === 1) {
+        SpawnItem = false
         //constantly add 1 to TP so the teleport function will only happen once
         TP++
         //teleport player to specific location and constrain movement so they cant teleport away
@@ -446,6 +499,7 @@ function RoadRoom() {
 function EscapeRoom() {
     if (Room === 2) {
         TP++
+        SpawnItem = false
         //teleport player to specific location and constrain movement so they cant teleport away
         if (TP === 1) {
             push()
@@ -478,6 +532,7 @@ function BunkerRoom() {
     //if the finished the dialogue where they find the bunker with the key let them into the bunker and plays a sound
     if (EnterBunker === true && Speaker === 0) {
         Room = 3
+        SpawnItem = false
         DoorOpenTrigger++
     }
     if (DoorOpenTrigger === 1) {
