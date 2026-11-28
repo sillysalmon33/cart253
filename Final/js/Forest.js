@@ -24,6 +24,7 @@ let RightWay = 0
 
 //screens
 let Menu = 1
+let EnterBunker = false
 
 //images and player location
 let PlayerA
@@ -39,6 +40,7 @@ let PaperRI
 let Vignette
 let CarI
 let RoadI
+let BunkerI
 let P = {
     X: 400,
     Y: 400,
@@ -46,11 +48,14 @@ let P = {
 }
 
 // Sounds
+let HornTrigger = 0
+let DoorOpenTrigger = 0
 let HornA
 let ScreamA
 let FootStepsGrassA
 let FootStepsMetalA
 let MusicA
+let DoorOpen
 
 //trees
 let Trees = []
@@ -85,7 +90,7 @@ let Car = {
 }
 let Spawn = 0
 let SpawnItem = false
-let KeyInv = 0
+let KeyInv = false
 let LetterLInv = false
 let LetterRInv = false
 let LetterNPCTalked = false
@@ -117,11 +122,14 @@ async function setup() {
     RoadI = await loadImage('assets/images/road.jpg')
     NPC1 = await loadImage('assets/images/NPC1.png')
     NPC2 = await loadImage('assets/images/NPC2.png')
+    BunkerI = await loadImage('assets/images/bunker.png')
+    HornA = await loadSound('assets/sounds/horn.mp3')
+    DoorOpen = await loadSound('assets/sounds/door_open.mp3')
+
     imageMode(CENTER);
     angleMode(DEGREES);
 
-    //saves the fps
-    fps = frameRate()
+
 }
 /**
  * OOPS I DIDN'T DESCRIBE WHAT MY DRAW DOES!
@@ -140,7 +148,6 @@ function draw() {
         EscapeRoom()
         BunkerRoom()
     }
-
     //draws the player charecter under the trees and above custom rooms
     if (Menu === 0) {
         DrawPlayer(P)
@@ -176,9 +183,12 @@ function draw() {
         pop()
     }
 
+        //saves the fps
+    fps = frameRate()
+
     push()
     fill(255, 255, 255)
-    text(`X: ${fps}, Y: ${d}`, 20, 30)
+    text(`X: ${fps}, Y: ${HornTrigger}`, 20, 30)
     pop()
 
     //if the game is laging tell the the player its lagging and how to fix it
@@ -418,10 +428,16 @@ function RoadRoom() {
         if (P.X > 450) {
             push()
             tint(150)
-            image(CarI, Car.X, Car.Y += 20, 150, 150)
+            HornTrigger++
+            image(CarI, Car.X, Car.Y += 10, 150, 150)
             pop()
         }
     }
+    //plays the horn sfx when the car is on screen
+    if (HornTrigger === 1) {
+        HornA.play()
+    }
+    //when the car hits the player changes the menu
     if (Car.Y > 450) {
         Menu = 2
     }
@@ -458,7 +474,15 @@ function EscapeRoom() {
     }
 }
 
-function BunkerRoom() {
+function BunkerRoom() {    
+    //if the finished the dialogue where they find the bunker with the key let them into the bunker and plays a sound
+    if (EnterBunker === true && Speaker === 0) {
+        Room = 3
+        DoorOpenTrigger++
+    }
+    if (DoorOpenTrigger === 1) {
+        DoorOpen.play()
+    }
     if (Room === 3) {
         TP++
         //teleport player to specific location and constrain movement so they cant teleport away
@@ -642,14 +666,14 @@ function SpawnStuff() {
     //if  Spawn is between 13 and 16 spawn An NPC that hinds towards the bunker
     if (Spawn >= 13 && Spawn <= 16 && BunkerNPCTalked === false) {
         push()
-        image(NPC2, SpawnL.X, SpawnL.Y, 50, 50)
+        image(NPC2, SpawnL.X, SpawnL.Y, 100, 100)
         pop()
     }
 
     //if  Spawn is between 17 and 25 spawn An NPC that hinds towards the Letters
     if (Spawn >= 17 && Spawn <= 23 && LetterNPCTalked === false) {
         push()
-        image(NPC1, SpawnL.X, SpawnL.Y, 50, 50)
+        image(NPC1, SpawnL.X, SpawnL.Y, 100, 100)
         pop()
     }
     //if  Spawn is between 24 and 26 spawn the key to the bunker
@@ -660,9 +684,9 @@ function SpawnStuff() {
     }
 
     //if  Spawn is between 24 and 26 spawn the bunker
-    if (Spawn >= 27 && Spawn <= 29) {
+    if (Spawn >= 27 && Spawn <= 29 && EnterBunker === false) {
         push()
-        image(PaperI, SpawnL.X, SpawnL.Y, 50, 50)
+        image(BunkerI, SpawnL.X, SpawnL.Y, 50, 50)
         pop()
     }
     //if Spawn is 30 spawn Little Guy
@@ -864,14 +888,11 @@ function KeyDialogue() {
 //displays the Bunker and its dialogue
 function BunkerSpawn() {
     if (Speaker === 7 && KeyInv === true) {
+        EnterBunker = true
         push()
-        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        //sets the CurrentLine to the Left letter Dialogue controlled by the DialogueIndex and sets MakeLength to the length of the text array
         CurrentLine = BunkerOpen[DialogueIndex]
         MaxLength = BunkerOpen.length
-        pop()
-        //Charecter talking
-        push()
-        image(KeyI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
@@ -886,13 +907,9 @@ function BunkerSpawn() {
 
     if (Speaker === 7 && KeyInv === false) {
         push()
-        //sets the CurrentLine to the Left letter Dialohue controlled by the DialogueIndex and sets MakeLength to the length of the text array
+        //sets the CurrentLine to the Left letter Dialogue controlled by the DialogueIndex and sets MakeLength to the length of the text array
         CurrentLine = BunkerClosed[DialogueIndex]
         MaxLength = BunkerClosed.length
-        pop()
-        //Charecter talking
-        push()
-        image(KeyI, 450, 400, 200, 200)
         pop()
         //Dialogue Box
         push()
@@ -910,7 +927,7 @@ function Inventory() {
     //lets the player see the key
     if (keyIsDown("k") === true && KeyInv === true) {
         push()
-        image(KeyI, 450, 400, 200, 200)
+        image(BunkerI, 450, 400, 200, 200)
         pop()
     }
     //lets the player see left note
