@@ -213,7 +213,7 @@ function draw() {
 
     push()
     fill(255, 255, 255)
-    text(`X: ${Walking}, Y: ${WalkTimer}`, 20, 30)
+    text(`X: ${BunkerNPCTalked}, Y: ${WalkTimer}`, 20, 30)
     pop()
 
     //if the game is laging tell the the player its lagging and how to fix it
@@ -483,7 +483,7 @@ function RoadRoom() {
             push()
             tint(150)
             HornTrigger++
-            image(CarI, Car.X, Car.Y += 10, 150, 150)
+            image(CarI, Car.X, Car.Y += 20, 150, 150)
             pop()
         }
     }
@@ -722,14 +722,14 @@ function SpawnStuff() {
     //if  Spawn is between 13 and 16 spawn An NPC that hinds towards the bunker
     if (Spawn >= 13 && Spawn <= 16 && BunkerNPCTalked === false) {
         push()
-        image(NPC2, SpawnL.X, SpawnL.Y, 100, 100)
+        image(NPC1, SpawnL.X, SpawnL.Y, 100, 100)
         pop()
     }
 
     //if  Spawn is between 17 and 25 spawn An NPC that hinds towards the Letters
     if (Spawn >= 17 && Spawn <= 23 && LetterNPCTalked === false) {
         push()
-        image(NPC1, SpawnL.X, SpawnL.Y, 100, 100)
+        image(NPC2, SpawnL.X, SpawnL.Y, 100, 100)
         pop()
     }
     //if  Spawn is between 24 and 26 spawn the key to the bunker
@@ -763,12 +763,13 @@ function Interact() {
     //Right note pickup
     if (PickUp === true && Spawn >= 9 && Spawn <= 12) {
         Speaker = 3
-    }   //Letter NPC
-    if (PickUp === true && Spawn >= 13 && Spawn <= 16) {
+    }   
+    //Letter NPC
+    if (PickUp === true && Spawn >= 17 && Spawn <= 23) {
         Speaker = 4
     }
     //Bunker NPC
-    if (PickUp === true && Spawn >= 17 && Spawn <= 23) {
+    if (PickUp === true && Spawn >= 13 && Spawn <= 16) {
         Speaker = 5
     }
     //Key
@@ -802,7 +803,7 @@ function Interact() {
                                               Dialogue
 
 */
-
+//displays the dialogue for the little guy
 function LittleGuyDialogue() {
     if (Speaker === 1) {
         LittleGuyTalked = true
