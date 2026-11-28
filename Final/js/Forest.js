@@ -240,6 +240,7 @@ function DrawPlayer(P) {
     //rotates the image from the center
     imageMode(CENTER);
     rotate(P.R)
+    //uses an array with multiple images that goes up and loops everytime the player walk
     image(WalkFrames[CurrentFrame], 0, 0, 150, 100)
     pop()
 
@@ -331,28 +332,25 @@ function ChangeRoom() {
         SpawnItem = true
     }
 }
-
+// changes the walking sprite and plays an sfx when walking
 function WalkingSoundAnimation() {
+    //when the player moves add 1 to WalkTimer if it is less than WalkDelay do nothing, if it is play an sfx at a semi random pitch and add 1 to the currecnt frame to change the animation frame
     if (Walking === true) {
     WalkTimer++
     }
-    if (WalkTimer <= WalkDelay) {
-        WalkI = WalkingI1
-    }
     if (WalkTimer >= WalkDelay) {
-    WalkI = WalkingI2
     WalkTimer = 0
     CurrentFrame++
     Step1.rate(random(0.9, 1.1))
     Step1.play()
     }
-    //resets everything if a key is let go
+    //resets everything if a key is not being pressed
     if (!keyIsPressed) {
         Walking = false
         WalkTimer = 0
         CurrentFrame = 0
     }
-
+    //so the currentframe doesnt call a frame that doesnt exist
     if (CurrentFrame >= WalkFrames.length) {
         CurrentFrame = 0
     }
