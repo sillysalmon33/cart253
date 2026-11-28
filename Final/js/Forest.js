@@ -58,6 +58,7 @@ let P = {
 // Sounds
 let HornTrigger = 0
 let DoorOpenTrigger = 0
+let PickUpATrigger = 0
 let HornA
 let ScreamA
 let FootStepsGrassA
@@ -65,6 +66,7 @@ let FootStepsMetalA
 let MusicA
 let DoorOpen
 let Step1
+let PickUpA
 
 //trees
 let Trees = []
@@ -135,6 +137,7 @@ async function setup() {
     WalkingI1 = await loadImage('assets/images/Pwalking1.png')
     WalkingI2 = await loadImage('assets/images/Pwalking3.png')
     HornA = await loadSound('assets/sounds/horn.mp3')
+    PickUpA = await loadSound('assets/sounds/PickUpA.mp3')
     DoorOpen = await loadSound('assets/sounds/door_open.mp3')
     Step1 = await loadSound('assets/sounds/step1.mp3')
 
@@ -751,7 +754,7 @@ function SpawnStuff() {
     }
 
 }
-
+//lets other functions know when an item was picked up and plays a sound
 function Interact() {
     //left note pickup
     if (PickUp === true && Spawn >= 5 && Spawn <= 8) {
@@ -781,6 +784,16 @@ function Interact() {
     //Little Guy
     if (PickUp === true && Spawn === 30) {
         Speaker = 8
+    }
+    if (PickUp === true) {
+        PickUpATrigger++
+    }
+    if (!PickUp){
+        PickUpATrigger = 0
+    }
+
+    if (PickUpATrigger === 1) {
+        PickUpA.play()
     }
 
 }

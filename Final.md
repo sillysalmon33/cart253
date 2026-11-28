@@ -18,6 +18,7 @@ You wake up in a dark forest with no idea where you are. Meet other's and try to
 ## Attribution
 
 > - This project uses [p5.js](https://p5js.org).
+> - SFXS from Pixaby(https://pixabay.com/sound-effects/search/pickup/) and myinstants(https://www.myinstants.com/en/index/ca/)
 
 
 ## License
